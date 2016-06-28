@@ -1,147 +1,101 @@
-#+TITLE: Performance of Machine Learning with Spark
-
-#+LATEX_HEADER: \usepackage{amsmath}
-#+LATEX_HEADER: \usepackage{algorithm}
-#+LATEX_HEADER: \usepackage{algorithmic}
-#+LATEX_HEADER: \usepackage{bbm}
-
-\newpage
-
-* Introduction
-Spark is a fast and general engine for large-scale data processing. Spark is often compared with Hadoop. It claims that it is 100x faster than Hadoop MapReduce when computing in memory and 10x faster on disk. This speed is achieved because Spark handles computing in memory. With Hadoop MapReduce, the map reduce result is stored in disk and you have to read the result again from disk if you need it.
- But with Spark, the result is still in memory, which makes it every useful for iterative jobs that need to run map reduce many times.
-
-And we know that iteration is very common in machine learning algorithms, such as gradient descent. So we think spark
-would be a good platform for large scale machine learning and we want to test its performence.
-
-So with the out-standing performance of Spark, in this project we'd like to analyze the performance of machine learning tasks with Spark under TeraLab which is a Big Data analysis platform built by L'Institut Mines-Télécom and Le GENES, le Groupe des Ecoles nationales d’économie et de statistique.
-
-\newpage
-
-* Spark
-** RDD
-The most important data structure of Spark is *RDD(Resilient Distributed Datasets)*, a distributed memory abstraction that we
-can perform in-memory operations on large clusters in a fault-tolerant manner.
-Every RDD has multiple partitions which are distributed among clusters. And these partitions are the computing unit.
-
-There are 2 main types of operations: *transformation* and *action*.
-*Transformation* transforms one RDD from anthor one, such as /map/ and /filter/.
-*Action* get results from RDD, such as /collect/ and /reduce/.
-And one most important feature of RDD is the all the operations are lazy evaluated. That is to say that transformations won't be executed
-only if the final action is met.
-
-Figure [[rdd]] shows a simple graph of operations. /A/ is the initial RDD which might be read from text file. Then transforms transform /A/ to /B/ and /C/. Finally, an action gets a normal Scala object such as /float/, /int/ or /array/ from /C/.
-#+caption: RDD transformations and actions
-#+name: rdd
-[[./imgs/rdd.png]]
-
-** Cluster mode
-Figure [[spark]] shows the basic architecture of Spark running in the cluster. In the cluster mode, a Spark application consists of a single *driver* process and a set of *executor* processes scattered across nodes on the cluster. The driver is the process that is in charge of the high-level control flow of work that needs to be done. The executor processes are responsible for executing this work, in the form of tasks, as well as for storing any data that the user chooses to cache.
-
-#+caption: Spark cluster architecture(from [[https://spark.apache.org/docs/latest/img/cluster-overview.png]])
-#+name: spark
-[[./imgs/spark.png]]
-
-At the top of the execution hierarchy are *jobs*.
-An action(collect, reduce...) triggers the launch of a *job*.
-Then, Spark examines the graph of RDDs on which the action depends. Spark will find the farthest back RDDs that depend on no other RDDs or already cached. After finding the dependency, Spark puts the job's transformations into *stage*. Each stage includes a colllection of *tasks* that run the same code on each subset of data.
-
-\newpage
+#+TITLE: Support Vector Machine
 
 * SVM
-** Introduction
-Support Vector Machine is an effective and popular classification learning tool.
+** 介绍
+Support Vector Machine 支持向量机是一种机器学习算法。 
 
-Given a training set \( S = \{ (x_i, y_i) \}_{i=1}^{m} \), where \( x_i \in \mathbb{R}^n \) and \( y_i \in \{ +1, -1 \} \), figure [[svm]] shows what a SVM looks like. We note  \( w \cdot x - b = 0 \) as the hyperplane where \( w \) is the vector to the hyperplane. What we want is to find the maximum-margin hyperplane that divides the points having \( y_i=1 \) from those having \( y_i=-1 \). That means \( y_i(w \cdot x_i -b ) \geq 1 \) for all \( 1 \leq i \leq n \).
+给定一个训练集 \( S = \{ (x_i, y_i) \}_{i=1}^{m} \), 其中 \( x_i \in \mathbb{R}^n \) 并且 \( y_i \in \{ +1, -1 \} \),
+图[[svm]]展示了一个 SVM 需要解决的问题。 我们标记  \( w \cdot x - b = 0 \) 为超平面， \( w \) 代表该超平面的向量。 
+我们需要做的是找到能将 \( y_i=1 \) 的点和 \( y_i=-1 \) 的点 分开的边际最大的超平面.
+这就意味着 \( y_i(w \cdot x_i -b ) \geq 1 \)，对于所有 \( 1 \leq i \leq n \).
 
-So the optimization problem can be written as
+所以优化问题可以写成：
 
-Maximize
+最大化
 
 \[ \frac{2}{\|w\|} \]
 
-
-Which equals to minimize
+这等价于最小化
 
 \[ \frac{1}{2} \| w \|^2 \]
 
 subject to \( y_i(w \cdot x_i - b) \geq 1 \) for all \( 1 \leq i \leq n \)
 
-#+ATTR_LATEX: :width 5cm
+#+ATTR_HTML: :alt captionm :width 400px
 #+caption: SVM
 #+name: svm
-[[./imgs/svm.png]]
+[[file:images/svm/svm.png]]
 
-
-In fact, it can be viewed as an unconstrained empirical loss minimization with a penalty term for the norm of the classifier that is being learned. We would like to find the minimization of the problem
+事实上，它可以被看作一个带有惩罚项的最小化损失问题。最终，我们希望找到以下问题的最小解
 
 \[
  \min_{w} \frac{\lambda}{2}\|w\|^2 + \frac{1}{m}\sum_{(x, y) \in S} \ell(w; (x, y))
 \]
 
-Where \lambda is the regularization parameter, \( \ell(w, (x, y)) \) is the hinge loss:
+其中 \lambda 是正规化参数, \( \ell(w, (x, y)) \) 是 hinge 损失函数:
 
 \[
 \ell(w, (x, y)) = max\{0, 1-y \langle w, x \rangle \}
 \]
 
+对于这一最优化问题，我们可以使用梯度下降算法来达到最小值。
 
-To solve this optimization problem, we can use gradient descent to achieve the minimum value.
-
-The objective function is
+目标函数为：
 
 \[
 f(w) = \frac{\lambda}{2}\|w\|^2 + \frac{1}{m}\sum_{(x_i, y_i) \in S}\ell(w; (x_i, y_i))
 \]
 
-Then, the sub-gradient for iteration /t/ is
+所以，迭代 /t/ 时的梯度为：
+
 \[
 \nabla_t = \lambda w_t - \frac{1}{m}\sum_{(x_i, y_i) \in S}\mathbbm{1}[y_i \langle w, x_i \rangle < 1]y_i x_i
 \]
 
-Now we can update \( w \), where \( \eta_t \) is the step size
+于是，我们可以更新  \( w \), 其中 \( \eta_t \) 是下降速度
 \[
 w_{t+1} \leftarrow w_t - \eta_t\nabla_t
 \]
 
 ** SGD
-From the previous section, we notice that we need to iterate all the data point when calculating gradient.
-And this might be computing expensive if we have tons of data. This is the reason why Stochastic Gradient Descent(SGD) becomes so useful.
-When handling large scale problems, SGD uses sub dataset at each iteration instead of the whole dataset.
+从上一节我们可以看到每次迭代我们都需要所有的数据点来计算梯度。而当数据集变大后，无疑会耗费大量的计算时间。
+这就是为什么在大规模梯度下降算法中，我们总会使用 SGD（随机梯度下降）。SDG 在每次迭代时只使用一部分数据而不是全部，
+从而降低了计算量。
 
-So now, the object function becomes:
+所以，现在目标函数变成了：
 \[
 f(w, A_t) = \frac{\lambda}{2}\|w\|^2 + \frac{1}{k}\sum_{(x_i, y_i) \in A_t}\ell(w; (x_i, y_i))
 \]
 where \( A_t \subset S \), \( |A_t| = k \). At each iteration, we takes a subset of data point.
 
-And sub-gradient is
+然后梯度为：
  \[ \nabla_t = \lambda w_t - \frac{1}{k}\sum_{(x_i, y_i) \in A_t}\mathbbm{1}[y_i \langle w, x_i \rangle < 1]y_i x_i \]
 
 ** Pegasos and MLlib implementation
-Pegasos, is a kind of stochastic gradient descent algorithm. And Spark MLlib also provides an SGD implementation for us. After reading the code of MLLib, we notice that the only difference between Pegasos and MLlib is the choice of update step.
+Pegasos 是 SVM 使用梯度下降算法的一种实现。Spark MLlib 也提供了 SVM 的梯度下降实现，于 Pegasos 稍有不同。
+主要是梯度的更新速度不同。
 
 \[
 w_{t+1} \leftarrow w_t - \eta_t\nabla_t
 \]
 
-In Pegasos, the update step is
+在 Pegasos 算法中, 更新速度为
 \[
 \eta_t = \frac{\alpha}{t\lambda}
 \]
 
-In MLlib, this is
+而在 MLlib 中，为：
 \[
 \eta_t = \frac{\alpha}{\sqrt{t}}
 \]
 
-where \alpha is the step size parameter
-
-\newpage
+其中 \alpha 是更新速度参数。
 
 * SGD in Spark
 ** treeAggregate
-The main usage of Spark for SGD is to calculate the gradient which need to sum up the value of every data point. And in Spark, this is done by the RDD method *treeAggregate*. *Aggregate* is a generalized combination of *Map* and *Reduce*. The definition of *treeAggregate* is
+Spark 来计算 SGD 的主要优势使可以分布式地计算梯度，然后将它们累加起来。
+在 Spark 中，这一任务是通过 RDD 的 *treeAggregate* 方法来完成的。
+*Aggregate* 可被视为泛化的 *Map* 和 *Reduce* 的组合。 *treeAggregate* 的定义为
 
 #+BEGIN_SRC scala
 RDD.treeAggregate(zeroValue: U)(
@@ -150,55 +104,155 @@ RDD.treeAggregate(zeroValue: U)(
       depth: Int = 2): U
 #+END_SRC
 
-In this method, there are three parameters in which the first two are more important for us.
+在此方法中有三个参数，其中前两个对我们更重要：
 
-+ seqOp: calculate sub gradient for every partition
-+ combOp: combine the result of seqOp or upper level combOp together
-+ depth: control the depth of the aggregation tree
++ seqOp: 计算每隔 partition 中的子梯度
++ combOp: 将 seqOp 或上层 combOp 的值合并
++ depth: 控制 tree 的深度
 
 #+caption: tree aggregate
 #+name: tree
-[[./imgs/tree.png]]
+[[images/svm/tree.png]]
 
-We can see from the figure [[tree]] that the first thing is to use the *seqOp* to calculate the sub gradient for every partition, then it sums them up level by level using *combOp*.
+** 实现
+SGD 是一个求最优化的算法，许多机器学习算法都可以用 SGD 来求解。所以 Spark 对其做了抽象。
 
-** Implementation
-In this section, the code for the main SGD logic is shown in [[code]]. It runs ~numIterations~ times to get the final \( w \).
-
- First, ~data.sample~ takes a subset of data whose size is decided by ~miniBatchFraction~. Then we use ~treeAggregate~ method on this sample. In ~seqOp~, The ~gradientSum~ is updated by ~axpy(y, b_x, c._1)~ if \( y\langle w, x \rangle < 1 \) which means wrong classification. In ~combOp~, ~gradientSum~ is combined together by ~c1._1 += c2._1~. After we get the ~gradientSum~, we calcuate ~step~ and ~gradient~. Finally, we update the weights with ~axpy(-step, gradient, weights)~
-
-#+caption: Scala code for SGD
-#+name: code
 #+BEGIN_SRC scala
-  for (i <- 1 to numIterations) {
-        val bcWeights = sc.broadcast(weights)
+class SVMWithSGD private (
+    private var stepSize: Double,
+    private var numIterations: Int,
+    private var regParam: Double,
+    private var miniBatchFraction: Double)
+  extends GeneralizedLinearAlgorithm[SVMModel] with Serializable {
 
-    val (gradientSum, lossSum, batchSize) = data.sample(false,
-      miniBatchFraction, 42 + i)
-          .treeAggregate((BDV.zeros[Double](weights.size), 0.0, 0L))(
-            seqOp = (c, v) => {
-              // c: (grad, loss, count), v: (label, features)
-              val y = v.label
-              val x = v.features
-              val b_x = BDV(x.toArray)
-              val dotProduct = bcWeights.value.dot(b_x)
-              if (y * dotProduct < 1) {
-                axpy(y, b_x, c._1)    // add to gradientSum
-              }
-              (c._1, c._2 + math.max(0, 1 - y * dotProduct), c._3 + 1)
-            },
-            combOp = (c1, c2) => {
-              // c: (grad, loss, count)
-              (c1._1 += c2._1, c1._2 + c2._2, c1._3 + c2._3)
-            })
-
-        val step = stepSize / (regParam * i)
-        val gradient = weights * regParam - gradientSum / batchSize.toDouble
-        axpy(-step, gradient, weights)    // update weights
-      }
+  private val gradient = new HingeGradient()
+  private val updater = new SquaredL2Updater()
+  @Since("0.8.0")
+  override val optimizer = new GradientDescent(gradient, updater)
+    .setStepSize(stepSize)
+    .setNumIterations(numIterations)
+    .setRegParam(regParam)
+    .setMiniBatchFraction(miniBatchFraction)
 #+END_SRC
 
-\newpage
+可以看到 ~SVMWithSGD~ 继承了 ~GeneralizedLinearAlgorithm~ ，并定义 ~optimizer~ 来确定如何获得优化解。
+而 ~optimizer~ 即是 SGD 算法的实现。正如上节所述，线性 SVM 实际上是使用 hinge 损失函数和一个 L2 惩罚项的线性模型，因此这里使用了 ~HingeGradient~ 和 ~SquaredL2Updater~ 
+作为 ~GradientDescent~ 的参数。
+
+#+BEGIN_SRC scala
+class HingeGradient extends Gradient {
+  override def compute(data: Vector, label: Double, weights: Vector): (Vector, Double) = {
+    val dotProduct = dot(data, weights)
+    // Our loss function with {0, 1} labels is max(0, 1 - (2y - 1) (f_w(x)))
+    // Therefore the gradient is -(2y - 1)*x
+    val labelScaled = 2 * label - 1.0
+    if (1.0 > labelScaled * dotProduct) {
+      val gradient = data.copy
+      scal(-labelScaled, gradient)
+      (gradient, 1.0 - labelScaled * dotProduct)
+    } else {
+      (Vectors.sparse(weights.size, Array.empty, Array.empty), 0.0)
+    }
+  }
+
+  override def compute(
+      data: Vector,
+      label: Double,
+      weights: Vector,
+      cumGradient: Vector): Double = {
+    val dotProduct = dot(data, weights)
+    // Our loss function with {0, 1} labels is max(0, 1 - (2y - 1) (f_w(x)))
+    // Therefore the gradient is -(2y - 1)*x
+    val labelScaled = 2 * label - 1.0
+    if (1.0 > labelScaled * dotProduct) {
+      axpy(-labelScaled, data, cumGradient)
+      1.0 - labelScaled * dotProduct
+    } else {
+      0.0
+    }
+  }
+}
+#+END_SRC
+
+#+BEGIN_SRC scala
+/**
+ * :: DeveloperApi ::
+ * Updater for L2 regularized problems.
+ *          R(w) = 1/2 ||w||^2
+ * Uses a step-size decreasing with the square root of the number of iterations.
+ */
+@DeveloperApi
+class SquaredL2Updater extends Updater {
+  override def compute(
+      weightsOld: Vector,
+      gradient: Vector,
+      stepSize: Double,
+      iter: Int,
+      regParam: Double): (Vector, Double) = {
+    // add up both updates from the gradient of the loss (= step) as well as
+    // the gradient of the regularizer (= regParam * weightsOld)
+    // w' = w - thisIterStepSize * (gradient + regParam * w)
+    // w' = (1 - thisIterStepSize * regParam) * w - thisIterStepSize * gradient
+    val thisIterStepSize = stepSize / math.sqrt(iter)
+    val brzWeights: BV[Double] = weightsOld.asBreeze.toDenseVector
+    brzWeights :*= (1.0 - thisIterStepSize * regParam)
+    brzAxpy(-thisIterStepSize, gradient.asBreeze, brzWeights)
+    val norm = brzNorm(brzWeights, 2.0)
+
+    (Vectors.fromBreeze(brzWeights), 0.5 * regParam * norm * norm)
+  }
+}
+#+END_SRC
+
+此节中, [[code]] 展示了 ~GradientDescent~ 的主要执行逻辑。 重复执行 ~numIterations~ 次以获得最终的 \( w \)。
+
+首先, ~data.sample~ 通过 ~miniBatchFraction~ 取一部分样本. 然后使用 ~treeAggregate~ 。
+在 ~seqOp~ 中, ~gradientSum~ 会通过 ~axpy(y, b_x, c._1)~ 更新，如果 \( y\langle w, x \rangle < 1 \)，即分类错误。
+在 ~combOp~ 中, ~gradientSum~ 通过 ~c1._1 += c2._1~ 被集合起来。 当获得 ~gradientSum~ 后, 我们就可以计算 ~step~ 和 ~gradient~ 了。
+最后, 我们使用 ~axpy(-step, gradient, weights)~ 更新 ~weights~ 。
+
+#+caption: GradientDescent 代码片断
+#+name: code
+#+BEGIN_SRC scala
+    while (!converged && i <= numIterations) {
+      val bcWeights = data.context.broadcast(weights)
+      // Sample a subset (fraction miniBatchFraction) of the total data
+      // compute and sum up the subgradients on this subset (this is one map-reduce)
+      val (gradientSum, lossSum, miniBatchSize) = data.sample(false, miniBatchFraction, 42 + i)
+        .treeAggregate((BDV.zeros[Double](n), 0.0, 0L))(
+          seqOp = (c, v) => {
+            // c: (grad, loss, count), v: (label, features)
+            val l = gradient.compute(v._2, v._1, bcWeights.value, Vectors.fromBreeze(c._1))
+            (c._1, c._2 + l, c._3 + 1)
+          },
+          combOp = (c1, c2) => {
+            // c: (grad, loss, count)
+            (c1._1 += c2._1, c1._2 + c2._2, c1._3 + c2._3)
+          })
+
+      if (miniBatchSize > 0) {
+        /**
+         * lossSum is computed using the weights from the previous iteration
+         * and regVal is the regularization value computed in the previous iteration as well.
+         */
+        stochasticLossHistory.append(lossSum / miniBatchSize + regVal)
+        val update = updater.compute(
+          weights, Vectors.fromBreeze(gradientSum / miniBatchSize.toDouble),
+          stepSize, i, regParam)
+        weights = update._1
+        regVal = update._2
+
+        previousWeights = currentWeights
+        currentWeights = Some(weights)
+        if (previousWeights != None && currentWeights != None) {
+          converged = isConverged(previousWeights.get,
+            currentWeights.get, convergenceTol)
+        }
+      } else {
+        logWarning(s"Iteration ($i/$numIterations). The size of sampled batch is zero")
+      }
+      i += 1
+#+END_SRC
 
 * Experiments and Performance
 ** Experiments with small dataset
@@ -223,42 +277,17 @@ Since the implementation of Pegasos and MLlib is slightly different. we would li
 #+ATTR_LATEX: :width 16cm
 #+caption: before aligning Y axis
 #+name: convergence1
-[[./imgs/step1.eps]]
+[[file:step1.eps]]
 
 Then we align the Y axis in figure [[convergence2]]. From those 2 figures, we can see that when the step size is well chosen, Pegasos and MLlib have similar performance. But Pegasos has one advantage that it is easier to find the right step parameter. In most cases, 1 is good for Pegasos.
 
 #+ATTR_LATEX: :width 16cm
 #+caption: after aligning Y axis
 #+name: convergence2
-[[./imgs/step2.eps]]
+[[file:step2.eps]]
 
-** Experiments under TeraLab
-With Spark, we want to know the relationship between run time and many other parameters such as executor numbers, data size and so on. In figure [[performance]], we show some test of the performance of Spark.
 
- In the 1st sub figure, we try different batch size for SGD with 5GB dataset, 1000 features and 4 executors.  And as we expect, the running time is proportional to batch size.
-
- In the 2nd sub figure, we test different data size with 1.0 mini batch(all the data), 1000 features and 4 executors. We can see that the running time is also proportional to data size. But the running time will increase dramatically if the data can't fit in memory.
-
-The 3rd sub figure test different number of executors with 2GB dataset, 1.0 mini batch and 1000 features. Of course, adding more executors can increase performance. But as we can see here, performance does not get better after 8 executors. The reason might that when the dataset is relatively small, the communication among executors will dominate the running time.
-
-#+ATTR_LATEX: :width 16cm
-#+caption: performance with different data size, mini-batch and number of executors
-#+name: performance
-[[./imgs/perf.eps]]
-
-\newpage
-
-* Conclusion
-Because of the memory computing feature, Spark is better than Hadoop MapReduce for iterative tasks, which makes it a good engine for machine leaning.
-
- From the experiments of last section, we can get some general idea about the performance of Spark for machine learning tasks. First, a Spark application has the best performance when data can be fitted in memory. If can't, the IO write and read will dramatically decreases the performance. Running time is proportional to data size, for SGD, also mini batch size. Using more executors can decrease running time, but with small dataset, more executors might not help because the communication time between executors will dominate. Finally, memory tuning can be a crucial part for Spark to achieve good performance. We need to find out how much memory the application will use because without enough memory, our data can't fit in memory and it's a waste of resource to allocate too much memory.
-
-* Further work
-Right now, all the test is based on Spark 1.2. But with CDH 5.4/Spark 1.3, we can dynamically scale the set of cluster resources allocated to application up and down based on the workload. This means that application may give resources back to the cluster if they are no longer used and request them again later when there is demand. With this feature, it is not necessary to add the ~num-executors~ parameter. It might be interesting to see how it allocates resources for us and whether the resource is optimized.
-
-Then, As we can see from the figure [[performance]], when the data can not fit in memory, the running time increases significantly. So it is important to have enough memory space for performance reason. But at the same time, memory is limited. When we have multiple applications running at the same time, it can be a problem to decide how much memory my application need so that my application can have enough memory but also won't have a waste. Dynamic resource allocation might be a solution. But it will still be useful to estimate the proper memory size for a specific dataset to fit in memory.
-
-* Reference
+* 参考文献
 1. Zaharia, Matei, et al. "Resilient distributed datasets: A fault-tolerant abstraction for in-memory cluster computing." Proceedings of the 9th USENIX conference on Networked Systems Design and Implementation. USENIX Association, 2012
 2. Zaharia, Matei, et al. "Spark: cluster computing with working sets." Proceedings of the 2nd USENIX conference on Hot topics in cloud computing. Vol. 10. 2010
 3. Shalev-Shwartz, Shai, et al. "Pegasos: Primal estimated sub-gradient solver for svm." Mathematical programming 127.1 (2011): 3-30
