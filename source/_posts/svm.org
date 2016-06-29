@@ -254,37 +254,29 @@ class SquaredL2Updater extends Updater {
       i += 1
 #+END_SRC
 
-* Experiments and Performance
-** Experiments with small dataset
-The first thing we need to do is to show that our Pegasos implementation works correctly. To achieve that, we simulate some sample 2D and 3D data with normal distribution.
-The first one is a 2D linear dataset. The result is in figure [[2d-linear]].
-
+* 实验和性能
+** 正确性验证
+我们模拟了一些简单的 2D 和 3D 数据来验证正确性。
 #+caption: 2D linear
 #+name: 2d-linear
 [[./imgs/2d_linear.png]]
 
-Then this figure [[3d-linear]] shows the result of a 3D linear dataset.
 #+caption: 3D linear
 #+name: 3d-linear
 [[./imgs/3d_linear.png]]
 
-From those experiments, we show that our Pegasos implementation works well. Then we will test it's performance with larger dataset.
-
-
-** The convergence speed
-Since the implementation of Pegasos and MLlib is slightly different. we would like to compare the convergence speed of Pegasos and MLlib. In this test, we take 5GB data with 1000 features, launch the job with 4 executors and run 100 iterations. The result is in figure [[convergence1]], where the Y axis is not aligned. In the plot, the first 30 iterations are ignored since the initial loss is too high.
+** 收敛速度
+我们比较两种实现的收敛速度差异。这里，我们使用 5GB 带有 1000 个特征的模拟数据。使用 4 个 executors 并迭代 100 次。
 
 #+ATTR_LATEX: :width 16cm
 #+caption: before aligning Y axis
 #+name: convergence1
-[[file:step1.eps]]
-
-Then we align the Y axis in figure [[convergence2]]. From those 2 figures, we can see that when the step size is well chosen, Pegasos and MLlib have similar performance. But Pegasos has one advantage that it is easier to find the right step parameter. In most cases, 1 is good for Pegasos.
+[[file:step1.png]]
 
 #+ATTR_LATEX: :width 16cm
 #+caption: after aligning Y axis
 #+name: convergence2
-[[file:step2.eps]]
+[[file:step2.png]]
 
 
 * 参考文献
