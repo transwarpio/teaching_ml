@@ -112,7 +112,7 @@ RDD.treeAggregate(zeroValue: U)(
 
 #+caption: tree aggregate
 #+name: tree
-[[images/svm/tree.png]]
+[[file:images/svm/tree.png]]
 
 ** 实现
 SGD 是一个求最优化的算法，许多机器学习算法都可以用 SGD 来求解。所以 Spark 对其做了抽象。
@@ -259,11 +259,11 @@ class SquaredL2Updater extends Updater {
 我们模拟了一些简单的 2D 和 3D 数据来验证正确性。
 #+caption: 2D linear
 #+name: 2d-linear
-[[./imgs/2d_linear.png]]
+[[file:images/svm/2d_linear.png]]
 
 #+caption: 3D linear
 #+name: 3d-linear
-[[./imgs/3d_linear.png]]
+[[file:images/svm/3d_linear.png]]
 
 ** 收敛速度
 我们比较两种实现的收敛速度差异。这里，我们使用 5GB 带有 1000 个特征的模拟数据。使用 4 个 executors 并迭代 100 次。
@@ -271,12 +271,12 @@ class SquaredL2Updater extends Updater {
 #+ATTR_LATEX: :width 16cm
 #+caption: before aligning Y axis
 #+name: convergence1
-[[file:step1.png]]
+[[file:images/svm/step1.png]]
 
 #+ATTR_LATEX: :width 16cm
 #+caption: after aligning Y axis
 #+name: convergence2
-[[file:step2.png]]
+[[file:images/svm/step2.png]]
 
 
 * 参考文献
