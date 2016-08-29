@@ -1,41 +1,34 @@
 ---
-title: How to
-date: 2016-07-04 20:15:27
-tags:
+title: 机器学习分享主题
+date: 2016-08-29 20:15:27
+tags: 机器学习 数据挖掘 深度学习
 ---
 
-可参考[hexo官网](https://hexo.io/zh-cn/docs/)
-# 安装
-首先请安装 *node.js*， *git*， *npm*
-`sudo apt-get install git npm nodejs nodejs-legacy`
+这个文档将作为我们已经做过分享，或者将要进行分享的主题的一个索引。主要分为三个大块：常见机器学习算法，深度学习以及高级机器学习算法。常见机器学习算法主要是介绍一些spark mllib中已经实现的算法，通常要求对数学原理、mllib中的代码实现，以及如何应用于实际问题的解决等方面都要比较熟练的掌握。深度学习主要是针对一些常见的概念、优化的trick等的介绍，以及在流行深度学习框架上解决实际问题。而高级机器学习算法，通常对数学原理以及如何使用等做介绍。
 
-然后clone项目代码
-`git clone git@github.com:transwarpio/teaching_ml.git`
+以下将按照这个分类列出相应的topic。
 
-进入*teaching_ml*目录，然后安装相应npm包
-    ``` bash
-    cd teaching_ml
-    npm install
-    ```
-`npm install`会安装teaching\_ml/package.json中的包。
+# 常见机器学习算法
+## 已分享
+1. SVM
+2. 关联规则
+3. ALS
+4. LDA
 
-# 写作
-`hexo new post [title]`会在`source/_posts/`下建立`[title].md`文件，然后你就可以开始写作了
-markdown的具体语法可以参考：[master markdown](https://guides.github.com/features/mastering-markdown/)
-  
-## 图片
-对于资源文件比如图片，请放到`source/images`文件夹下。然后在文章中引用时使用相对路径。比如`source/images/pic.jpg`。
-引用时为`images/pic.jpg`
+## 将分享
+1. 
 
-## 公式
-可以使用latex编辑公式，或使用公式编辑器编辑后转成图片展示。
-对于latex公式，使用美元符号`$`来包含inline公式，比如`$ y = x + b $`会显式为$ y = x + b $。
-而双美元符号来显式整行公式，比如`$$ y = x + b $$`,显式为 
-$$
-y = x + b
-$$ 
+# 深度学习
+## 已分享
+1. MXNet框架从原理到代码
+2. 深度信念网络在蛋白质突变检测中的应用
 
-# 部署
-当你写完后，可以使用`hexo server`命令在本地查看效果。
-满意后使用`hexo generate --deploy`部署到github。
+## 将分享
+1. 
 
+# 高级机器学习算法
+## 已分享
+1. 
+
+## 将分享
+1. 
