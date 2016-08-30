@@ -10,7 +10,7 @@ tags: 机器学习 数据挖掘 深度学习
 
 # 常见机器学习算法
 ## 已分享
-1. SVM
+1. [SVM](https://transwarpio.github.io/teaching_ml/2016/08/30/svm/)
 2. 关联规则
 3. ALS
 4. LDA
