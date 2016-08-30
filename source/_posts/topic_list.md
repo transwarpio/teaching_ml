@@ -16,7 +16,21 @@ tags: 机器学习 数据挖掘 深度学习
 4. LDA
 
 ## 将分享
-1. TODO
+1. Gaussian Mixture
+2. Bistecting KMeans
+3. KMeans
+4. Logistic Regression
+5. Decision Tree
+6. Random Forest
+7. Gradient-boosted tree
+8. One-vs-Rest classifier
+9. boosting and bagging
+10. Survival Regression
+11. Isotonic Regression
+12. SGD
+13. BFGS and L-BFGS
+14. 其它最优化算法
+15. 集成学习相关算法介绍
 
 # 深度学习
 ## 已分享
@@ -24,11 +38,28 @@ tags: 机器学习 数据挖掘 深度学习
 2. 深度信念网络在蛋白质突变检测中的应用
 
 ## 将分享
-1. TODO
+1. tensor,conv
+1. Word2Vec
+2. BP
+3. Auto Encoder
+4. RBM
+5. DBN
+6. CNN
+7. RNN
+8. LSTM
+9. LSTM改进
+10. DL在NLP中的应用
 
 # 高级机器学习算法
 ## 已分享
 1. TODO
 
 ## 将分享
-1. TODO
+1. 概率图模型相关知识
+2. Max Entropy
+3. HMM
+4. CRF
+5. 分词，句法分析，语法分析，语义分析，命名实体识别等
+6. 强化学习相关算法介绍
+7. 迁移学习相关算法介绍
+
