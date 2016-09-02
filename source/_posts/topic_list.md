@@ -12,8 +12,8 @@ tags: 机器学习 数据挖掘 深度学习
 ## 已分享
 1. [SVM](https://transwarpio.github.io/teaching_ml/2016/08/30/svm/)
 2. 关联规则
-3. ALS
-4. LDA
+3. [ALS](https://github.com/endymecy/spark-ml-source-analysis/blob/master/%E6%8E%A8%E8%8D%90/ALS.md)
+4. [LDA](https://github.com/endymecy/spark-ml-source-analysis/blob/master/%E8%81%9A%E7%B1%BB/LDA/lda.md)
 
 ## 将分享
 1. Gaussian Mixture
