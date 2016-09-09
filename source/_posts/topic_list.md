@@ -35,7 +35,7 @@ tags: 机器学习 数据挖掘 深度学习
 # 深度学习
 ## 已分享
 1. MXNet框架从原理到代码
-2. 深度信念网络在蛋白质突变检测中的应用
+2. [深度信念网络在蛋白质突变检测中的应用](https://github.com/xzry6/notes/blob/master/transwarp/dbn.md)
 
 ## 将分享
 1. tensor,conv
