@@ -16,21 +16,22 @@ tags: 机器学习 数据挖掘 深度学习
 4. [LDA](https://github.com/endymecy/spark-ml-source-analysis/blob/master/%E8%81%9A%E7%B1%BB/LDA/lda.md)
 
 ## 将分享
-1. Gaussian Mixture
-2. Bistecting KMeans
-3. KMeans
-4. Logistic Regression
-5. Decision Tree
-6. Random Forest
-7. Gradient-boosted tree
-8. One-vs-Rest classifier
-9. boosting and bagging
-10. Survival Regression
-11. Isotonic Regression
-12. SGD
-13. BFGS and L-BFGS
-14. 其它最优化算法
-15. 集成学习相关算法介绍
+1. [Gaussian Mixture](https://github.com/endymecy/spark-ml-source-analysis/blob/master/%E8%81%9A%E7%B1%BB/gaussian-mixture/gaussian-mixture.md)
+2. [Bistecting KMeans](https://github.com/endymecy/spark-ml-source-analysis/blob/master/%E8%81%9A%E7%B1%BB/bis-k-means/bisecting-k-means.md)
+3. [KMeans](https://github.com/endymecy/spark-ml-source-analysis/blob/master/%E8%81%9A%E7%B1%BB/k-means/k-means.md)
+4. [PIC](https://github.com/endymecy/spark-ml-source-analysis/blob/master/%E8%81%9A%E7%B1%BB/PIC/pic.md)
+5. Logistic Regression
+6. Decision Tree
+7. Random Forest
+8. Gradient-boosted tree
+9. One-vs-Rest classifier
+10. boosting and bagging
+11. Survival Regression
+12. Isotonic Regression
+13. SGD
+14. BFGS and L-BFGS
+15. 其它最优化算法
+16. 集成学习相关算法介绍
 
 # 深度学习
 ## 已分享
@@ -38,17 +39,17 @@ tags: 机器学习 数据挖掘 深度学习
 2. [深度信念网络在蛋白质突变检测中的应用](https://github.com/xzry6/notes/blob/master/transwarp/dbn.md)
 
 ## 将分享
-1. tensor,conv
-1. Word2Vec
-2. BP
-3. Auto Encoder
-4. RBM
-5. DBN
-6. CNN
-7. RNN
-8. LSTM
-9. LSTM改进
-10. DL在NLP中的应用
+1. tensor,conv,pooling
+2. Word2Vec
+3. BP
+4. Auto Encoder
+5. RBM
+6. DBN
+7. CNN
+8. RNN
+9. LSTM
+10. LSTM改进
+11. DL在NLP中的应用
 
 # 高级机器学习算法
 ## 已分享
@@ -63,3 +64,9 @@ tags: 机器学习 数据挖掘 深度学习
 6. 强化学习相关算法介绍
 7. 迁移学习相关算法介绍
 
+# 源码解析
+
+## 将分享
+
+1.deeplearning4j中深度学习和NLP源码分享
+2.tensorflow源码分享
