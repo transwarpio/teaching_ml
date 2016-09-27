@@ -24,8 +24,9 @@ tags:
 markdown的具体语法可以参考：[master markdown](https://guides.github.com/features/mastering-markdown/)
   
 ## 图片
-对于资源文件比如图片，请放到`source/images`文件夹下。然后在文章中引用时使用相对路径。比如`source/images/pic.jpg`。
-引用时为`images/pic.jpg`
+对于资源文件比如图片，在`source/_posts/`文件夹下创建与文章同名的子文件夹。比如`source/_posts/doc.md` ，则有 `source/_posts/doc`文件夹。
+然后在文章中引用时使用相对路径。比如`source/_posts/doc/pic.jpg`。
+引用时为`doc/pic.jpg`
 
 ## 公式
 可以使用latex编辑公式，或使用公式编辑器编辑后转成图片展示。

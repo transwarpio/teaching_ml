@@ -1,4 +1,5 @@
 #+TITLE: Support Vector Machine
+#+DATE: 2016-08-30
 
 * SVM
 ** 介绍

@@ -4,8 +4,8 @@
 
 # 常见机器学习算法
 ## 已分享
-1. [SVM](https://transwarpio.github.io/teaching_ml/2016/08/30/svm/)
-2. [关联规则](https://transwarpio.github.io/teaching_ml/2016/09/02/associations/%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99%E6%8C%96%E6%8E%98%E5%9F%BA%E7%A1%80%E7%AF%87/)
+1. [SVM](2016/08/30/svm/)
+2. [关联规则](2016/09/02/associations/%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99%E6%8C%96%E6%8E%98%E5%9F%BA%E7%A1%80%E7%AF%87/)
 3. [ALS](https://github.com/endymecy/spark-ml-source-analysis/blob/master/%E6%8E%A8%E8%8D%90/ALS.md)
 4. [LDA](https://github.com/endymecy/spark-ml-source-analysis/blob/master/%E8%81%9A%E7%B1%BB/LDA/lda.md)
 5. [Gaussian Mixture](https://github.com/endymecy/spark-ml-source-analysis/blob/master/%E8%81%9A%E7%B1%BB/gaussian-mixture/gaussian-mixture.md)
