@@ -12,9 +12,13 @@ tags: Multivariate Statistics
 ## 2. Orthogonal Factor Model（正交因子模型）
 ### A Factor Analysis Example
 We have a  training data $X_{n \times p}$. Here is its scatter plot.
+
 ![plot](http://images.cnblogs.com/cnblogs_com/jerrylead/201105/201105111557474219.png)
+
 1. Generate a k dimension variable $F \sim N_k(0,I)$
+
 ![Factor](http://images.cnblogs.com/cnblogs_com/jerrylead/201105/201105111557493007.png)
+
 2. There exists a transformation matrix $L \in R^{p \times k}$ which maps F into n dimension space: $LF$
 ![transform](http://images.cnblogs.com/cnblogs_com/jerrylead/201105/20110511155750367.png)
 3. Add a mean $\mu$ on $LF$
