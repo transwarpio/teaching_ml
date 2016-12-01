@@ -12,6 +12,7 @@
 6. [Bistecting KMeans](https://github.com/endymecy/spark-ml-source-analysis/blob/master/%E8%81%9A%E7%B1%BB/bis-k-means/bisecting-k-means.md)
 7. [KMeans](https://github.com/endymecy/spark-ml-source-analysis/blob/master/%E8%81%9A%E7%B1%BB/k-means/k-means.md)
 8. [PIC](https://github.com/endymecy/spark-ml-source-analysis/blob/master/%E8%81%9A%E7%B1%BB/PIC/pic.md)
+9. [Factor Analysis](2016/12/01/FactorAnalysis)
 
 ## 将分享
 5. Logistic Regression
@@ -29,16 +30,16 @@
 
 # 深度学习
 ## コースの周先生Tensorflow
-#### [Introduction](_posts/deeplearning/TFLearn.ipynb)
-1. [Style](_posts/deeplearning/chapters/1-style.ipynb)
-2. [Basics](_posts/deeplearning/chapters/2-basics.ipynb)
-3. [Graph](_posts/deeplearning/chapters/3-graph.ipynb)
-4. [Summary](_posts/deeplearning/chapters/4-summary.ipynb)
-5. [Artificial neural network](_posts/deeplearning/chapters/5-ann.ipynb)
-6. [Autoencoder](_posts/deeplearning/chapters/6-autoencoder.ipynb)
-7. [Convolution neural network](_posts/deeplearning/chapters/7-cnn.ipynb)
-8. [Recursive neural network](_posts/deeplearning/chapters/8-rnn.ipynb)
-9. [Distributed](_posts/deeplearning/chapters/9-distributed.ipynb)
+#### [Introduction](2016/12/01/TF-Introduction)
+1. [Style](2016/12/01/TF-1-style)
+2. [Basics](2016/12/01/TF-2-basics)
+3. [Graph](2016/12/01/TF-3-graph)
+4. [Summary](2016/12/01/TF-4-summary)
+5. [Artificial neural network](2016/12/01/TF-5-ann)
+6. [Autoencoder](2016/12/01/TF-6-autoencoder)
+7. [Convolution neural network](2016/12/01/TF-7-cnn)
+8. [Recursive neural network](2016/12/01/TF-8-rnn)
+9. [Distributed](2016/12/01/TF-9-distributed)
 
 ## 已分享
 1. [MXNet框架从原理到代码](2016/07/05/mxnet)

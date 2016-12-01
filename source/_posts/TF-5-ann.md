@@ -4,9 +4,8 @@ date: 2016-12-01 19:37:53
 tags:
 ---
 
-[Previous Chapter: Summary and Tensorboard](4-summary.ipynb)
-<br>
-[Next Chapter: AutoEncoder](6-autoencoder.ipynb)
+[Previous Chapter: Summary and Tensorboard](../TF-4-summary)
+[Next Chapter: AutoEncoder](../TF-6-autoencoder)
 
 ## Neural Network
 
@@ -41,19 +40,27 @@ Following note of *Neural Network* is quoted from [here](https://github.com/xzry
 ##### 组合函数
 在把参数传递进激活函数前，首先将上一层的神经元和相关权重进行组合，再加上偏置。这样的组合函数表示每一层的神经单元由上一层的单元和权重生成.
 
+{% raw %}
 传递函数: $p(x_j^n) = \sigma(\Sigma_i w_{ij}^{{n-1}n}x_i^{n-1})$
+{% raw %}
 
 <img src="http://ufldl.stanford.edu/tutorial/images/SingleNeuron.png" width="240">
 
+{% raw %}
 上述公式中，$p(x_j^n)$表示第n层第j个神经元被激活的概率，${x_i^{n-1}}$表示第(n-1)层第i个神经元的值，$w_{ij}^{{n-1}n}$表示第(n-1)层的第i个神经元与第n层第j个神经元之间的连线权重，(n-1)层最后一个神经元+1指的是n层第j个结点的权重。
+{% raw %}
 
 #### 激活函数
 当前一层神经元和对应权重进行组合后，我们可以直接把得到的值当作当前单元的激活函数，可是由于是简单的线性函数，所以容易造成值过大和过小的两极化分布。为此，研究者们引入了一些**激活函数**来改善分布，更好地*激活*神经元。
 
+{% raw %}
 - Sigmoid: $\sigma(z) = \large{1 \over 1 + e^{-z}}$
+{% raw %}
 
 
+{% raw %}
 - Tanh: $\sigma(z) = \large{sinh(z) \over cosh(z)} = {{e^z - e^{-z}} \over {e^z + e^{-z}}}$
+{% raw %}
 
 
 - ReLU: $\sigma(z) = max(0, z)$
@@ -202,7 +209,6 @@ with tf.Session() as sess:
     print("Accuracy:", accuracy.eval({x: mnist.test.images, y: mnist.test.labels}))
 ```
 
-[Previous Chapter: Summary and Tensorboard](4-summary.ipynb)
-<br>
-[Next Chapter: AutoEncoder](6-autoencoder.ipynb)
+[Previous Chapter: Summary and Tensorboard](../TF-4-summary)
+[Next Chapter: AutoEncoder](../TF-6-autoencoder)
 

@@ -4,9 +4,8 @@ date: 2016-12-01 19:17:49
 tags:
 ---
 
-[Previous Chapter: TF Playground](../TF-Learn.ipynb)
-<br>
-[Next Chapter: Tensorflow Basics](2-basics.ipynb)
+[Previous Chapter: TF Playground](../TF-Introduction)
+[Next Chapter: Tensorflow Basics](../TF-2-basics)
 
 ## Style Guide
 
@@ -102,14 +101,6 @@ def conv2d(inputs,
 ```
 
 
-[Previous Chapter: TF Playground](../TF-Learn.ipynb)
-<br>
-[Next Chapter: Tensorflow Basics](2-basics.ipynb)
+[Previous Chapter: TF Playground](../TF-Introduction)
+[Next Chapter: Tensorflow Basics](../TF-2-basics)
 
-
-```python
-from __future__ import absolute_import
-from __future__ import print_function
-from __future__ import division
-
-```

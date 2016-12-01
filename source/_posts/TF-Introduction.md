@@ -12,17 +12,17 @@ This is a tutorial for better understanding the concept and syntax of **Tensorfl
 
 ### Agenda
 * Tensorflow Basics
-    * [Style Guide](chapters/1-style.ipynb)
-    * [Tensorflow Basics](chapters/2-basics.ipynb)
-    * [Graph](chapters/3-graph.ipynb)
-    * [Summary and Tensorboard](chapters/4-summary.ipynb)
+    * [Style Guide](../TF-1-style)
+    * [Tensorflow Basics](../TF-2-basics)
+    * [Graph](../TF-3-graph)
+    * [Summary and Tensorboard](../TF-4-summary)
 * Deep Learning in TF
-    * [Neural Network](chapters/5-ann.ipynb)
-    * [Autoencoder](chapters/6-autoencoder.ipynb)
-    * [Convolutional Neural Network](chapters/7-cnn.ipynb)
-    * [Recurrent Neural Network](chapters/8-rnn.ipynb)
+    * [Neural Network](../TF-5-ann)
+    * [Autoencoder](../TF-6-autoencoder)
+    * [Convolutional Neural Network](../TF-7-cnn)
+    * [Recurrent Neural Network](../TF-8-rnn)
 * Clustering
-    * [Distributed Mode](chapters/9-distributed.ipynb)
+    * [Distributed Mode](../TF-9-distributed)
 
 ### Sample Code
 
@@ -93,5 +93,5 @@ for step in range(201):
 
 In the above sample, we defined a set of random inputs with `y = 0.1 * x + 0.3` and let our linear model `y = W * x + b` to learn the inputs in 200 training epochs. Results are printed per 20 time steps. `W` and `b` should be quite close to 0.1 and 0.3 respectively.
 
-[Next Chapter: Style Guide](chapters/1-style.ipynb)
+[Next Chapter: Style Guide](../TF-1-style)
 

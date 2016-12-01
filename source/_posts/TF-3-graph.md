@@ -4,9 +4,8 @@ date: 2016-12-01 19:20:49
 tags:
 ---
 
-[Previous Chapter: Tensorflow Basics](2-basics.ipynb)
-<br>
-[Next Chapter: Summary and Tensorboard](4-summary.ipynb)
+[Previous Chapter: Tensorflow Basics](../TF-2-basics)
+[Next Chapter: Summary and Tensorboard](../TF-4-summary)
 
 ## Graph
 
@@ -28,10 +27,11 @@ A *Tensor* is a basic data structure in *Tensorflow*. There are several features
 As ranging between 0 and 1, sigmoid function is widely used in *Neural Network* for neural activation.
 
 A sigmoid function is defined as
+{% raw %}
 $\large \sigma(z) = {1 \over 1 + e^{-z}}$,
 where
 $\normalsize z = x^T * w + b$.
-
+{% raw %}
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Logistic-curve.svg/2000px-Logistic-curve.svg.png" width="300" align="left"/>
 
@@ -41,9 +41,11 @@ $\normalsize z = x^T * w + b$.
 
 A Softmax function is defined as:
 
+{% raw %}
 $
 \sigma(z)_j = \Large {{e^{z_j} \over \Sigma^k_{k=1} e^{z_k}}}
 $
+{% raw %}
 
 The largest $\sigma(z)_j$ is then chosen as the predicted class.
 
@@ -53,6 +55,7 @@ Let's do some simple mathmatics.
 
 When k = 2,
 
+{% raw %}
 $
 \begin{align*} 
 \sigma(z)
@@ -61,9 +64,12 @@ $
 &= \large\begin{bmatrix} {1 \over 1 + e^{(z_2 - z_1)}} \\ 1 - {1 \over 1 + e^{(z_2 - z_1)}}\end{bmatrix}
 \end{align*}
 $
+{% raw %}
 
 
+{% raw %}
 Assume $Z = z_1 - z_2$, one of the $\sigma(z_1) = \large{1 \over 1 + e^{-Z}}$ while the other one $\sigma(z_1) = 1 - \large{1 \over 1 + e^{-Z}}$, which proves the function is consitent with *Logistic Regression*.
+{% raw %}
 
 ##### Now try to build a Softmax Regression in Tensorflow yourself. See [*Linear Regression sample*](../TF-Learn.ipynb#samplecode) for reference.
 
@@ -182,7 +188,6 @@ with tf.Session() as sess:
     print("Accuracy:", accuracy.eval({x: mnist.test.images, y: mnist.test.labels}))
 ```
 
-[Previous Chapter: Tensorflow Basics](2-basics.ipynb)
-<br>
-[Next Chapter: Summary and Tensorboard](4-summary.ipynb)
+[Previous Chapter: Tensorflow Basics](../TF-2-basics)
+[Next Chapter: Summary and Tensorboard](../TF-4-summary)
 

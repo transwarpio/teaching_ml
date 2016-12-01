@@ -4,9 +4,8 @@ date: 2016-12-01 19:46:18
 tags:
 ---
 
-[Previous Chapter: Neural Network](5-ann.ipynb)
-<br>
-[Next Chapter: Convolutional Neural Network](7-cnn.ipynb)
+[Previous Chapter: Neural Network](../TF-5-ann)
+[Next Chapter: Convolutional Neural Network](../TF-7-cnn)
 
 ## AutoEncoder
 
@@ -161,7 +160,6 @@ with tf.Session() as sess:
             
 ```
 
-[Previous Chapter: Neural Network](5-ann.ipynb)
-<br>
-[Next Chapter: Convolutional Neural Network](7-cnn.ipynb)
+[Previous Chapter: Neural Network](../TF-5-ann)
+[Next Chapter: Convolutional Neural Network](../TF-7-cnn)
 

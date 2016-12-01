@@ -4,9 +4,8 @@ date: 2016-12-01 19:19:30
 tags:
 ---
 
-[Previous Chapter: Style Guide](1-style.ipynb)
-<br>
-[Next Chapter: Graph](3-graph.ipynb)
+[Previous Chapter: Style Guide](../TF-1-style)
+[Next Chapter: Graph](../TF-3-graph)
 
 ## Basic Concpts
 
@@ -190,7 +189,6 @@ print("adding result is: %i" % resultAdd)
 print("multiplying result is: %i" % resultMul)
 ```
 
-[Previous Chapter: Style Guide](1-style.ipynb)
-<br>
-[Next Chapter: Graph](3-graph.ipynb)
+[Previous Chapter: Style Guide](../TF-1-style)
+[Next Chapter: Graph](../TF-3-graph)
 

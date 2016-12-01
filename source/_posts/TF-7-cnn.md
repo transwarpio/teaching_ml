@@ -4,9 +4,8 @@ date: 2016-12-01 19:46:57
 tags:
 ---
 
-[Previous Chapter: AutoEncoder](6-autoencoder.ipynb)
-<br>
-[Next Chapter: Recurrent Neural Network](8-rnn.ipynb)
+[Previous Chapter: AutoEncoder](../TF-6-autoencoder)
+[Next Chapter: Recurrent Neural Network](../TF-8-rnn)
 
 ## Convolutional Neural Network
 
@@ -210,7 +209,6 @@ with tf.Session() as sess:
                                       dropout: 1.}))
 ```
 
-[Previous Chapter: AutoEncoder](6-autoencoder.ipynb)
-<br>
-[Next Chapter: Recurrent Neural Network](8-rnn.ipynb)
+[Previous Chapter: AutoEncoder](../TF-6-autoencoder)
+[Next Chapter: Recurrent Neural Network](../TF-8-rnn)
 

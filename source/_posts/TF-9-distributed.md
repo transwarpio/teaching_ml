@@ -4,7 +4,7 @@ date: 2016-12-01 19:48:16
 tags:
 ---
 
-[Previous Chapter: Recurrent Neural Network](8-rnn.ipynb)
+[Previous Chapter: Recurrent Neural Network](../TF-8-rnn)
 
 ## Distributed Mode
 
@@ -222,5 +222,5 @@ if __name__ == "__main__":
 
 ```
 
-[Previous Chapter: Recurrent Neural Network](8-rnn.ipynb)
+[Previous Chapter: Recurrent Neural Network](../TF-8-rnn)
 

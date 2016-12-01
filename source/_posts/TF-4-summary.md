@@ -4,9 +4,8 @@ date: 2016-12-01 19:37:00
 tags:
 ---
 
-[Previous Chapter: Graph](3-graph.ipynb)
-<br>
-[Next Chapter: Neural Network](5-ann.ipynb)
+[Previous Chapter: Graph](../TF-3-graph)
+[Next Chapter: Neural Network](../TF-5-ann)
 
 ## Summary
 
@@ -193,7 +192,6 @@ with tf.name_scope('Accuracy'):
     ###### write your code here ######
 ```
 
-[Previous Chapter: Graph](3-graph.ipynb)
-<br>
-[Next Chapter: Neural Network](5-ann.ipynb)
+[Previous Chapter: Graph](../TF-3-graph)
+[Next Chapter: Neural Network](../TF-5-ann)
 

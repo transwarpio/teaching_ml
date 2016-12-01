@@ -4,9 +4,8 @@ date: 2016-12-01 19:47:44
 tags:
 ---
 
-[Previous Chapter: Convolutional Neural Network](7-cnn.ipynb)
-<br>
-[Next Chapter: Distributed Mode](9-distributed.ipynb)
+[Previous Chapter: Convolutional Neural Network](../TF-7-cnn)
+[Next Chapter: Distributed Mode](../TF-9-distributed)
 
 ## Recurrent Neural Network and (LSTM)
 
@@ -209,7 +208,6 @@ with tf.Session() as sess:
     print("Testing Accuracy:", sess.run(accuracy, feed_dict={x: test_data, y: test_label}))
 ```
 
-[Previous Chapter: Convolutional Neural Network](7-cnn.ipynb)
-<br>
-[Next Chapter: Distributed Mode](9-distributed.ipynb)
+[Previous Chapter: Convolutional Neural Network](../TF-7-cnn)
+[Next Chapter: Distributed Mode](../TF-9-distributed)
 

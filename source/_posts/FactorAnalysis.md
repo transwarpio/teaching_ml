@@ -1,8 +1,9 @@
 ---
-title: Factor Analysis
-date: 2016-11-30 14:02:27
-tags: Multivariate Statistics
+title: FactorAnalysis
+date: 2016-12-01 21:03:28
+tags:
 ---
+
 ## 1. Introduction
  An extension of **principal component analysis(PCA)** in the sense of approximating covariance matrix.
 ### Goal
