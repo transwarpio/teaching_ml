@@ -1,0 +1,160 @@
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Hexo version: \u001b[35m3.2.2\u001b[39m","time":"2016-12-01T11:55:05.615Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Working directory: \u001b[35m~/workspace/teaching_ml/\u001b[39m","time":"2016-12-01T11:55:05.619Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Config loaded: \u001b[35m~/workspace/teaching_ml/_config.yml\u001b[39m","time":"2016-12-01T11:55:05.739Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Script loaded: \u001b[35mthemes/landscape/scripts/fancybox.js\u001b[39m","time":"2016-12-01T11:55:05.755Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-deployer-git\u001b[39m","time":"2016-12-01T11:55:05.757Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-asset-image\u001b[39m","time":"2016-12-01T11:55:05.859Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-generator-archive\u001b[39m","time":"2016-12-01T11:55:05.862Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-generator-category\u001b[39m","time":"2016-12-01T11:55:05.865Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-generator-tag\u001b[39m","time":"2016-12-01T11:55:05.867Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-renderer-ejs\u001b[39m","time":"2016-12-01T11:55:05.869Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-renderer-marked\u001b[39m","time":"2016-12-01T11:55:05.874Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-renderer-org\u001b[39m","time":"2016-12-01T11:55:05.990Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-renderer-stylus\u001b[39m","time":"2016-12-01T11:55:05.991Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-server\u001b[39m","time":"2016-12-01T11:55:06.053Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Loading database.","time":"2016-12-01T11:55:06.062Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":30,"msg":"Start processing","time":"2016-12-01T11:55:06.227Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35mindex.md\u001b[39m","time":"2016-12-01T11:55:06.293Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/FactorAnalysis.md\u001b[39m","time":"2016-12-01T11:55:06.341Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/TF-1-style.md\u001b[39m","time":"2016-12-01T11:55:06.341Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/TF-2-basics.md\u001b[39m","time":"2016-12-01T11:55:06.341Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/TF-3-graph.md\u001b[39m","time":"2016-12-01T11:55:06.341Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/TF-4-summary.md\u001b[39m","time":"2016-12-01T11:55:06.341Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/TF-5-ann.md\u001b[39m","time":"2016-12-01T11:55:06.341Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/TF-6-autoencoder.md\u001b[39m","time":"2016-12-01T11:55:06.342Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/TF-7-cnn.md\u001b[39m","time":"2016-12-01T11:55:06.342Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/TF-8-rnn.md\u001b[39m","time":"2016-12-01T11:55:06.342Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/TF-9-distributed.md\u001b[39m","time":"2016-12-01T11:55:06.342Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/TF-Introduction.md\u001b[39m","time":"2016-12-01T11:55:06.342Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/howto.md\u001b[39m","time":"2016-12-01T11:55:06.342Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/mxnet.org\u001b[39m","time":"2016-12-01T11:55:06.342Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/svm.org\u001b[39m","time":"2016-12-01T11:55:06.342Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Theme config loaded.","time":"2016-12-01T11:55:06.528Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/associations/关联规则挖掘基础篇.md\u001b[39m","time":"2016-12-01T11:55:06.536Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/deeplearning/TF-Learn.ipynb\u001b[39m","time":"2016-12-01T11:55:06.536Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/deeplearning/TF-Learn.md\u001b[39m","time":"2016-12-01T11:55:06.536Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_config.yml\u001b[39m","time":"2016-12-01T11:55:06.539Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/mxnet/arch.png\u001b[39m","time":"2016-12-01T11:55:06.539Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35msource/css/style.styl\u001b[39m","time":"2016-12-01T11:55:06.539Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/mxnet/back_graph.png\u001b[39m","time":"2016-12-01T11:55:06.541Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35msource/fancybox/blank.gif\u001b[39m","time":"2016-12-01T11:55:06.541Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/mxnet/perf.png\u001b[39m","time":"2016-12-01T11:55:06.542Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35msource/fancybox/fancybox_loading.gif\u001b[39m","time":"2016-12-01T11:55:06.543Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/svm/code.png\u001b[39m","time":"2016-12-01T11:55:06.545Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35msource/fancybox/fancybox_loading@2x.gif\u001b[39m","time":"2016-12-01T11:55:06.546Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/svm/codeblack.png\u001b[39m","time":"2016-12-01T11:55:06.547Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35msource/fancybox/fancybox_overlay.png\u001b[39m","time":"2016-12-01T11:55:06.548Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/svm/codewhite.png\u001b[39m","time":"2016-12-01T11:55:06.549Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35msource/fancybox/fancybox_sprite.png\u001b[39m","time":"2016-12-01T11:55:06.549Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/svm/perf.eps\u001b[39m","time":"2016-12-01T11:55:06.551Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35msource/fancybox/fancybox_sprite@2x.png\u001b[39m","time":"2016-12-01T11:55:06.551Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/svm/rdd.png\u001b[39m","time":"2016-12-01T11:55:06.554Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35msource/fancybox/jquery.fancybox.css\u001b[39m","time":"2016-12-01T11:55:06.555Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/svm/spark.png\u001b[39m","time":"2016-12-01T11:55:06.556Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35msource/fancybox/jquery.fancybox.js\u001b[39m","time":"2016-12-01T11:55:06.556Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/svm/ste1.eps\u001b[39m","time":"2016-12-01T11:55:06.557Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35msource/fancybox/jquery.fancybox.pack.js\u001b[39m","time":"2016-12-01T11:55:06.557Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/svm/step.eps\u001b[39m","time":"2016-12-01T11:55:06.558Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/svm/step1.eps\u001b[39m","time":"2016-12-01T11:55:06.561Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/svm/step2.png\u001b[39m","time":"2016-12-01T11:55:06.563Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/svm/tree.png\u001b[39m","time":"2016-12-01T11:55:06.564Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/svm/step2.eps\u001b[39m","time":"2016-12-01T11:55:06.565Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/svm/2d_circle.png\u001b[39m","time":"2016-12-01T11:55:06.629Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35msource/js/script.js\u001b[39m","time":"2016-12-01T11:55:06.629Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/svm/2d_linear.png\u001b[39m","time":"2016-12-01T11:55:06.629Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/svm/2dcircle_2.png\u001b[39m","time":"2016-12-01T11:55:06.630Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/svm/perf.png\u001b[39m","time":"2016-12-01T11:55:06.631Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/svm/step.png\u001b[39m","time":"2016-12-01T11:55:06.633Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/svm/step1.png\u001b[39m","time":"2016-12-01T11:55:06.633Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/svm/svm.png\u001b[39m","time":"2016-12-01T11:55:06.634Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35mlayout/archive.ejs\u001b[39m","time":"2016-12-01T11:55:06.656Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35mlayout/category.ejs\u001b[39m","time":"2016-12-01T11:55:06.656Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35mlayout/index.ejs\u001b[39m","time":"2016-12-01T11:55:06.656Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35mlayout/layout.ejs\u001b[39m","time":"2016-12-01T11:55:06.657Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35mlayout/page.ejs\u001b[39m","time":"2016-12-01T11:55:06.657Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35mlayout/post.ejs\u001b[39m","time":"2016-12-01T11:55:06.657Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35mlayout/tag.ejs\u001b[39m","time":"2016-12-01T11:55:06.657Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/deeplearning/chapters/1-style.ipynb\u001b[39m","time":"2016-12-01T11:55:06.778Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/deeplearning/chapters/1-style.md\u001b[39m","time":"2016-12-01T11:55:06.778Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/deeplearning/chapters/2-basics.ipynb\u001b[39m","time":"2016-12-01T11:55:06.778Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/deeplearning/chapters/2-basics.md\u001b[39m","time":"2016-12-01T11:55:06.778Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/deeplearning/chapters/3-graph.ipynb\u001b[39m","time":"2016-12-01T11:55:06.778Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/deeplearning/chapters/3-graph.md\u001b[39m","time":"2016-12-01T11:55:06.778Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/deeplearning/chapters/4-summary.ipynb\u001b[39m","time":"2016-12-01T11:55:06.778Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/deeplearning/chapters/4-summary.md\u001b[39m","time":"2016-12-01T11:55:06.778Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/deeplearning/chapters/5-ann.ipynb\u001b[39m","time":"2016-12-01T11:55:06.778Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/deeplearning/chapters/5-ann.md\u001b[39m","time":"2016-12-01T11:55:06.778Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/deeplearning/chapters/6-autoencoder.ipynb\u001b[39m","time":"2016-12-01T11:55:06.779Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/deeplearning/chapters/6-autoencoder.md\u001b[39m","time":"2016-12-01T11:55:06.779Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/deeplearning/chapters/7-cnn.ipynb\u001b[39m","time":"2016-12-01T11:55:06.779Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/deeplearning/chapters/7-cnn.md\u001b[39m","time":"2016-12-01T11:55:06.779Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/deeplearning/chapters/8-rnn.ipynb\u001b[39m","time":"2016-12-01T11:55:06.779Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/deeplearning/chapters/8-rnn.md\u001b[39m","time":"2016-12-01T11:55:06.779Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/deeplearning/chapters/9-distributed.ipynb\u001b[39m","time":"2016-12-01T11:55:06.779Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/deeplearning/chapters/9-distributed.md\u001b[39m","time":"2016-12-01T11:55:06.779Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35mlanguages/default.yml\u001b[39m","time":"2016-12-01T11:55:06.779Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35mlanguages/fr.yml\u001b[39m","time":"2016-12-01T11:55:06.779Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35mlanguages/nl.yml\u001b[39m","time":"2016-12-01T11:55:06.779Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35mlanguages/no.yml\u001b[39m","time":"2016-12-01T11:55:06.779Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35mlanguages/ru.yml\u001b[39m","time":"2016-12-01T11:55:06.779Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35mlanguages/zh-CN.yml\u001b[39m","time":"2016-12-01T11:55:06.779Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35mlanguages/zh-TW.yml\u001b[39m","time":"2016-12-01T11:55:06.779Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/associations/关联规则挖掘基础篇/Hash Tree.png\u001b[39m","time":"2016-12-01T11:55:06.780Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35msource/css/fonts/FontAwesome.otf\u001b[39m","time":"2016-12-01T11:55:06.781Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/associations/关联规则挖掘基础篇/db.jpg\u001b[39m","time":"2016-12-01T11:55:06.783Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35msource/css/fonts/fontawesome-webfont.eot\u001b[39m","time":"2016-12-01T11:55:06.784Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/associations/关联规则挖掘基础篇/fparray.png\u001b[39m","time":"2016-12-01T11:55:06.785Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35msource/css/fonts/fontawesome-webfont.woff\u001b[39m","time":"2016-12-01T11:55:06.785Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/associations/关联规则挖掘基础篇/headertable.jpg\u001b[39m","time":"2016-12-01T11:55:06.787Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35msource/fancybox/helpers/fancybox_buttons.png\u001b[39m","time":"2016-12-01T11:55:06.788Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/associations/关联规则挖掘基础篇/pfp.png\u001b[39m","time":"2016-12-01T11:55:06.788Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35msource/fancybox/helpers/jquery.fancybox-buttons.css\u001b[39m","time":"2016-12-01T11:55:06.789Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/associations/关联规则挖掘基础篇/self_join.png\u001b[39m","time":"2016-12-01T11:55:06.790Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35msource/fancybox/helpers/jquery.fancybox-buttons.js\u001b[39m","time":"2016-12-01T11:55:06.791Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/associations/关联规则挖掘基础篇/subset_hash_tree.png\u001b[39m","time":"2016-12-01T11:55:06.792Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35msource/fancybox/helpers/jquery.fancybox-media.js\u001b[39m","time":"2016-12-01T11:55:06.792Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/associations/关联规则挖掘基础篇/yafim.png\u001b[39m","time":"2016-12-01T11:55:06.794Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35msource/fancybox/helpers/jquery.fancybox-thumbs.css\u001b[39m","time":"2016-12-01T11:55:06.794Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/associations/关联规则挖掘基础篇/yafim_1.png\u001b[39m","time":"2016-12-01T11:55:06.795Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35msource/fancybox/helpers/jquery.fancybox-thumbs.js\u001b[39m","time":"2016-12-01T11:55:06.795Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/svm/3d_ball_2.png\u001b[39m","time":"2016-12-01T11:55:06.796Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/svm/3d_linear_2.png\u001b[39m","time":"2016-12-01T11:55:06.796Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/associations/关联规则挖掘基础篇/apriori.jpg\u001b[39m","time":"2016-12-01T11:55:06.866Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35msource/css/fonts/fontawesome-webfont.ttf\u001b[39m","time":"2016-12-01T11:55:06.867Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/associations/关联规则挖掘基础篇/brute_force.png\u001b[39m","time":"2016-12-01T11:55:06.868Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/associations/关联规则挖掘基础篇/dhp_example.png\u001b[39m","time":"2016-12-01T11:55:06.869Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/associations/关联规则挖掘基础篇/fpgrowthmine.jpg\u001b[39m","time":"2016-12-01T11:55:06.870Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/associations/关联规则挖掘基础篇/fptree.png\u001b[39m","time":"2016-12-01T11:55:06.872Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/associations/关联规则挖掘基础篇/lattice.png\u001b[39m","time":"2016-12-01T11:55:06.872Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/associations/关联规则挖掘基础篇/pfp1.png\u001b[39m","time":"2016-12-01T11:55:06.874Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/associations/关联规则挖掘基础篇/apriori_prune.png\u001b[39m","time":"2016-12-01T11:55:06.875Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/svm/3d_ball.png\u001b[39m","time":"2016-12-01T11:55:06.876Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/svm/3d_ball_2.eps\u001b[39m","time":"2016-12-01T11:55:06.877Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/svm/3d_linear.png\u001b[39m","time":"2016-12-01T11:55:06.878Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35mlayout/_partial/archive-post.ejs\u001b[39m","time":"2016-12-01T11:55:06.889Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35mlayout/_partial/after-footer.ejs\u001b[39m","time":"2016-12-01T11:55:06.889Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35mlayout/_partial/archive.ejs\u001b[39m","time":"2016-12-01T11:55:06.889Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35mlayout/_partial/footer.ejs\u001b[39m","time":"2016-12-01T11:55:06.889Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35mlayout/_partial/article.ejs\u001b[39m","time":"2016-12-01T11:55:06.889Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35mlayout/_partial/google-analytics.ejs\u001b[39m","time":"2016-12-01T11:55:06.889Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35mlayout/_partial/head.ejs\u001b[39m","time":"2016-12-01T11:55:06.889Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35mlayout/_partial/header.ejs\u001b[39m","time":"2016-12-01T11:55:06.890Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35mlayout/_partial/mobile-nav.ejs\u001b[39m","time":"2016-12-01T11:55:06.890Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35mlayout/_partial/sidebar.ejs\u001b[39m","time":"2016-12-01T11:55:06.890Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35mlayout/_widget/archive.ejs\u001b[39m","time":"2016-12-01T11:55:06.890Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35mlayout/_widget/category.ejs\u001b[39m","time":"2016-12-01T11:55:06.890Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35mlayout/_widget/recent_posts.ejs\u001b[39m","time":"2016-12-01T11:55:06.890Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35mlayout/_widget/tag.ejs\u001b[39m","time":"2016-12-01T11:55:06.890Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35mlayout/_widget/tagcloud.ejs\u001b[39m","time":"2016-12-01T11:55:06.890Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/associations/关联规则挖掘基础篇/fparray1.png\u001b[39m","time":"2016-12-01T11:55:06.915Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35m_posts/associations/关联规则挖掘基础篇/market.jpg\u001b[39m","time":"2016-12-01T11:55:06.915Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35msource/css/fonts/fontawesome-webfont.svg\u001b[39m","time":"2016-12-01T11:55:06.917Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35msource/css/images/banner.jpg\u001b[39m","time":"2016-12-01T11:55:06.917Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35mlayout/_partial/post/category.ejs\u001b[39m","time":"2016-12-01T11:55:06.920Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35mlayout/_partial/post/date.ejs\u001b[39m","time":"2016-12-01T11:55:06.920Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35mlayout/_partial/post/gallery.ejs\u001b[39m","time":"2016-12-01T11:55:06.920Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35mlayout/_partial/post/nav.ejs\u001b[39m","time":"2016-12-01T11:55:06.920Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35mlayout/_partial/post/tag.ejs\u001b[39m","time":"2016-12-01T11:55:06.920Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Processed: \u001b[35mlayout/_partial/post/title.ejs\u001b[39m","time":"2016-12-01T11:55:06.920Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":60,"err":{"message":"(unknown path) [Line 15, Column 32]\n  expected variable end","name":"Template render error","stack":"Template render error: (unknown path) [Line 15, Column 32]\n  expected variable end\n    at Object.exports.prettifyError (/home/xiao/workspace/teaching_ml/node_modules/nunjucks/src/lib.js:34:15)\n    at Obj.extend.render (/home/xiao/workspace/teaching_ml/node_modules/nunjucks/src/environment.js:469:27)\n    at Obj.extend.renderString (/home/xiao/workspace/teaching_ml/node_modules/nunjucks/src/environment.js:327:21)\n    at /home/xiao/workspace/teaching_ml/node_modules/hexo/lib/extend/tag.js:66:9\n    at Promise._execute (/home/xiao/workspace/teaching_ml/node_modules/bluebird/js/release/debuggability.js:299:9)\n    at Promise._resolveFromExecutor (/home/xiao/workspace/teaching_ml/node_modules/bluebird/js/release/promise.js:481:18)\n    at new Promise (/home/xiao/workspace/teaching_ml/node_modules/bluebird/js/release/promise.js:77:14)\n    at Tag.render (/home/xiao/workspace/teaching_ml/node_modules/hexo/lib/extend/tag.js:64:10)\n    at Object.tagFilter [as onRenderEnd] (/home/xiao/workspace/teaching_ml/node_modules/hexo/lib/hexo/post.js:253:16)\n    at /home/xiao/workspace/teaching_ml/node_modules/hexo/lib/hexo/render.js:65:19\n    at tryCatcher (/home/xiao/workspace/teaching_ml/node_modules/bluebird/js/release/util.js:16:23)\n    at Promise._settlePromiseFromHandler (/home/xiao/workspace/teaching_ml/node_modules/bluebird/js/release/promise.js:510:31)\n    at Promise._settlePromise (/home/xiao/workspace/teaching_ml/node_modules/bluebird/js/release/promise.js:567:18)\n    at Promise._settlePromise0 (/home/xiao/workspace/teaching_ml/node_modules/bluebird/js/release/promise.js:612:10)\n    at Promise._settlePromises (/home/xiao/workspace/teaching_ml/node_modules/bluebird/js/release/promise.js:691:18)\n    at Async._drainQueue (/home/xiao/workspace/teaching_ml/node_modules/bluebird/js/release/async.js:138:16)\n    at Async._drainQueues (/home/xiao/workspace/teaching_ml/node_modules/bluebird/js/release/async.js:148:10)\n    at Immediate.Async.drainQueues [as _onImmediate] (/home/xiao/workspace/teaching_ml/node_modules/bluebird/js/release/async.js:17:14)\n    at processImmediate [as _immediateCallback] (timers.js:383:17)"},"msg":"Something's wrong. Maybe you can find the solution here: \u001b[4mhttp://hexo.io/docs/troubleshooting.html\u001b[24m","time":"2016-12-01T11:55:08.028Z","v":0}
+{"name":"hexo","hostname":"xiao-ThinkPad-T450","pid":2502,"level":20,"msg":"Database saved","time":"2016-12-01T11:55:08.387Z","v":0}
