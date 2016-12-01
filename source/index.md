@@ -29,7 +29,7 @@
 
 # 深度学习
 ## コースの周先生Tensorflow
-##### [Introduction](_posts/deeplearning/TFLearn.ipynb)
+#### [Introduction](_posts/deeplearning/TFLearn.ipynb)
 1. [Style](_posts/deeplearning/chapters/1-style.ipynb)
 2. [Basics](_posts/deeplearning/chapters/2-basics.ipynb)
 3. [Graph](_posts/deeplearning/chapters/3-graph.ipynb)
