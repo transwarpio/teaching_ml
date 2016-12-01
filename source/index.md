@@ -28,6 +28,18 @@
 16. 集成学习相关算法介绍
 
 # 深度学习
+## コースの周先生Tensorflow
+##### [Introduction](_posts/deeplearning/TFLearn.ipynb)
+1. [Style](_posts/deeplearning/chapters/1-style.ipynb)
+2. [Basics](_posts/deeplearning/chapters/2-basics.ipynb)
+3. [Graph](_posts/deeplearning/chapters/3-graph.ipynb)
+4. [Summary](_posts/deeplearning/chapters/4-summary.ipynb)
+5. [Artificial neural network](_posts/deeplearning/chapters/5-ann.ipynb)
+6. [Autoencoder](_posts/deeplearning/chapters/6-autoencoder.ipynb)
+7. [Convolution neural network](_posts/deeplearning/chapters/7-cnn.ipynb)
+8. [Recursive neural network](_posts/deeplearning/chapters/8-rnn.ipynb)
+9. [Distributed](_posts/deeplearning/chapters/9-distributed.ipynb)
+
 ## 已分享
 1. [MXNet框架从原理到代码](2016/07/05/mxnet)
 2. [深度信念网络在蛋白质突变检测中的应用](https://github.com/xzry6/notes/blob/master/transwarp/dbn.md)
