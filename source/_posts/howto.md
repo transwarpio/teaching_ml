@@ -19,10 +19,12 @@ tags:
     ```
 `npm install`会安装teaching\_ml/package.json中的包。
 
+##### 你可能需要在/usr/lib/中安装emacs, 在linux下使用`sudo apt-get install emacs`进行安装。
+
 # 写作
 `hexo new post [title]`会在`source/_posts/`下建立`[title].md`文件，然后你就可以开始写作了
 markdown的具体语法可以参考：[master markdown](https://guides.github.com/features/mastering-markdown/)
-  
+
 ## 图片
 对于资源文件比如图片，在`source/_posts/`文件夹下创建与文章同名的子文件夹。比如`source/_posts/doc.md` ，则有 `source/_posts/doc`文件夹。
 然后在文章中引用时使用相对路径。比如`source/_posts/doc/pic.jpg`。
@@ -35,6 +37,15 @@ markdown的具体语法可以参考：[master markdown](https://guides.github.co
 $$
 y = x + b
 $$ 
+
+## 错误
+由于hexo中'{{'以及'}}'被reserve, `hexo server|generate`的时候如果source/_posts文档中有相关字符将会报错。
+如果'{{'和'}}'不可避免, 请使用'{% raw %}'圈起有歧义的段落, 如下。
+```
+{% raw %}
+$\large \sigma(z) = {1 \over 1 + e^{-z}}$,
+{% raw %}
+```
 
 # 部署
 当你写完后，可以使用`hexo server`命令在本地查看效果。
