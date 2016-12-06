@@ -8,44 +8,28 @@ tags:
 [Next Chapter: Summary and Tensorboard](../TF-4-summary)
 
 ## Graph
-
-A *Graph* in Tensorflow represents complicated computation dataflow consisting of *Tensors*.<br>
-
-A *Tensor* is a basic data structure in *Tensorflow*. There are several features of a *Tensor*.
-- Represents one of outputs of an *Operation*;
-- As a symbolic handle to one of the outputs of an *Operation*, *Tensor* provides a mean of computing the outputs in *Tensor*flow session instead of hold the real value;
-- A *Tensor* could also be fed as an input to another *Operation*, that enables Tensorflow to build a multi-step, complicated computation which is called a *Graph*;
-- After the *Graph* has been launched to a *Session*, the value of the *Tensor* can be computed by passing it to `Session.run()`;
-
-
+A **Graph** in Tensorflow represents complicated computation dataflow consisting of **Tensors**.<br>
+A **Tensor** is a basic data structure in **Tensorflow**. There are several features of a **Tensor**.
+- Represents one of outputs of an **Operation**;
+- As a symbolic handle to one of the outputs of an **Operation**, **Tensor** provides a mean of computing the outputs in **Tensorflow** session instead of hold the real value;
+- A **Tensor** could also be fed as an input to another **Operation**, that enables Tensorflow to build a multi-step, complicated computation which is called a **Graph**;
+- After the **Graph** has been launched to a **Session**, the value of the **Tensor** can be computed by passing it to `Session.run()`;
 
 ### Exercise: Build a Softmax Regression in Tensorflow
 
 #### Logistic Regression
 
-*Logistic Regression* applies a sigmoid function on linear combination to break the constant gradient.
-As ranging between 0 and 1, sigmoid function is widely used in *Neural Network* for neural activation.
+**Logistic Regression** applies a sigmoid function on linear combination to break the constant gradient. As ranging between 0 and 1, sigmoid function is widely used in **Neural Network** for neural activation.
 
-A sigmoid function is defined as
-{% raw %}
-$\large \sigma(z) = {1 \over 1 + e^{-z}}$,
-where
-$\normalsize z = x^T * w + b$.
-{% raw %}
+A sigmoid function is defined as {% raw %} $\normalsize \sigma(z) = {1 \over 1 + e^{-z}}$, where $\normalsize z = x^T * w + b$. {% endraw %}
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Logistic-curve.svg/2000px-Logistic-curve.svg.png" width="300" align="left"/>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Logistic-curve.svg/2000px-Logistic-curve.svg.png" width="300" align="center"/>
 
 #### Softmax Regression
 
-*Logistic Regression* could properly deal with 2-class classification problem. While in machine-learned neural networks, *Softmax Regression* is more common used because of the capability of multiple-class classfiction. Generally, *Softmax Regression* is a special case of *Logistic Regression* and is designed for filling the vacancy on its disadvantages.
+**Logistic Regression** could properly deal with 2-class classification problem. While in machine-learned neural networks, **Softmax Regression** is more common used because of the capability of multiple-class classfiction. Generally, **Softmax Regression** is a special case of **Logistic Regression** and is designed for filling the vacancy on its disadvantages.
 
-A Softmax function is defined as:
-
-{% raw %}
-$
-\sigma(z)_j = \Large {{e^{z_j} \over \Sigma^k_{k=1} e^{z_k}}}
-$
-{% raw %}
+A Softmax function is defined as: {% raw %} $\sigma(z)_j = \Large {{e^{z_j} \over \Sigma^k_{k=1} e^{z_k}}}$ {% endraw %}
 
 The largest $\sigma(z)_j$ is then chosen as the predicted class.
 
@@ -54,22 +38,19 @@ The largest $\sigma(z)_j$ is then chosen as the predicted class.
 Let's do some simple mathmatics.
 
 When k = 2,
-
 {% raw %}
 $
 \begin{align*} 
 \sigma(z)
 &= \normalsize{{1 \over e^{z_1} + e^{z_2}} \begin{bmatrix} e^{z_1} \\ e^{z_2} \end{bmatrix}} \\
 &= \large\begin{bmatrix} {1 \over 1 + e^{(z_2 - z_1)}} \\ {1 \over 1 + e^{(z_1 - z_2)}}\end{bmatrix} \\
-&= \large\begin{bmatrix} {1 \over 1 + e^{(z_2 - z_1)}} \\ 1 - {1 \over 1 + e^{(z_2 - z_1)}}\end{bmatrix}
+&= \large\begin{bmatrix} {1 \over 1 + e^{(z_2 - z_1)}} \\ \normalsize 1 - {1 \over 1 + e^{(z_2 - z_1)}}\end{bmatrix}
 \end{align*}
 $
-{% raw %}
+{% endraw %}
+<br>
 
-
-{% raw %}
 Assume $Z = z_1 - z_2$, one of the $\sigma(z_1) = \large{1 \over 1 + e^{-Z}}$ while the other one $\sigma(z_1) = 1 - \large{1 \over 1 + e^{-Z}}$, which proves the function is consitent with *Logistic Regression*.
-{% raw %}
 
 ##### Now try to build a Softmax Regression in Tensorflow yourself. See [*Linear Regression sample*](../TF-Learn.ipynb#samplecode) for reference.
 
