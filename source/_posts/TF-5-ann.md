@@ -53,15 +53,10 @@ Following note of *Neural Network* is quoted from [here](https://github.com/xzry
 #### 激活函数
 当前一层神经元和对应权重进行组合后，我们可以直接把得到的值当作当前单元的激活函数，可是由于是简单的线性函数，所以容易造成值过大和过小的两极化分布。为此，研究者们引入了一些**激活函数**来改善分布，更好地*激活*神经元。
 
-{% raw %}
-- Sigmoid: $\sigma(z) = \large{1 \over 1 + e^{-z}}$
-{% endraw %}
+- {% raw %}Sigmoid: $\sigma(z) = \large{1 \over 1 + e^{-z}}${% endraw %}
 
 
-{% raw %}
-- Tanh: $\sigma(z) = \large{sinh(z) \over cosh(z)} = {{e^z - e^{-z}} \over {e^z + e^{-z}}}$
-{% endraw %}
-
+- {% raw %}Tanh: $\sigma(z) = \large{sinh(z) \over cosh(z)} = {{e^z - e^{-z}} \over {e^z + e^{-z}}}${% endraw %}
 
 - ReLU: $\sigma(z) = max(0, z)$
 
@@ -73,7 +68,11 @@ sigmoid和tanh由于有各自的区间（sigmoid: (0, 1)，tanh: (-1, 1)），�
 <img src="http://i.stack.imgur.com/H1KsG.png" width="440">
 
 - {% raw %}输出层的error就是分类器的error: $\delta_i^n = \sigma_i^n - y_i${% endraw %}
+
+
 - {% raw %}前一层的error由后一层的error产生: $\delta_i^n = \Sigma_j w_{ij}^{n+1} \delta_j^{n+1}${% endraw %}
+
+
 - {% raw %}更新权重使用梯度下降: $\Delta w_{ij} = -\gamma \sigma_i^n \delta_j^{n+1}${% endraw %}
 
 ### Exercise: Neural Network
