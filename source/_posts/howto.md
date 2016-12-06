@@ -44,7 +44,7 @@ $$
 ```
 {% raw %}
 $\large \sigma(z) = {1 \over 1 + e^{-z}}$,
-{% raw %}
+{% endraw %}
 ```
 
 # 部署
