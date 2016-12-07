@@ -110,6 +110,7 @@ In general, the proportion of total sample variance(after standardization) due t
 
 **1) Joint distribution:**
 
+{% raw %}
 $$
 \begin{bmatrix}
  f\\
@@ -122,6 +123,7 @@ $$
  L & LL' + \psi
  \end{bmatrix}
  \end{pmatrix}$$
+{% endraw %}
  
 **2) Marginal distribution:**
 $$x \sim N(\mu, LL'+\psi)$$
