@@ -40,7 +40,7 @@ $$X = LF+\mu + \epsilon$$
 
 $$X- \mu = L_{p \times m}F_{m \times 1} + \epsilon_{p \times 1}$$
 
-where $L = (l_{ij})_{p \times m}$ is the matrix of **factor loading**（因子载荷）, $l_{ij}$ is the loading of variable $i$ on factor $j$, $\epsilon = (\epsilon_1, . . . , \epsilon_p)′$, $\epsilon_i$ are called errors or **specific factors**（特殊因子）.
+where {% raw %}$L = (l_{ij})_{p \times m}${% endraw %} is the matrix of **factor loading**（因子载荷）, $l_{ij}$ is the loading of variable $i$ on factor $j$, $\epsilon = (\epsilon_1, . . . , \epsilon_p)′$, $\epsilon_i$ are called errors or **specific factors**（特殊因子）.
 - **Assume**: 
 
 $$E(F) = 0, cov(F) = I_m, $$
