@@ -154,7 +154,7 @@ $$l(\mu, L, \psi) = log \prod_{i=1}^n \frac{1}{(2 \pi)^{p/2}|LL'+\psi|} exp \lef
 
 ![psi est](http://images.cnblogs.com/cnblogs_com/jerrylead/201105/201105111558484749.jpg)
 
-$\psi = diag(\Phi)$
+$$\psi = diag(\Phi)$$
 
 Get more detail on [【机器学习-斯坦福】因子分析（Factor Analysis） ](http://blog.csdn.net/littleqqqqq/article/details/50899717)
 
