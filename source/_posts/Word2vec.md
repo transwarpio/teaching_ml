@@ -36,7 +36,7 @@ tags:
   - 若count(w k-n+1 ,w k-n+2 ,...,w k-1 )=count(w k-n+1 ,w k-n+2 ,...,w k ),能否认为
 p(w k |w 1 ,w 2 ...w k-1 )=1?
 ### 神经概率语言模型
-[file:Word2vec/1.png]
+![alt text](Word2vec/1.png)
 
 
 
