@@ -73,6 +73,14 @@ Quiz：CBOW模型和神经概率语言模型相比,结构有什么区别?
 
 ![alt text](Word2vec/4.png)
 
+将Huffman编码为1的结点定义为负类,将编码为0的结点定义为正类,即
+
+![alt text](Word2vec/5.png)
+
+易知,一个结点被分为正类的概率是![alt text](Word2vec/6.png),被分为负类的概率是![alt text](Word2vec/7.png)
+
+对于从根结点出发到“足球”叶子结点的4次二分类,每次分类结果的概率是
+
 
 
 
