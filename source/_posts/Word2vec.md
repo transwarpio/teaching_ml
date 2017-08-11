@@ -61,5 +61,16 @@ p(w k |w 1 ,w 2 ...w k-1 )=1?
   整个模型的大部分计算集中在隐藏层和输出层的矩阵向量计算以及输出层中
   的softmax归一化!
 ### 基于Hierarchical Softmax的CBOW模型
++ 输入层:包含Context(w)中2c个词的词向量
++ 投影层:将输入层中2c个词向量求和累加
++ 输出层:是一棵二叉树,由词典中的词作为叶子节点,以各词在语料中出现的次数作为权值,构建出来的一棵Huffman树
+
+![alt text](Word2vec/3.png)
+
+Quiz：CBOW模型和神经概率语言模型相比,结构有什么区别?
+
+![alt text](Word2vec/4.png)
+
+
 
 
