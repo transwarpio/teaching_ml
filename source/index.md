@@ -44,7 +44,7 @@
 ## 已分享
 1. [MXNet框架从原理到代码](2016/07/05/mxnet)
 2. [深度信念网络在蛋白质突变检测中的应用](https://github.com/xzry6/notes/blob/master/transwarp/dbn.md)
-3. [Word2Vec](https://github.com/transwarpio/teaching_ml/blob/master/source/_posts/Word2Vec.md)
+3. [Word2Vec](https://github.com/transwarpio/teaching_ml/blob/master/source/_posts/Word2vec.md)
 ## 将分享
 1. tensor,conv,pooling
 2. Word2Vec
