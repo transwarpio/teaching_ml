@@ -13,7 +13,7 @@
 7. [KMeans](https://github.com/endymecy/spark-ml-source-analysis/blob/master/%E8%81%9A%E7%B1%BB/k-means/k-means.md)
 8. [PIC](https://github.com/endymecy/spark-ml-source-analysis/blob/master/%E8%81%9A%E7%B1%BB/PIC/pic.md)
 9. [Factor Analysis](2016/12/01/FactorAnalysis)
-
+10. [test](2016/08/09/test)
 ## 将分享
 5. Logistic Regression
 6. Decision Tree
