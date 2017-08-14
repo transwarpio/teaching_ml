@@ -82,8 +82,38 @@ Quiz：CBOW模型和神经概率语言模型相比,结构有什么区别?
 对于从根结点出发到“足球”叶子结点的4次二分类,每次分类结果的概率是
 
 ![alt text](Word2vec/8.png)
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
-根据 \\( p(w|Context(w)=\prod_{j=2}^{l^{w}} p(d_{j}^{w}|x_{w},\theta_{j-1}^{w}) \\)
+
+根据  ![alt text](Word2vec/9.png)
+
+其中，![alt text](Word2vec/10.png)  
+
+由于  ![alt text](Word2vec/11.png) 
+
+![alt text](Word2vec/12.png)
+
+![alt text](Word2vec/13.png)
+
+![alt text](Word2vec/14.png)
+
+### 基于Negative Sampling的Skip-gram模型
+
++ 与Hierarchical Softmax相比,Negative Sampling不再使用复杂的Huffman树,而是利用随
+机负采样,来提高训练速度并改善所得词向量的质量。
+
+![alt text](Word2vec/15.png)
+
+![alt text](Word2vec/16.png)
+
+![alt text](Word2vec/17.png)
+
+![alt text](Word2vec/18.png)
+
+![alt text](Word2vec/19.png)
+
+## Word2Vec效果展示
+
+![alt text](Word2vec/20.png)
+
 
 
 
