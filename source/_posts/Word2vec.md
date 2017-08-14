@@ -82,8 +82,8 @@ Quiz：CBOW模型和神经概率语言模型相比,结构有什么区别?
 对于从根结点出发到“足球”叶子结点的4次二分类,每次分类结果的概率是
 
 ![alt text](Word2vec/8.png)
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+根据 \\( p(w|Context(w)=\prod_{j=2}^{l^{w}} p(d_{j}^{w}|x_{w},\theta_{j-1}^{w}) \\)
 
-根据 p(w|Context(w)=\prod_{j=2}^{l^{w}} p(d_{j}^{w}|x_{w},\theta_{j-1}^{w})
-<img src="http://www.forkosh.com/mathtex.cgi? p(w|Context(w)=\prod_{j=2}^{l^{w}} p(d_{j}^{w}|x_{w},\theta_{j-1}^{w})">
 
 
