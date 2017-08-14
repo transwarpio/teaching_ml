@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>TF-2-basics | Teaching ML</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Previous Chapter: Style GuideNext Chapter: Graph Basic ConcptsFollowing part is quoted from Tensorflow 2015 White Paper. A TensorFlow computation is described by a directed graph, which is composed of">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TF-2-basics">
+<meta property="og:url" content="http://transwarpio.github.io/2016/12/01/TF-2-basics/index.html">
+<meta property="og:site_name" content="Teaching ML">
+<meta property="og:description" content="Previous Chapter: Style GuideNext Chapter: Graph Basic ConcptsFollowing part is quoted from Tensorflow 2015 White Paper. A TensorFlow computation is described by a directed graph, which is composed of">
+<meta property="og:image" content="https://raw.githubusercontent.com/stdcoutzyx/Blogs/master/blogs2016/imgs_tensorflow/3.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/stdcoutzyx/Blogs/master/blogs2016/imgs_tensorflow/2.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/stdcoutzyx/Blogs/master/blogs2016/imgs_tensorflow/1.png">
+<meta property="og:updated_time" content="2017-08-09T08:31:23.097Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TF-2-basics">
+<meta name="twitter:description" content="Previous Chapter: Style GuideNext Chapter: Graph Basic ConcptsFollowing part is quoted from Tensorflow 2015 White Paper. A TensorFlow computation is described by a directed graph, which is composed of">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/stdcoutzyx/Blogs/master/blogs2016/imgs_tensorflow/3.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Teaching ML" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/teaching_ml/css/style.css">
+  
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/teaching_ml/" id="logo">Teaching ML</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/teaching_ml/">Home</a>
+        
+          <a class="main-nav-link" href="/teaching_ml/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://transwarpio.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-TF-2-basics" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/teaching_ml/2016/12/01/TF-2-basics/" class="article-date">
+  <time datetime="2016-12-01T11:19:30.000Z" itemprop="datePublished">2016-12-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      TF-2-basics
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="../TF-1-style">Previous Chapter: Style Guide</a><br><a href="../TF-3-graph">Next Chapter: Graph</a></p>
+<h2 id="Basic-Concpts"><a href="#Basic-Concpts" class="headerlink" title="Basic Concpts"></a>Basic Concpts</h2><p>Following part is quoted from <a href="http://download.tensorflow.org/paper/whitepaper2015.pdf" target="_blank" rel="external">Tensorflow 2015 White Paper</a>.</p>
+<p><span style="color: #F08080">A <strong>TensorFlow computation</strong> is described by a <strong>directed graph</strong>, which is composed of a set of nodes</span>. The <em>graph</em> represents a dataflow computation, with extensions for allowing some kinds of nodes to maintain and update persistent state and for branching and looping control structures within the graph. Clients typically construct a computational graph using one of the supported frontend languages (C++ or<br>Python).</p>
+<p><img src="https://raw.githubusercontent.com/stdcoutzyx/Blogs/master/blogs2016/imgs_tensorflow/3.png" width="200"><br><img src="https://raw.githubusercontent.com/stdcoutzyx/Blogs/master/blogs2016/imgs_tensorflow/2.png" width="800"></p>
+<p>In a <em>TensorFlow graph</em>, <span style="color: #F08080">each <strong>node</strong> represents the instantiation of an <strong>operation</strong>, and has zero or more inputs and zero or more outputs</span>. <span style="color: #F08080">Values that flow along normal edges in the graph (from outputs to inputs) are <strong>tensors</strong></span>, arbitrary dimensionality arrays where the underlying element type is specified or inferred at graph-construction time.</p>
+<h3 id="Tensors"><a href="#Tensors" class="headerlink" title="Tensors"></a>Tensors</h3><p><span style="color: #F08080">A tensor is a typed, multidimensional array</span>. Tensorflow support a variety of tensor element types, including signed and unsigned integers ranging in size from 8 bits to 64 bits, IEEE float and double types, a complex number type, and a string type (an arbitrary byte array). Backing store of the appropriate size is managed by an allocator that is specific to the device on which the tensor resides. Tensor backing store buffers are reference counted and are deallocated when no references remain.</p>
+<h3 id="Variables"><a href="#Variables" class="headerlink" title="Variables"></a>Variables</h3><p>In most computations a graph is executed multiple times. Most <strong>tensors</strong> do not survive past a single execution of the graph. However, <span style="color: #F08080">a <strong>Variable</strong> is a special kind of operation that returns a handle to a persistent mutable tensor that survives across executions of a graph</span>. Handles to these persistent mutable tensors can be passed to a handful of special operations, such as Assign and AssignAdd (equivalent to +=) that mutate the referenced tensor.</p>
+<h3 id="Operations-Ops"><a href="#Operations-Ops" class="headerlink" title="Operations(Ops)"></a>Operations(Ops)</h3><p><span style="color: #F08080">An <strong>operation</strong> has a name and represents an abstract computation (see the following table)</span>. An operation can have attributes, and all attributes must be provided or inferred at graph-construction time in order to instantiate a node to perform the operation.<br><span style="color: #F08080">A <strong>kernel</strong> is a particular implementation of an operation that can be run on a particular type of device (e.g., CPU or GPU)</span>.</p>
+<p><img src="https://raw.githubusercontent.com/stdcoutzyx/Blogs/master/blogs2016/imgs_tensorflow/1.png" width="800"></p>
+<h3 id="Sessions"><a href="#Sessions" class="headerlink" title="Sessions"></a>Sessions</h3><p><span style="color: #F08080">Clients programs interact with the TensorFlow system by creating a <strong>Session</strong></span>.</p>
+<p><strong>Session Run</strong>, which takes a set of output names that need to be computed, as well as an optional set of tensors to be fed into the graph in place of certain outputs of nodes. Using the arguments to Run, the TensorFlow implementation can compute the transitive closure of all nodes that must be executed in order to compute the outputs that were requested, and can then arrange to execute the appropriate nodes in an order that respects their dependencies. <span style="color: #F08080">Most of our uses of TensorFlow set up a Session with a graph once, and then execute the full graph or a few distinct subgraphs thousands or millions of times via <strong>Run</strong> calls.</span></p>
+<h3 id="Single-Device-Execution"><a href="#Single-Device-Execution" class="headerlink" title="Single Device Execution"></a>Single Device Execution</h3><p>Let&#x2019;s first consider the simplest execution scenario: a single worker process with a single device. The nodes of the graph are executed in an order that respects the dependencies between nodes. In particular, <span style="color: #F08080">Tensorflow keeps track of a count per node of the number of dependencies of that node that have not yet been executed. Once this count drops to zero, the node is eligible for execution and is added to a ready queue</span>. The ready queue is processed in some unspecified order, delegating execution of the kernel for a node to the device object. When a node has finished executing, the counts of all nodes that depend on the completed node are decremented.</p>
+<h3 id="Exercise-Basic-Concepts"><a href="#Exercise-Basic-Concepts" class="headerlink" title="Exercise: Basic Concepts"></a>Exercise: Basic Concepts</h3><p>Read the below <strong>Tensorflow API</strong> carefully and finish the exerceses.</p>
+<h5 id="tf-Session-run-fetches-feed-dict-None-options-None-run-metadata-None"><a href="#tf-Session-run-fetches-feed-dict-None-options-None-run-metadata-None" class="headerlink" title="tf.Session.run(fetches, feed_dict=None, options=None, run_metadata=None)"></a>tf.Session.run(fetches, feed_dict=None, options=None, run_metadata=None)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">Runs operations and evaluates tensors in fetches.</div><div class="line"></div><div class="line">The fetches argument can be one of the following types:</div><div class="line">- An Operation;</div><div class="line">- A Tensor;</div><div class="line">- A SparseTensor;</div><div class="line">- A get_tensor_handle op;</div><div class="line">- A string which is the name of a tensor or operation in graph;</div><div class="line"></div><div class="line">Returns</div><div class="line">- A single value if fetches is a single graph element;</div><div class="line">- A list of values if fetches is a list;</div><div class="line">- A dictionary with the same keys;</div></pre></td></tr></table></figure>
+<h5 id="tf-constant-value-dtype-None-shape-None-name-&#x2019;Const&#x2019;"><a href="#tf-constant-value-dtype-None-shape-None-name-&#x2019;Const&#x2019;" class="headerlink" title="tf.constant(value, dtype=None, shape=None, name=&#x2019;Const&#x2019;)"></a>tf.constant(value, dtype=None, shape=None, name=&#x2019;Const&#x2019;)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Creates a constant tensor.</div><div class="line"></div><div class="line">The argument value can be</div><div class="line">- A constant value;</div><div class="line">- A list of values of type dtype; </div><div class="line"></div><div class="line">The resulting tensor is populated with values of type dtype.</div></pre></td></tr></table></figure>
+<h5 id="tf-placeholder-dtype-shape-None-name-None"><a href="#tf-placeholder-dtype-shape-None-name-None" class="headerlink" title="tf.placeholder(dtype, shape=None, name=None)"></a>tf.placeholder(dtype, shape=None, name=None)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Inserts a placeholder for a tensor that will be always fed.</div><div class="line"></div><div class="line">Important: This tensor will produce an error if evaluated.</div><div class="line">Its value must be fed using the feed_dict optional argument</div><div class="line">to Session.run(), Tensor.eval(), or Operation.run().</div></pre></td></tr></table></figure>
+<h5 id="tf-matmul-a-b-transpose-a-False-transpose-b-False-a-is-sparse-False-b-is-sparse-False-name-None"><a href="#tf-matmul-a-b-transpose-a-False-transpose-b-False-a-is-sparse-False-b-is-sparse-False-name-None" class="headerlink" title="tf.matmul(a, b, transpose_a=False, transpose_b=False, a_is_sparse=False, b_is_sparse=False, name=None)"></a>tf.matmul(a, b, transpose_a=False, transpose_b=False, a_is_sparse=False, b_is_sparse=False, name=None)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">Multiplies matrix a by matrix b, producing a * b.</div><div class="line"></div><div class="line">The inputs must be</div><div class="line">- Two-dimensional matching matrices;</div><div class="line">- Both matrices must be of the same type</div><div class="line">  (float32, float64, int32, complex64)</div><div class="line"></div><div class="line">Either matrix can be transposed on the fly by setting the</div><div class="line">corresponding flag to True.</div><div class="line"></div><div class="line">If one or both of the matrices contain a lot of zeros, please</div><div class="line">set the corresponding a_is_sparse or b_is_sparse flag to True.</div></pre></td></tr></table></figure>
+<h4 id="Prepare-for-Coding"><a href="#Prepare-for-Coding" class="headerlink" title="Prepare for Coding"></a>Prepare for Coding</h4><p>At first, let&#x2019;s follow the <a href="1-style.ipynb">style guide</a> and put the necessary headers.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> absolute_import</div><div class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> print_function</div><div class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> division</div><div class="line"></div><div class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</div></pre></td></tr></table></figure>
+<p>Get a session to run the code.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sess = tf.Session()</div></pre></td></tr></table></figure>
+<h4 id="Constants"><a href="#Constants" class="headerlink" title="Constants"></a>Constants</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## create two variables `a = 2` and `b = 3`</span></div><div class="line">a = ... <span class="comment">###### write your code here ######</span></div><div class="line">b = ... <span class="comment">###### write your code here ######</span></div><div class="line"></div><div class="line">resultA = sess.run(a)</div><div class="line">resultB = sess.run(b)</div><div class="line"></div><div class="line"><span class="comment"># see the result and its type</span></div><div class="line">print(<span class="string">&quot;a = %i with tpye of %s&quot;</span> % (resultA, type(resultA)))</div><div class="line">print(<span class="string">&quot;b = %i with tpye of %s&quot;</span> % (resultB, type(resultB)))</div></pre></td></tr></table></figure>
+<h4 id="Arrays-and-Matrices"><a href="#Arrays-and-Matrices" class="headerlink" title="Arrays and Matrices"></a>Arrays and Matrices</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## create two matrixes `c = {{1, 2}, {3, 4}}` and `d = {{1, 1}, {0, 1}}`</span></div><div class="line">c = ... <span class="comment">###### write your code here ######</span></div><div class="line">d = ... <span class="comment">###### write your code here ######</span></div><div class="line"></div><div class="line">resultC = sess.run(c)</div><div class="line">resultCD = sess.run([c, d])</div><div class="line"></div><div class="line"><span class="comment"># see the result and its type</span></div><div class="line">print(resultC)</div><div class="line">print(type(resultC))</div><div class="line">print(resultCD)</div><div class="line">print(type(resultCD))</div></pre></td></tr></table></figure>
+<h4 id="String"><a href="#String" class="headerlink" title="String"></a>String</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## create a string `e = &apos;Hello, Tensorflow&apos;`</span></div><div class="line">e = ... <span class="comment">###### write your code here ######</span></div><div class="line">print(sess.run(e))</div></pre></td></tr></table></figure>
+<h4 id="Matrice-Multipulation"><a href="#Matrice-Multipulation" class="headerlink" title="Matrice Multipulation"></a>Matrice Multipulation</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## multply c and d using `tf.matmul()`</span></div><div class="line">mul = ... <span class="comment">###### write your code here ######</span></div><div class="line">print(sess.run(mul))</div></pre></td></tr></table></figure>
+<h4 id="Placeholders"><a href="#Placeholders" class="headerlink" title="Placeholders"></a>Placeholders</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## create two placeholder `f` and `g` holds `tf.int16`</span></div><div class="line">f = ... <span class="comment">###### write your code here ######</span></div><div class="line">g = ... <span class="comment">###### write your code here ######</span></div><div class="line"></div><div class="line"><span class="comment">## some operations</span></div><div class="line">add = tf.add(f, g)</div><div class="line">mul = tf.mul(f, g)</div><div class="line"></div><div class="line"><span class="comment"># get the result of add by feeding `{f: 2, g: 3}` to `sess.run()` using feed_dict</span></div><div class="line">resultAdd, resultMul = ... <span class="comment">###### write your code here ######</span></div><div class="line">print(<span class="string">&quot;adding result is: %i&quot;</span> % resultAdd)</div><div class="line">print(<span class="string">&quot;multiplying result is: %i&quot;</span> % resultMul)</div></pre></td></tr></table></figure>
+<p><a href="../TF-1-style">Previous Chapter: Style Guide</a><br><a href="../TF-3-graph">Next Chapter: Graph</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://transwarpio.github.io/2016/12/01/TF-2-basics/" data-id="cj6bkul490003uk9sw0pte76y" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/teaching_ml/2016/12/01/TF-3-graph/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          TF-3--graph
+        
+      </div>
+    </a>
+  
+  
+    <a href="/teaching_ml/2016/12/01/TF-1-style/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">TF-1-style</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/teaching_ml/categories/数据挖掘/">数据挖掘</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/teaching_ml/tags/关联规则/">关联规则</a></li><li class="tag-list-item"><a class="tag-list-link" href="/teaching_ml/tags/数据挖掘/">数据挖掘</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/teaching_ml/tags/关联规则/" style="font-size: 10px;">关联规则</a> <a href="/teaching_ml/tags/数据挖掘/" style="font-size: 10px;">数据挖掘</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/teaching_ml/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/teaching_ml/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/teaching_ml/archives/2016/07/">July 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/teaching_ml/2016/12/01/FactorAnalysis/">FactorAnalysis</a>
+          </li>
+        
+          <li>
+            <a href="/teaching_ml/2016/12/01/TF-9-distributed/">TF-9-distributed</a>
+          </li>
+        
+          <li>
+            <a href="/teaching_ml/2016/12/01/TF-8-rnn/">TF-8-rnn</a>
+          </li>
+        
+          <li>
+            <a href="/teaching_ml/2016/12/01/TF-7-cnn/">TF-7-cnn</a>
+          </li>
+        
+          <li>
+            <a href="/teaching_ml/2016/12/01/TF-6-autoencoder/">TF-6-autoencoder</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 transwarpio<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/teaching_ml/" class="mobile-nav-link">Home</a>
+  
+    <a href="/teaching_ml/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/teaching_ml/fancybox/jquery.fancybox.css">
+  <script src="/teaching_ml/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/teaching_ml/js/script.js"></script>
+
+  </div>
+</body>
+</html>

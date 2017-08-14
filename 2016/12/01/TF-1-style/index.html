@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>TF-1-style | Teaching ML</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Previous Chapter: TF PlaygroundNext Chapter: Tensorflow Basics Style GuideThis page contains style decisions that both developers and users of Tensorflow should follow to increase the readability of t">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TF-1-style">
+<meta property="og:url" content="http://transwarpio.github.io/2016/12/01/TF-1-style/index.html">
+<meta property="og:site_name" content="Teaching ML">
+<meta property="og:description" content="Previous Chapter: TF PlaygroundNext Chapter: Tensorflow Basics Style GuideThis page contains style decisions that both developers and users of Tensorflow should follow to increase the readability of t">
+<meta property="og:updated_time" content="2017-08-09T08:31:23.097Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TF-1-style">
+<meta name="twitter:description" content="Previous Chapter: TF PlaygroundNext Chapter: Tensorflow Basics Style GuideThis page contains style decisions that both developers and users of Tensorflow should follow to increase the readability of t">
+  
+    <link rel="alternate" href="/atom.xml" title="Teaching ML" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/teaching_ml/css/style.css">
+  
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/teaching_ml/" id="logo">Teaching ML</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/teaching_ml/">Home</a>
+        
+          <a class="main-nav-link" href="/teaching_ml/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://transwarpio.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-TF-1-style" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/teaching_ml/2016/12/01/TF-1-style/" class="article-date">
+  <time datetime="2016-12-01T11:17:49.000Z" itemprop="datePublished">2016-12-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      TF-1-style
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="../TF-Introduction">Previous Chapter: TF Playground</a><br><a href="../TF-2-basics">Next Chapter: Tensorflow Basics</a></p>
+<h2 id="Style-Guide"><a href="#Style-Guide" class="headerlink" title="Style Guide"></a>Style Guide</h2><p>This page contains style decisions that both developers and users of Tensorflow should follow to increase the readability of their code, reduce the number of errors, and promote consistency.</p>
+<h3 id="Python-Style"><a href="#Python-Style" class="headerlink" title="Python Style"></a>Python Style</h3><p>2 spaces are used in tensorflow. Other than that, <a href="https://www.python.org/dev/peps/pep-0008/" target="_blank" rel="external">PEP8 Python style guide</a> should be followed.</p>
+<h3 id="Python-2-and-3-compatible"><a href="#Python-2-and-3-compatible" class="headerlink" title="Python 2 and 3 compatible"></a>Python 2 and 3 compatible</h3><p>To be compatible with both Python 2 and Python 3, following lines should be added to the top of all Python files.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> absolute_import</div><div class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> print_function</div><div class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> division</div></pre></td></tr></table></figure></p>
+<h3 id="Python-operations"><a href="#Python-operations" class="headerlink" title="Python operations"></a>Python operations</h3><h6 id="A-Python-operation-is-a-function-that-given-input-tensors-and-parameters-creates-a-part-of-the-graph-and-returns-output-tensors"><a href="#A-Python-operation-is-a-function-that-given-input-tensors-and-parameters-creates-a-part-of-the-graph-and-returns-output-tensors" class="headerlink" title="A Python operation is a function that, given input tensors and parameters, creates a part of the graph and returns output tensors."></a>A Python operation is a function that, given input tensors and parameters, creates a part of the graph and returns output tensors.</h6><ul>
+<li>The first arguments should be tensors, followed by basic python parameters. The last argument is name with a default value of None. If operation needs to save some Tensors to Graph collections, put the arguments with names of the collections right before name argument.</li>
+<li>Tensor arguments should be either a single tensor or an iterable of tensors. E.g. a &#x201C;Tensor or list of Tensors&#x201D; is too broad. See assert_proper_iterable.</li>
+<li>Operations that take tensors as arguments should call convert_to_tensor to convert non-tensor inputs into tensors if they are using C++ operations. Note that the arguments are still described as a Tensor object of a specific dtype in the documentation.</li>
+<li>Each Python operation should have an op_scope like below. Pass list of input tensors, name and a default name of the op as arguments.</li>
+<li>Operations should contain an extensive Python comment with Args and Returns declarations that explain both the type and meaning of each value. Possible shapes, dtypes, or ranks should be specified in the description. See documentation details</li>
+</ul>
+<h4 id="Example"><a href="#Example" class="headerlink" title="Example:"></a>Example:</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">my_op</span><span class="params">(tensor_in, other_tensor_in, my_param, other_param=<span class="number">0.5</span>,</span></span></div><div class="line"><span class="function"><span class="params">          output_collections=<span class="params">()</span>, name=None)</span>:</span></div><div class="line"><span class="string">&quot;&quot;&quot;My operation that adds two tensors with given coefficients.</span></div><div class="line"><span class="string"></span></div><div class="line"><span class="string">Args:</span></div><div class="line"><span class="string">  tensor_in: `Tensor`, input tensor.</span></div><div class="line"><span class="string">  other_tensor_in: `Tensor`, same shape as `tensor_in`, other input tensor.</span></div><div class="line"><span class="string">  my_param: `float`, coefficient for `tensor_in`.</span></div><div class="line"><span class="string">  other_param: `float`, coefficient for `other_tensor_in`.</span></div><div class="line"><span class="string">  output_collections: `tuple` of `string`s, name of the collection to</span></div><div class="line"><span class="string">                      collect result of this op.</span></div><div class="line"><span class="string">  name: `string`, name of the operation.</span></div><div class="line"><span class="string"></span></div><div class="line"><span class="string">Returns:</span></div><div class="line"><span class="string">  `Tensor` of same shape as `tensor_in`, sum of input values with coefficients.</span></div><div class="line"><span class="string"></span></div><div class="line"><span class="string">Example:</span></div><div class="line"><span class="string">  &gt;&gt;&gt; my_op([1., 2.], [3., 4.], my_param=0.5, other_param=0.6,</span></div><div class="line"><span class="string">            output_collections=[&apos;MY_OPS&apos;], name=&apos;add_t1t2&apos;)</span></div><div class="line"><span class="string">  [2.3, 3.4]</span></div><div class="line"><span class="string">&quot;&quot;&quot;</span></div><div class="line"><span class="keyword">with</span> tf.op_scope([tensor_in, other_tensor_in], name, <span class="string">&quot;my_op&quot;</span>):</div><div class="line">  tensor_in = tf.convert_to_tensor(tensor_in)</div><div class="line">  other_tensor_in = tf.convert_to_tensor(other_tensor_in)</div><div class="line">  result = my_param * tensor_in + other_param * other_tensor_in</div><div class="line">  tf.add_to_collections(output_collections, result)</div><div class="line">  <span class="keyword">return</span> result</div></pre></td></tr></table></figure>
+<h4 id="Usage"><a href="#Usage" class="headerlink" title="Usage:"></a>Usage:</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">output = my_op(t1, t2, my_param=<span class="number">0.5</span>, other_param=<span class="number">0.6</span>,</div><div class="line">               output_collections=[<span class="string">&apos;MY_OPS&apos;</span>], name=<span class="string">&apos;add_t1t2&apos;</span>)</div></pre></td></tr></table></figure>
+<h3 id="Layers"><a href="#Layers" class="headerlink" title="Layers"></a>Layers</h3><h6 id="A-Layer-is-a-Python-operation-that-combines-variable-creation-and-or-one-or-many-other-graph-operations-Follow-the-same-requirements-as-for-regular-Python-operation"><a href="#A-Layer-is-a-Python-operation-that-combines-variable-creation-and-or-one-or-many-other-graph-operations-Follow-the-same-requirements-as-for-regular-Python-operation" class="headerlink" title="A Layer is a Python operation that combines variable creation and/or one or many other graph operations. Follow the same requirements as for regular Python operation."></a>A Layer is a Python operation that combines variable creation and/or one or many other graph operations. Follow the same requirements as for regular Python operation.</h6><p>If a layer creates one or more variables, the layer function should take next arguments also following order:</p>
+<ul>
+<li>initializers: Optionally allow to specify initializers for the variables.</li>
+<li>regularizers: Optionally allow to specify regularizers for the variables.</li>
+<li>trainable: which control if their variables are trainable or not.</li>
+<li>scope: VariableScope object that variable will be put under.</li>
+<li>reuse: bool indicator if the variable should be reused if it&#x2019;s present in the scope.</li>
+</ul>
+<p>Layers that behave differently during training should have:</p>
+<ul>
+<li>is_training: bool to indicate if a training graph is been built.</li>
+</ul>
+<h4 id="Example-1"><a href="#Example-1" class="headerlink" title="Example:"></a>Example:</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">conv2d</span><span class="params">(inputs,</span></span></div><div class="line"><span class="function"><span class="params">           num_filters_out,</span></span></div><div class="line"><span class="function"><span class="params">           kernel_size,</span></span></div><div class="line"><span class="function"><span class="params">           stride=<span class="number">1</span>,</span></span></div><div class="line"><span class="function"><span class="params">           padding=<span class="string">&apos;SAME&apos;</span>,</span></span></div><div class="line"><span class="function"><span class="params">           activation_fn=tf.nn.relu,</span></span></div><div class="line"><span class="function"><span class="params">           normalization_fn=add_bias,</span></span></div><div class="line"><span class="function"><span class="params">           normalization_params=None,</span></span></div><div class="line"><span class="function"><span class="params">           initializers=None,</span></span></div><div class="line"><span class="function"><span class="params">           regularizers=None,</span></span></div><div class="line"><span class="function"><span class="params">           trainable=True,</span></span></div><div class="line"><span class="function"><span class="params">           scope=None,</span></span></div><div class="line"><span class="function"><span class="params">           reuse=None)</span>:</span></div><div class="line">  ... see implementation at tensorflow/contrib/layers/python/layers/layers.py ...</div></pre></td></tr></table></figure>
+<p><a href="../TF-Introduction">Previous Chapter: TF Playground</a><br><a href="../TF-2-basics">Next Chapter: Tensorflow Basics</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://transwarpio.github.io/2016/12/01/TF-1-style/" data-id="cj6bkul460002uk9s73qcuswu" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/teaching_ml/2016/12/01/TF-2-basics/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          TF-2-basics
+        
+      </div>
+    </a>
+  
+  
+    <a href="/teaching_ml/2016/12/01/TF-Introduction/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">TF-Introduction</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/teaching_ml/categories/数据挖掘/">数据挖掘</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/teaching_ml/tags/关联规则/">关联规则</a></li><li class="tag-list-item"><a class="tag-list-link" href="/teaching_ml/tags/数据挖掘/">数据挖掘</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/teaching_ml/tags/关联规则/" style="font-size: 10px;">关联规则</a> <a href="/teaching_ml/tags/数据挖掘/" style="font-size: 10px;">数据挖掘</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/teaching_ml/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/teaching_ml/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/teaching_ml/archives/2016/07/">July 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/teaching_ml/2016/12/01/FactorAnalysis/">FactorAnalysis</a>
+          </li>
+        
+          <li>
+            <a href="/teaching_ml/2016/12/01/TF-9-distributed/">TF-9-distributed</a>
+          </li>
+        
+          <li>
+            <a href="/teaching_ml/2016/12/01/TF-8-rnn/">TF-8-rnn</a>
+          </li>
+        
+          <li>
+            <a href="/teaching_ml/2016/12/01/TF-7-cnn/">TF-7-cnn</a>
+          </li>
+        
+          <li>
+            <a href="/teaching_ml/2016/12/01/TF-6-autoencoder/">TF-6-autoencoder</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 transwarpio<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/teaching_ml/" class="mobile-nav-link">Home</a>
+  
+    <a href="/teaching_ml/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/teaching_ml/fancybox/jquery.fancybox.css">
+  <script src="/teaching_ml/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/teaching_ml/js/script.js"></script>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>FactorAnalysis | Teaching ML</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1. Introduction An extension of principal component analysis(PCA) in the sense of approximating covariance matrix. Goal To describe the covariance relationships among many variables in terms of a few">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FactorAnalysis">
+<meta property="og:url" content="http://transwarpio.github.io/2016/12/01/FactorAnalysis/index.html">
+<meta property="og:site_name" content="Teaching ML">
+<meta property="og:description" content="1. Introduction An extension of principal component analysis(PCA) in the sense of approximating covariance matrix. Goal To describe the covariance relationships among many variables in terms of a few">
+<meta property="og:image" content="http://images.cnblogs.com/cnblogs_com/jerrylead/201105/201105111557474219.png">
+<meta property="og:image" content="http://images.cnblogs.com/cnblogs_com/jerrylead/201105/201105111557493007.png">
+<meta property="og:image" content="http://images.cnblogs.com/cnblogs_com/jerrylead/201105/20110511155750367.png">
+<meta property="og:image" content="http://images.cnblogs.com/cnblogs_com/jerrylead/201105/201105111557566675.png">
+<meta property="og:image" content="http://images.cnblogs.com/cnblogs_com/jerrylead/201105/201105111558042959.png">
+<meta property="og:image" content="http://images.cnblogs.com/cnblogs_com/jerrylead/201105/201105111558444306.png">
+<meta property="og:image" content="http://images.cnblogs.com/cnblogs_com/jerrylead/201105/201105111558474881.png">
+<meta property="og:image" content="http://images.cnblogs.com/cnblogs_com/jerrylead/201105/201105111558484749.jpg">
+<meta property="og:updated_time" content="2017-08-09T08:31:23.097Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="FactorAnalysis">
+<meta name="twitter:description" content="1. Introduction An extension of principal component analysis(PCA) in the sense of approximating covariance matrix. Goal To describe the covariance relationships among many variables in terms of a few">
+<meta name="twitter:image" content="http://images.cnblogs.com/cnblogs_com/jerrylead/201105/201105111557474219.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Teaching ML" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/teaching_ml/css/style.css">
+  
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/teaching_ml/" id="logo">Teaching ML</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/teaching_ml/">Home</a>
+        
+          <a class="main-nav-link" href="/teaching_ml/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://transwarpio.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-FactorAnalysis" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/teaching_ml/2016/12/01/FactorAnalysis/" class="article-date">
+  <time datetime="2016-12-01T13:03:28.000Z" itemprop="datePublished">2016-12-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      FactorAnalysis
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h2><p> An extension of <strong>principal component analysis(PCA)</strong> in the sense of approximating covariance matrix.</p>
+<h3 id="Goal"><a href="#Goal" class="headerlink" title="Goal"></a>Goal</h3><ul>
+<li>To describe the covariance relationships among many variables in terms of a few underlying unobservable random variables, called factors.</li>
+<li>To reduce dimensions and solve the problem with n&lt;p.</li>
+</ul>
+<h2 id="2-Orthogonal-Factor-Model&#xFF08;&#x6B63;&#x4EA4;&#x56E0;&#x5B50;&#x6A21;&#x578B;&#xFF09;"><a href="#2-Orthogonal-Factor-Model&#xFF08;&#x6B63;&#x4EA4;&#x56E0;&#x5B50;&#x6A21;&#x578B;&#xFF09;" class="headerlink" title="2. Orthogonal Factor Model&#xFF08;&#x6B63;&#x4EA4;&#x56E0;&#x5B50;&#x6A21;&#x578B;&#xFF09;"></a>2. Orthogonal Factor Model&#xFF08;&#x6B63;&#x4EA4;&#x56E0;&#x5B50;&#x6A21;&#x578B;&#xFF09;</h2><h3 id="A-Factor-Analysis-Example"><a href="#A-Factor-Analysis-Example" class="headerlink" title="A Factor Analysis Example"></a>A Factor Analysis Example</h3><p>We have a  training data $ X_{n \times p} $. Here is its scatter plot. $ y = a $</p>
+<p><img src="http://images.cnblogs.com/cnblogs_com/jerrylead/201105/201105111557474219.png" alt="plot"></p>
+<ol>
+<li>Generate a k dimension variable $F \sim N_k(0,I)$</li>
+</ol>
+<p><img src="http://images.cnblogs.com/cnblogs_com/jerrylead/201105/201105111557493007.png" alt="Factor"></p>
+<ol>
+<li>There exists a transformation matrix $L \in R^{p \times k}$ which maps F into n dimension space: $LF$</li>
+</ol>
+<p><img src="http://images.cnblogs.com/cnblogs_com/jerrylead/201105/20110511155750367.png" alt="transform"></p>
+<ol>
+<li>Add a mean $\mu$ on $LF$</li>
+</ol>
+<p><img src="http://images.cnblogs.com/cnblogs_com/jerrylead/201105/201105111557566675.png" alt="add_mu"></p>
+<ol>
+<li>For real  instance has errors, add error $\epsilon_{p \times 1}$</li>
+</ol>
+<p>$$X = LF+\mu + \epsilon$$</p>
+<p><img src="http://images.cnblogs.com/cnblogs_com/jerrylead/201105/201105111558042959.png" alt="error"></p>
+<h3 id="Factor-Analysis-Model"><a href="#Factor-Analysis-Model" class="headerlink" title="Factor Analysis Model"></a>Factor Analysis Model</h3><ul>
+<li>Suppose $X \sim \Pi_p(\mu, \Sigma)$</li>
+<li>The factor model postulates that $X$ is linearly related to a few unobservable random variables $F_1,F_2,&#x2026;,F_m$, called <strong>common factors</strong>&#xFF08;&#x5171;&#x540C;&#x56E0;&#x5B50;&#xFF09;, through</li>
+</ul>
+
+$$X- \mu = L_{p \times m} F_{m \times 1} + \epsilon_{p \times 1}$$
+
+<p>where $L = (l_{ij})_{p \times m}$ is the matrix of <strong>factor loading</strong>&#xFF08;&#x56E0;&#x5B50;&#x8F7D;&#x8377;&#xFF09;, $l_{ij}$ is the loading of variable $i$ on factor $j$, $\epsilon = (\epsilon_1, . . . , \epsilon_p)&#x2032;$, $\epsilon_i$ are called errors or <strong>specific factors</strong>&#xFF08;&#x7279;&#x6B8A;&#x56E0;&#x5B50;&#xFF09;.</p>
+<ul>
+<li><strong>Assume</strong>: </li>
+</ul>
+<p>$$E(F) = 0, cov(F) = I_m, $$</p>
+<p>$$E(\epsilon) = 0, cov(\epsilon) = \psi_{p \times p} = diag(\varphi_1,.., \varphi_p)$$</p>
+<p>$$cov(F, \epsilon) = E(F \epsilon &#x2018;) = 0$$</p>
+<p>Then</p>
+<p>$$cov(X) = \Sigma_{p \times p} = LL&#x2019; + \psi$$</p>
+<p>$$cov(X, F)  = L_{p \times m}$$</p>
+<p>If $cov(F) \ne I_m$, it becomes oblique factor model&#xFF08;&#x659C;&#x4EA4;&#x56E0;&#x5B50;&#x6A21;&#x578B;&#xFF09;</p>
+<ul>
+<li>Define the $i_{th}$ <strong>community</strong>&#xFF08;&#x53D8;&#x91CF;&#x5171;&#x540C;&#x5EA6;&#xFF0C;&#x6216;&#x516C;&#x56E0;&#x5B50;&#x65B9;&#x5DEE;&#xFF09;: </li>
+</ul>
+
+$$h_i^2 = \sum_{j = 1}^m l_{ij}^2$$
+
+<ul>
+<li>Define the $i_{th}$ <strong>specific variance</strong>&#xFF08;&#x7279;&#x6B8A;&#x56E0;&#x5B50;&#x65B9;&#x5DEE;&#xFF09;:</li>
+</ul>
+$$\varphi_i = \sigma_{ii} - h_i^2$$ 
+<h4 id="Ambiguity-of-L"><a href="#Ambiguity-of-L" class="headerlink" title="Ambiguity of L"></a>Ambiguity of L</h4><ul>
+<li>Let T be any m &#xD7; m orthogonal matrix. Then, we can express</li>
+</ul>
+$$X- \mu = L^*F^* + \epsilon$$ 
+<p>where $L^* = LT$, $F^* = T&apos;F$ </p>
+<ul>
+<li>Since $E(F^*) = 0$ , $cov(F^*) = I_{m}$ , $F^*$  and $L^*$  form another pair of factor and factor loading matrix.</li>
+</ul>
+$$ \Sigma = LL&apos; + \psi = L^* L&apos;^{*}  + \psi$$ 
+$$h_i^2 = e_i&apos;LL&apos;e_i = e_i&apos;L^*L&apos;^*e_i$$ 
+<p>After rotation, community $h_i^2$ doesn&#x2019;t change.</p>
+<h2 id="3-Estimation"><a href="#3-Estimation" class="headerlink" title="3. Estimation"></a>3. Estimation</h2><h3 id="3-1-Principal-Component-Method"><a href="#3-1-Principal-Component-Method" class="headerlink" title="3.1 Principal Component Method"></a>3.1 Principal Component Method</h3><h4 id="1-Get-correlation-matrix"><a href="#1-Get-correlation-matrix" class="headerlink" title="1) Get correlation matrix"></a>1) Get correlation matrix</h4><p>$$\hat{Cor}(X) = \Sigma$$</p>
+<h4 id="2-Spectral-Decompositions"><a href="#2-Spectral-Decompositions" class="headerlink" title="2) Spectral Decompositions"></a>2) Spectral Decompositions</h4><p>$$\Sigma = \lambda_1\ e_1e_1&#x2019;\ +\ &#x2026;\ +\ \lambda_p\ e_pe_p&#x2019;$$</p>
+<h4 id="3-Determine-m"><a href="#3-Determine-m" class="headerlink" title="3) Determine $m$"></a>3) Determine $m$</h4><p>Rule of thumb: choose $m =\ \# \ of \{\lambda_j&gt;1\}$</p>
+<h4 id="4-Estimation"><a href="#4-Estimation" class="headerlink" title="4) Estimation"></a>4) Estimation</h4><p>$$\hat L = (\sqrt{\lambda_1}\ e_1,\ &#x2026;\ ,\ \sqrt{\lambda_m}\ e_m)$$</p>
+<p>$$\hat \psi = diag(\Sigma - LL&#x2019;)$$</p>
+$$\hat h_i^2 = \sum_{j = 1}^m \hat l_{ij}^2$$
+<p>The contribution to the total sample variance tr(S) from the first common factor is then&#xFF08;&#x516C;&#x5171;&#x56E0;&#x5B50;&#x7684;&#x65B9;&#x5DEE;&#x8D21;&#x732E;&#xFF09;</p>
+$$\hat l^2_{11} + ...+ \hat l^2_{p1} = (\sqrt{\hat \lambda_1}\hat e_1)&apos;(\sqrt{\hat \lambda_1}\hat e_1) = \hat \lambda_1$$
+<p>In general, the proportion of total sample variance(after standardization) due to the $j_{th}$ factor = $\frac{\hat \lambda_j}{p}$</p>
+<h3 id="3-2-Maximum-Likelihood-Method"><a href="#3-2-Maximum-Likelihood-Method" class="headerlink" title="3.2 Maximum Likelihood Method"></a>3.2 Maximum Likelihood Method</h3><p><strong>1) Joint distribution:</strong></p>
+
+$$
+\begin{bmatrix}
+ f\\
+ x
+ \end{bmatrix} \sim N \begin{pmatrix}
+ \begin{bmatrix} 0\\
+ \mu
+ \end{bmatrix}, \begin{bmatrix}
+ I &amp; L&apos;\\
+ L &amp; LL&apos; + \psi
+ \end{bmatrix}
+ \end{pmatrix}$$
+
+<p><strong>2) Marginal distribution:</strong><br>$$x \sim N(\mu, LL&#x2019;+\psi)$$<br><strong>3) Conditional distribution:</strong><br>$$\mu_{f|x} = L&#x2019;(LL&#x2019;+\psi)^{-1}(x-\mu)$$</p>
+<p>$$\Sigma_{f|x} = I - L&#x2019;(LL&#x2019;+\psi)^{-1}L$$</p>
+<p><strong>4) Log likelihood:</strong> </p>
+<p>$$l(\mu, L, \psi) = log \prod_{i=1}^n \frac{1}{(2 \pi)^{p/2}|LL&#x2019;+\psi|} exp \left(-\frac{1}{2}(x^{(i)}-\mu)&#x2019;(LL&#x2019;+\psi)^{-1}(x^{(i)}-\mu)  \right)$$</p>
+<h4 id="EM-estimation"><a href="#EM-estimation" class="headerlink" title="EM estimation"></a>EM estimation</h4><ul>
+<li><strong>E Step:</strong></li>
+</ul>
+$$Q(f) = \frac{1}{(2 \pi)^{k/2}|\Sigma_{f|x}|} exp \left(-\frac{1}{2}(f-\mu_{f|x})&apos;(\Sigma_{f|x})^{-1}(x^{(i)}-\mu_{f|x})  \right)$$
+<ul>
+<li><strong>M Step:</strong></li>
+</ul>
+$$max\ \ \sum_{i=1}^n \int_{f^{(i)}} Q(f^{(i)})log \frac{p(x^{(i)}&#xFF0C;f^{(i)};\mu, L, \psi)}{Q(f^{(i)})} $$
+<ul>
+<li><strong>Parameter Iteration:</strong></li>
+</ul>
+<p><img src="http://images.cnblogs.com/cnblogs_com/jerrylead/201105/201105111558444306.png" alt="L est"></p>
+<p><img src="http://images.cnblogs.com/cnblogs_com/jerrylead/201105/201105111558474881.png" alt="mu est"></p>
+<p><img src="http://images.cnblogs.com/cnblogs_com/jerrylead/201105/201105111558484749.jpg" alt="psi est"></p>
+<p>$$\psi = diag(\Phi)$$</p>
+<p>Get more detail on <a href="http://blog.csdn.net/littleqqqqq/article/details/50899717" target="_blank" rel="external">&#x3010;&#x673A;&#x5668;&#x5B66;&#x4E60;-&#x65AF;&#x5766;&#x798F;&#x3011;&#x56E0;&#x5B50;&#x5206;&#x6790;&#xFF08;Factor Analysis&#xFF09; </a></p>
+<h2 id="4-Factor-Rotation"><a href="#4-Factor-Rotation" class="headerlink" title="4. Factor Rotation"></a>4. Factor Rotation</h2><p>An orthogonal matrix $T$, and let $L^* = LT$.</p>
+<ul>
+<li><p><strong>Goal: </strong>to rotate $L$ such that a &#x2018;simple&#x2019; structure is achieved.</p>
+</li>
+<li><p>Kaiser (1958)&#x2019;s <strong>varimax</strong> criterion&#xFF08;&#x65B9;&#x5DEE;&#x6700;&#x5927;&#x65CB;&#x8F6C;&#xFF09; :</p>
+<ul>
+<li>Define $\widetilde l^*_ {ij} = \hat l^*_{ij}/h_i^2$</li>
+<li>Choose $T$ s.t.</li>
+</ul>
+</li>
+</ul>
+$$max\ \ V=\frac{1}{p} \sum_{j=1}^m \left ({\sum_{i=1}^p {\widetilde l^*_ {ij}}^4 - \frac{\left(\sum_{i = 1}^p {\widetilde l^*_ {ij}}^2 \right)^2}{p} }\right )$$
+<h2 id="5-Factor-Scores"><a href="#5-Factor-Scores" class="headerlink" title="5. Factor Scores"></a>5. Factor Scores</h2><h3 id="Weighted-Least-Squares-Method"><a href="#Weighted-Least-Squares-Method" class="headerlink" title="Weighted Least Squares Method"></a>Weighted Least Squares Method</h3><ul>
+<li>Suppose that $\mu$, $L$, and $\psi$ are known.</li>
+<li>Then $X-\mu = LF + \epsilon \sim \Pi_p(0, \psi)$</li>
+</ul>
+<p>$$\hat F = (L&#x2019; \psi ^{-1}L)^{-1}L&#x2019; \psi^{-1} (X-\mu)$$</p>
+<h3 id="Regression-Method"><a href="#Regression-Method" class="headerlink" title="Regression Method"></a>Regression Method</h3><p>From the mean of the conditional distribution of $F|X$ is $\mu_{f|x} = L&#x2019;(LL&#x2019;+\psi)^{-1}(x-\mu)$</p>
+<p>$$\hat F = \hat E(F|X) = L&#x2019;\Sigma^{-1}(X-\overline X)$$</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://transwarpio.github.io/2016/12/01/FactorAnalysis/" data-id="cj6bkul400001uk9sf612syjj" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/teaching_ml/2016/12/01/TF-9-distributed/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">TF-9-distributed</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/teaching_ml/categories/数据挖掘/">数据挖掘</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/teaching_ml/tags/关联规则/">关联规则</a></li><li class="tag-list-item"><a class="tag-list-link" href="/teaching_ml/tags/数据挖掘/">数据挖掘</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/teaching_ml/tags/关联规则/" style="font-size: 10px;">关联规则</a> <a href="/teaching_ml/tags/数据挖掘/" style="font-size: 10px;">数据挖掘</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/teaching_ml/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/teaching_ml/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/teaching_ml/archives/2016/07/">July 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/teaching_ml/2016/12/01/FactorAnalysis/">FactorAnalysis</a>
+          </li>
+        
+          <li>
+            <a href="/teaching_ml/2016/12/01/TF-9-distributed/">TF-9-distributed</a>
+          </li>
+        
+          <li>
+            <a href="/teaching_ml/2016/12/01/TF-8-rnn/">TF-8-rnn</a>
+          </li>
+        
+          <li>
+            <a href="/teaching_ml/2016/12/01/TF-7-cnn/">TF-7-cnn</a>
+          </li>
+        
+          <li>
+            <a href="/teaching_ml/2016/12/01/TF-6-autoencoder/">TF-6-autoencoder</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 transwarpio<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/teaching_ml/" class="mobile-nav-link">Home</a>
+  
+    <a href="/teaching_ml/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/teaching_ml/fancybox/jquery.fancybox.css">
+  <script src="/teaching_ml/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/teaching_ml/js/script.js"></script>
+
+  </div>
+</body>
+</html>

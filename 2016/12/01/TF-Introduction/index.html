@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>TF-Introduction | Teaching ML</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="TF PlaygroundThis is a tutorial for better understanding the concept and syntax of Tensorflow. In this tutorial, we assume you already have the basic knowledge of Python and Machine Learning. You can">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TF-Introduction">
+<meta property="og:url" content="http://transwarpio.github.io/2016/12/01/TF-Introduction/index.html">
+<meta property="og:site_name" content="Teaching ML">
+<meta property="og:description" content="TF PlaygroundThis is a tutorial for better understanding the concept and syntax of Tensorflow. In this tutorial, we assume you already have the basic knowledge of Python and Machine Learning. You can">
+<meta property="og:updated_time" content="2017-08-09T08:31:23.101Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TF-Introduction">
+<meta name="twitter:description" content="TF PlaygroundThis is a tutorial for better understanding the concept and syntax of Tensorflow. In this tutorial, we assume you already have the basic knowledge of Python and Machine Learning. You can">
+  
+    <link rel="alternate" href="/atom.xml" title="Teaching ML" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/teaching_ml/css/style.css">
+  
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/teaching_ml/" id="logo">Teaching ML</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/teaching_ml/">Home</a>
+        
+          <a class="main-nav-link" href="/teaching_ml/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://transwarpio.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-TF-Introduction" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/teaching_ml/2016/12/01/TF-Introduction/" class="article-date">
+  <time datetime="2016-12-01T11:13:38.000Z" itemprop="datePublished">2016-12-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      TF-Introduction
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="TF-Playground"><a href="#TF-Playground" class="headerlink" title="TF Playground"></a>TF Playground</h2><p>This is a tutorial for better understanding the concept and syntax of <strong>Tensorflow</strong>. In this tutorial, we assume you already have the basic knowledge of <strong>Python</strong> and <strong>Machine Learning</strong>. You can fill the blank lines, run the script and see what would happen according to the code. This tutorial will begin with some style advice and some basic concepts, following by some exercises of different <strong>Machine Learnig</strong> models.</p>
+<h6 id="Please-feel-free-to-add-some-chapters-if-you-think-it-might-be-good-for-our-group"><a href="#Please-feel-free-to-add-some-chapters-if-you-think-it-might-be-good-for-our-group" class="headerlink" title="Please feel free to add some chapters if you think it might be good for our group."></a>Please feel free to add some chapters if you think it might be good for our group.</h6><h3 id="Agenda"><a href="#Agenda" class="headerlink" title="Agenda"></a>Agenda</h3><ul>
+<li>Tensorflow Basics<ul>
+<li><a href="../TF-1-style">Style Guide</a></li>
+<li><a href="../TF-2-basics">Tensorflow Basics</a></li>
+<li><a href="../TF-3-graph">Graph</a></li>
+<li><a href="../TF-4-summary">Summary and Tensorboard</a></li>
+</ul>
+</li>
+<li>Deep Learning in TF<ul>
+<li><a href="../TF-5-ann">Neural Network</a></li>
+<li><a href="../TF-6-autoencoder">Autoencoder</a></li>
+<li><a href="../TF-7-cnn">Convolutional Neural Network</a></li>
+<li><a href="../TF-8-rnn">Recurrent Neural Network</a></li>
+</ul>
+</li>
+<li>Clustering<ul>
+<li><a href="../TF-9-distributed">Distributed Mode</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="Sample-Code"><a href="#Sample-Code" class="headerlink" title="Sample Code"></a>Sample Code</h3><p>Here is a sample <strong>Tensorflow</strong> code, play around and grab as much information as you can here. We&#x2019;ll explain it in detail in later chapters. When you think the code is ready, toggle the <strong>&#x201C;run cell&#x201D;</strong> button in the menu bar and see what will happen.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> absolute_import</div><div class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> print_function</div><div class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> division</div><div class="line"></div><div class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"></div><div class="line"><span class="comment">## input</span></div><div class="line"></div><div class="line"><span class="comment"># randomly generate 100 instances with float type</span></div><div class="line">x_data = np.random.rand(<span class="number">100</span>).astype(np.float32)</div><div class="line"><span class="comment"># create a linear model: y = x * 0.1 + 0.3</span></div><div class="line">y_data = x_data * <span class="number">0.1</span> + <span class="number">0.3</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">## build the graph(we already know w = 0.3 and b = 0.1 though, tensorflow will figure it out by its own)</span></div><div class="line"></div><div class="line"><span class="comment"># initialize uniform distributed weight vector</span></div><div class="line">W = tf.Variable(tf.random_uniform([<span class="number">1</span>], <span class="number">-1.0</span>, <span class="number">1.0</span>))</div><div class="line"><span class="comment"># initialize bias to 0</span></div><div class="line">b = tf.Variable(tf.zeros([<span class="number">1</span>]))</div><div class="line"><span class="comment"># define the graph</span></div><div class="line">y = W * x_data + b</div><div class="line"></div><div class="line"><span class="comment"># define the loss function</span></div><div class="line">loss = tf.reduce_mean(tf.square(y - y_data))</div><div class="line"><span class="comment"># using gradient descent minimize the loss </span></div><div class="line">optimizer = tf.train.GradientDescentOptimizer(<span class="number">0.5</span>)</div><div class="line">train = optimizer.minimize(loss)</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">## initialization and launch the graph</span></div><div class="line"></div><div class="line"><span class="comment"># define the initialization</span></div><div class="line">init = tf.initialize_all_variables()</div><div class="line"><span class="comment"># get a session and initialize the variables</span></div><div class="line">sess = tf.Session()</div><div class="line">sess.run(init)</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">## training</span></div><div class="line"></div><div class="line"><span class="keyword">for</span> step <span class="keyword">in</span> range(<span class="number">201</span>):</div><div class="line">    sess.run(train)</div><div class="line">    <span class="keyword">if</span> step % <span class="number">20</span> == <span class="number">0</span>:</div><div class="line">        print(<span class="string">&quot;steps: %i, weight: %f, bias: %f&quot;</span> % (step, sess.run(W), sess.run(b)))</div></pre></td></tr></table></figure>
+<pre><code>steps: 0, weight: 0.098388, bias: 0.440273
+steps: 20, weight: 0.081874, bias: 0.310411
+steps: 40, weight: 0.094683, bias: 0.303054
+steps: 60, weight: 0.098440, bias: 0.300896
+steps: 80, weight: 0.099542, bias: 0.300263
+steps: 100, weight: 0.099866, bias: 0.300077
+steps: 120, weight: 0.099961, bias: 0.300023
+steps: 140, weight: 0.099988, bias: 0.300007
+steps: 160, weight: 0.099997, bias: 0.300002
+steps: 180, weight: 0.099999, bias: 0.300001
+steps: 200, weight: 0.100000, bias: 0.300000
+</code></pre><p>In the above sample, we defined a set of random inputs with <code>y = 0.1 * x + 0.3</code> and let our linear model <code>y = W * x + b</code> to learn the inputs in 200 training epochs. Results are printed per 20 time steps. <code>W</code> and <code>b</code> should be quite close to 0.1 and 0.3 respectively.</p>
+<p><a href="../TF-1-style">Next Chapter: Style Guide</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://transwarpio.github.io/2016/12/01/TF-Introduction/" data-id="cj6bkul4x000buk9s453gw1gv" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/teaching_ml/2016/12/01/TF-1-style/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          TF-1-style
+        
+      </div>
+    </a>
+  
+  
+    <a href="/teaching_ml/2016/08/30/svm/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Support Vector Machine</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/teaching_ml/categories/数据挖掘/">数据挖掘</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/teaching_ml/tags/关联规则/">关联规则</a></li><li class="tag-list-item"><a class="tag-list-link" href="/teaching_ml/tags/数据挖掘/">数据挖掘</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/teaching_ml/tags/关联规则/" style="font-size: 10px;">关联规则</a> <a href="/teaching_ml/tags/数据挖掘/" style="font-size: 10px;">数据挖掘</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/teaching_ml/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/teaching_ml/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/teaching_ml/archives/2016/07/">July 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/teaching_ml/2016/12/01/FactorAnalysis/">FactorAnalysis</a>
+          </li>
+        
+          <li>
+            <a href="/teaching_ml/2016/12/01/TF-9-distributed/">TF-9-distributed</a>
+          </li>
+        
+          <li>
+            <a href="/teaching_ml/2016/12/01/TF-8-rnn/">TF-8-rnn</a>
+          </li>
+        
+          <li>
+            <a href="/teaching_ml/2016/12/01/TF-7-cnn/">TF-7-cnn</a>
+          </li>
+        
+          <li>
+            <a href="/teaching_ml/2016/12/01/TF-6-autoencoder/">TF-6-autoencoder</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 transwarpio<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/teaching_ml/" class="mobile-nav-link">Home</a>
+  
+    <a href="/teaching_ml/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/teaching_ml/fancybox/jquery.fancybox.css">
+  <script src="/teaching_ml/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/teaching_ml/js/script.js"></script>
+
+  </div>
+</body>
+</html>

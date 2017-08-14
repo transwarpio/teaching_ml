@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>TF-6-autoencoder | Teaching ML</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Previous Chapter: Neural NetworkNext Chapter: Convolutional Neural Network AutoEncoderAn Autoencoder is a deep learning algorithm which has two parts, encoder and decoder. An autoencoder is very simil">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TF-6-autoencoder">
+<meta property="og:url" content="http://transwarpio.github.io/2016/12/01/TF-6-autoencoder/index.html">
+<meta property="og:site_name" content="Teaching ML">
+<meta property="og:description" content="Previous Chapter: Neural NetworkNext Chapter: Convolutional Neural Network AutoEncoderAn Autoencoder is a deep learning algorithm which has two parts, encoder and decoder. An autoencoder is very simil">
+<meta property="og:image" content="https://blog.keras.io/img/ae/autoencoder_schema.jpg">
+<meta property="og:image" content="https://blog.keras.io/img/ae/jigsaw-puzzle.png">
+<meta property="og:updated_time" content="2017-08-09T08:31:23.101Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TF-6-autoencoder">
+<meta name="twitter:description" content="Previous Chapter: Neural NetworkNext Chapter: Convolutional Neural Network AutoEncoderAn Autoencoder is a deep learning algorithm which has two parts, encoder and decoder. An autoencoder is very simil">
+<meta name="twitter:image" content="https://blog.keras.io/img/ae/autoencoder_schema.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Teaching ML" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/teaching_ml/css/style.css">
+  
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/teaching_ml/" id="logo">Teaching ML</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/teaching_ml/">Home</a>
+        
+          <a class="main-nav-link" href="/teaching_ml/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://transwarpio.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-TF-6-autoencoder" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/teaching_ml/2016/12/01/TF-6-autoencoder/" class="article-date">
+  <time datetime="2016-12-01T11:46:18.000Z" itemprop="datePublished">2016-12-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      TF-6-autoencoder
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="../TF-5-ann">Previous Chapter: Neural Network</a><br><a href="../TF-7-cnn">Next Chapter: Convolutional Neural Network</a></p>
+<h2 id="AutoEncoder"><a href="#AutoEncoder" class="headerlink" title="AutoEncoder"></a>AutoEncoder</h2><p>An <strong>Autoencoder</strong> is a deep learning algorithm which has two parts, <span style="color: #F08080"><em>encoder</em></span> and <span style="color: #F08080"><em>decoder</em></span>. An <em>autoencoder</em> is very similar to an <em>artificial neural network</em> other than <span style="color: #F08080">using inputs as output labels to optimize the parameters</span>, which makes it quite like an unsupervised model. Well, it is <strong>NOT&#xFFFC;</strong> though.</p>
+<p><img src="https://blog.keras.io/img/ae/autoencoder_schema.jpg" alt=""></p>
+<p>The following explanation of <em>Autoencoder</em> is quoted from <a href="https://blog.keras.io/building-autoencoders-in-keras.html" target="_blank" rel="external">Keras</a>.</p>
+<p>The <strong>encoder</strong> and <strong>decoder</strong> in Autoencoder are <span style="color: #F08080">1) data-specific</span>, <span style="color: #F08080">2) lossy</span>, and <span style="color: #F08080">3) learned automatically from examples rather than engineered by a human</span>. Additionally, in almost all contexts where the term &#x201C;autoencoder&#x201D; is used, the compression and decompression functions are implemented with neural networks.</p>
+<ol>
+<li><p>Autoencoders are data-specific, which means that they will only be able to compress data similar to what they have been trained on. This is different from, say, the MPEG-2 Audio Layer III (MP3) compression algorithm, which only holds assumptions about &#x201C;sound&#x201D; in general, but not about specific types of sounds. An autoencoder trained on pictures of faces would do a rather poor job of compressing pictures of trees, because the features it would learn would be face-specific.</p>
+</li>
+<li><p>Autoencoders are lossy, which means that the decompressed outputs will be degraded compared to the original inputs (similar to MP3 or JPEG compression). This differs from lossless arithmetic compression.</p>
+</li>
+<li><p>Autoencoders are learned automatically from data examples, which is a useful property: it means that it is easy to train specialized instances of the algorithm that will perform well on a specific type of input. It doesn&#x2019;t require any new engineering, just appropriate training data.</p>
+</li>
+</ol>
+<p>To build an autoencoder, you need three things: an encoding function, a decoding function, and a distance function between the amount of information loss between the compressed representation of your data and the decompressed representation (i.e. a &#x201C;loss&#x201D; function). The encoder and decoder will be chosen to be parametric functions (typically neural networks), and to be differentiable with respect to the distance function, so the parameters of the encoding/decoding functions can be optimize to minimize the reconstruction loss, using Stochastic Gradient Descent. It&#x2019;s simple! And you don&#x2019;t even need to understand any of these words to start using autoencoders in practice.</p>
+<h4 id="Are-they-good-at-data-compression"><a href="#Are-they-good-at-data-compression" class="headerlink" title="Are they good at data compression?"></a>Are they good at data compression?</h4><p><span style="color: #F08080">Usually, not really.</span> In picture compression for instance, it is pretty difficult to train an autoencoder that does a better job than a basic algorithm like JPEG, and typically the only way it can be achieved is by restricting yourself to a very specific type of picture (e.g. one for which JPEG does not do a good job). The fact that autoencoders are data-specific makes them generally impractical for real-world data compression problems: you can only use them on data that is similar to what they were trained on, and making them more general thus requires lots of training data. But future advances might change this, who knows.</p>
+<h4 id="What-are-autoencoders-good-for"><a href="#What-are-autoencoders-good-for" class="headerlink" title="What are autoencoders good for?"></a>What are autoencoders good for?</h4><p>They are rarely used in practical applications. In 2012 they briefly found an application in <a href="http://www.jmlr.org/papers/volume11/erhan10a/erhan10a.pdf" target="_blank" rel="external">greedy layer-wise pretraining for deep convolutional neural networks</a>, but this quickly fell out of fashion as we started realizing that better random weight initialization schemes were sufficient for training deep networks from scratch. In 2014, <a href="https://arxiv.org/abs/1502.03167" target="_blank" rel="external">batch normalization</a> started allowing for even deeper networks, and from late 2015 we could train <a href="https://arxiv.org/abs/1512.03385" target="_blank" rel="external">arbitrarily deep networks from scratch using residual learning</a>.</p>
+<p>Today two interesting practical applications of autoencoders are <span style="color: #F08080"><strong>data denoising</strong></span> (which we feature later in this post), and <span style="color: #F08080"><strong>dimensionality reduction for data visualization</strong></span>. With appropriate dimensionality and sparsity constraints, autoencoders can learn data projections that are more interesting than PCA or other basic techniques.</p>
+<p>For 2D visualization specifically, t-SNE (pronounced &#x201C;tee-snee&#x201D;) is probably the best algorithm around, but it typically requires relatively low-dimensional data. So a good strategy for visualizing similarity relationships in high-dimensional data is to start by using an autoencoder to compress your data into a low-dimensional space (e.g. 32 dimensional), then use t-SNE for mapping the compressed data to a 2D plane.</p>
+<h4 id="So-what&#x2019;s-the-big-deal-with-autoencoders"><a href="#So-what&#x2019;s-the-big-deal-with-autoencoders" class="headerlink" title="So what&#x2019;s the big deal with autoencoders?"></a>So what&#x2019;s the big deal with autoencoders?</h4><p>Their main claim to fame comes from being featured in many introductory machine learning classes available online. As a result, a lot of newcomers to the field absolutely love autoencoders and can&#x2019;t get enough of them. This is the reason why this tutorial exists!</p>
+<p>Otherwise, one reason why they have attracted so much research and attention is because they <span style="color: #F08080"><strong>have long been thought to be a potential avenue for solving the problem of unsupervised learning</strong></span>, i.e. the learning of useful representations without the need for labels. Then again, autoencoders are not a true unsupervised learning technique (which would imply a different learning process altogether), they are a <span style="color: #F08080"><strong>self-supervised technique</strong></span>, a specific instance of supervised learning where the targets are generated from the input data. In order to get self-supervised models to learn interesting features, you have to come up with an interesting synthetic target and loss function, and that&#x2019;s where problems arise: merely learning to reconstruct your input in minute detail might not be the right choice here. At this point there is significant evidence that focusing on the reconstruction of a picture at the pixel level, for instance, is not conductive to learning interesting, abstract features of the kind that label-supervized learning induces (where targets are fairly abstract concepts &#x201C;invented&#x201D; by humans such as &#x201C;dog&#x201D;, &#x201C;car&#x201D;&#x2026;). In fact, one may argue that the best features in this regard are those that are the worst at exact input reconstruction while achieving high performance on the main task that you are interested in (classification, localization, etc).</p>
+<p>In self-supervized learning applied to vision, a potentially fruitful alternative to autoencoder-style input reconstruction is the use of toy tasks such as jigsaw puzzle solving, or detail-context matching (being able to match high-resolution but small patches of pictures with low-resolution versions of the pictures they are extracted from). The following paper investigates jigsaw puzzle solving and makes for a very interesting read: Noroozi and Favaro (2016) Unsupervised Learning of Visual Representations by Solving Jigsaw Puzzles. Such tasks are providing the model with built-in assumptions about the input data which are missing in traditional autoencoders, such as &#x201C;visual macro-structure matters more than pixel-level details&#x201D;.</p>
+<p><img src="https://blog.keras.io/img/ae/jigsaw-puzzle.png" alt=""></p>
+<h3 id="Let&#x2019;s-begin-with-a-common-Autoencoder"><a href="#Let&#x2019;s-begin-with-a-common-Autoencoder" class="headerlink" title="Let&#x2019;s begin with a common Autoencoder"></a>Let&#x2019;s begin with a common Autoencoder</h3><h4 id="Prerequisite"><a href="#Prerequisite" class="headerlink" title="Prerequisite"></a>Prerequisite</h4><p>First we <em>import packages</em>, <em>read datasets</em> and <em>assign model parameters</em>.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## matplotlib will be used to reconstruct the test </span></div><div class="line">%matplotlib notebook</div><div class="line"></div><div class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> absolute_import</div><div class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> print_function</div><div class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> division</div><div class="line"></div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</div><div class="line"></div><div class="line"><span class="comment">## MNIST_data</span></div><div class="line"><span class="keyword">from</span> tensorflow.examples.tutorials.mnist <span class="keyword">import</span> input_data</div><div class="line">mnist = input_data.read_data_sets(<span class="string">&apos;/root/tensorflow/MNIST_data&apos;</span>, one_hot=<span class="keyword">True</span>)</div><div class="line"></div><div class="line"><span class="comment">## parameters</span></div><div class="line">learning_rate = <span class="number">0.01</span></div><div class="line">training_epochs = <span class="number">5</span></div><div class="line">batch_size = <span class="number">100</span></div><div class="line">display_step = <span class="number">1</span></div><div class="line">testing_number = <span class="number">5</span></div><div class="line"></div><div class="line"><span class="comment">## number of hidden units</span></div><div class="line">h_0 = <span class="number">784</span></div><div class="line">h_1 = <span class="number">100</span></div><div class="line">h_2 = <span class="number">10</span></div></pre></td></tr></table></figure>
+<h4 id="Inputs-and-Variables"><a href="#Inputs-and-Variables" class="headerlink" title="Inputs and Variables"></a>Inputs and Variables</h4><p>Mention that <em>labels</em> are not required here because an <em>autoencoder</em> uses inputs as output labels</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## inputs</span></div><div class="line">x = tf.placeholder(tf.float32, [<span class="keyword">None</span>, h_0])</div><div class="line"></div><div class="line"><span class="comment">## variables</span></div><div class="line">w = {</div><div class="line">    <span class="string">&apos;e_1&apos;</span>: tf.Variable(tf.random_normal([h_0, h_1])),</div><div class="line">    <span class="string">&apos;e_2&apos;</span>: tf.Variable(tf.random_normal([h_1, h_2])),</div><div class="line">    <span class="string">&apos;d_1&apos;</span>: tf.Variable(tf.random_normal([h_2, h_1])),</div><div class="line">    <span class="string">&apos;d_2&apos;</span>: tf.Variable(tf.random_normal([h_1, h_0]))</div><div class="line">}</div><div class="line"></div><div class="line">b = {</div><div class="line">    <span class="string">&apos;e_1&apos;</span>: tf.Variable(tf.random_normal([h_1])),</div><div class="line">    <span class="string">&apos;e_2&apos;</span>: tf.Variable(tf.random_normal([h_2])),</div><div class="line">    <span class="string">&apos;d_1&apos;</span>: tf.Variable(tf.random_normal([h_1])),</div><div class="line">    <span class="string">&apos;d_2&apos;</span>: tf.Variable(tf.random_normal([h_0]))</div><div class="line">}</div></pre></td></tr></table></figure>
+<h4 id="Graph"><a href="#Graph" class="headerlink" title="Graph"></a>Graph</h4><p>Define the graph and optimizer.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## graph</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">feed_forward</span><span class="params">(x, layer)</span>:</span></div><div class="line">    <span class="keyword">return</span> tf.nn.sigmoid(tf.add(tf.matmul(x, w[layer]), b[layer]))</div><div class="line"></div><div class="line">e1 = feed_forward(x, <span class="string">&apos;e_1&apos;</span>)</div><div class="line">e2 = feed_forward(e1, <span class="string">&apos;e_2&apos;</span>)</div><div class="line">d1 = feed_forward(e2, <span class="string">&apos;d_1&apos;</span>)</div><div class="line">d2 = feed_forward(d1, <span class="string">&apos;d_2&apos;</span>)</div><div class="line"></div><div class="line">mean_err = tf.reduce_mean(tf.pow(d2 - x, <span class="number">2</span>))</div><div class="line">optimizer = tf.train.AdamOptimizer(learning_rate = learning_rate).minimize(mean_err)</div></pre></td></tr></table></figure>
+<h4 id="Start-a-Session"><a href="#Start-a-Session" class="headerlink" title="Start a Session"></a>Start a Session</h4><p>Here we use <em><a href="http://matplotlib.org/" target="_blank" rel="external">matplotlib</a></em> to reconstruct the image.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## start a session</span></div><div class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</div><div class="line">    sess.run(tf.initialize_all_variables())</div><div class="line">    </div><div class="line">    <span class="comment"># train</span></div><div class="line">    <span class="keyword">for</span> epoch <span class="keyword">in</span> range(training_epochs):</div><div class="line">        avg_err = <span class="number">0</span></div><div class="line">        total_batch = int(mnist.train.num_examples / batch_size)</div><div class="line">        </div><div class="line">        <span class="keyword">for</span> batch <span class="keyword">in</span> range(total_batch):</div><div class="line">            batch_x, batch_y = mnist.train.next_batch(batch_size)</div><div class="line">            _, err = sess.run([optimizer, mean_err], feed_dict={x: batch_x})</div><div class="line">            avg_err += err / total_batch</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (epoch + <span class="number">1</span>) % display_step == <span class="number">0</span>:</div><div class="line">            print(<span class="string">&apos;step: %d, average mean error is %f&apos;</span> % (epoch + <span class="number">1</span>, avg_err))</div><div class="line">    </div><div class="line">    print(<span class="string">&apos;optimization finished&apos;</span>)</div><div class="line"></div><div class="line">    <span class="comment"># test</span></div><div class="line">    encode_decode = sess.run(d2, feed_dict={x: mnist.test.images[:testing_number]})</div><div class="line">    </div><div class="line">    <span class="comment"># visualize</span></div><div class="line">    f, a = plt.subplots(testing_number, <span class="number">2</span>, figsize=(<span class="number">5</span>, <span class="number">8</span>))</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(testing_number):</div><div class="line">        a[i][<span class="number">0</span>].imshow(np.reshape(mnist.test.images[i], (<span class="number">28</span>, <span class="number">28</span>)))</div><div class="line">        a[i][<span class="number">1</span>].imshow(np.reshape(encode_decode[i], (<span class="number">28</span>, <span class="number">28</span>)))</div></pre></td></tr></table></figure>
+<p><a href="../TF-5-ann">Previous Chapter: Neural Network</a><br><a href="../TF-7-cnn">Next Chapter: Convolutional Neural Network</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://transwarpio.github.io/2016/12/01/TF-6-autoencoder/" data-id="cj6bkul4l0007uk9sfzo1pl7n" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/teaching_ml/2016/12/01/TF-7-cnn/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          TF-7-cnn
+        
+      </div>
+    </a>
+  
+  
+    <a href="/teaching_ml/2016/12/01/TF-5-ann/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">TF-5-ann</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/teaching_ml/categories/数据挖掘/">数据挖掘</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/teaching_ml/tags/关联规则/">关联规则</a></li><li class="tag-list-item"><a class="tag-list-link" href="/teaching_ml/tags/数据挖掘/">数据挖掘</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/teaching_ml/tags/关联规则/" style="font-size: 10px;">关联规则</a> <a href="/teaching_ml/tags/数据挖掘/" style="font-size: 10px;">数据挖掘</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/teaching_ml/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/teaching_ml/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/teaching_ml/archives/2016/07/">July 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/teaching_ml/2016/12/01/FactorAnalysis/">FactorAnalysis</a>
+          </li>
+        
+          <li>
+            <a href="/teaching_ml/2016/12/01/TF-9-distributed/">TF-9-distributed</a>
+          </li>
+        
+          <li>
+            <a href="/teaching_ml/2016/12/01/TF-8-rnn/">TF-8-rnn</a>
+          </li>
+        
+          <li>
+            <a href="/teaching_ml/2016/12/01/TF-7-cnn/">TF-7-cnn</a>
+          </li>
+        
+          <li>
+            <a href="/teaching_ml/2016/12/01/TF-6-autoencoder/">TF-6-autoencoder</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 transwarpio<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/teaching_ml/" class="mobile-nav-link">Home</a>
+  
+    <a href="/teaching_ml/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/teaching_ml/fancybox/jquery.fancybox.css">
+  <script src="/teaching_ml/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/teaching_ml/js/script.js"></script>
+
+  </div>
+</body>
+</html>

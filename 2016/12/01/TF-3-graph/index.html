@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>TF-3--graph | Teaching ML</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Previous Chapter: Tensorflow BasicsNext Chapter: Summary and Tensorboard GraphA Graph in Tensorflow represents complicated computation dataflow consisting of Tensors.A Tensor is a basic data structure">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TF-3--graph">
+<meta property="og:url" content="http://transwarpio.github.io/2016/12/01/TF-3-graph/index.html">
+<meta property="og:site_name" content="Teaching ML">
+<meta property="og:description" content="Previous Chapter: Tensorflow BasicsNext Chapter: Summary and Tensorboard GraphA Graph in Tensorflow represents complicated computation dataflow consisting of Tensors.A Tensor is a basic data structure">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Logistic-curve.svg/2000px-Logistic-curve.svg.png">
+<meta property="og:updated_time" content="2017-08-09T08:31:23.097Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TF-3--graph">
+<meta name="twitter:description" content="Previous Chapter: Tensorflow BasicsNext Chapter: Summary and Tensorboard GraphA Graph in Tensorflow represents complicated computation dataflow consisting of Tensors.A Tensor is a basic data structure">
+<meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Logistic-curve.svg/2000px-Logistic-curve.svg.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Teaching ML" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/teaching_ml/css/style.css">
+  
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/teaching_ml/" id="logo">Teaching ML</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/teaching_ml/">Home</a>
+        
+          <a class="main-nav-link" href="/teaching_ml/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://transwarpio.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-TF-3-graph" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/teaching_ml/2016/12/01/TF-3-graph/" class="article-date">
+  <time datetime="2016-12-01T11:20:49.000Z" itemprop="datePublished">2016-12-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      TF-3--graph
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="../TF-2-basics">Previous Chapter: Tensorflow Basics</a><br><a href="../TF-4-summary">Next Chapter: Summary and Tensorboard</a></p>
+<h2 id="Graph"><a href="#Graph" class="headerlink" title="Graph"></a>Graph</h2><p>A <strong>Graph</strong> in Tensorflow represents complicated computation dataflow consisting of <strong>Tensors</strong>.<br><br>A <strong>Tensor</strong> is a basic data structure in <strong>Tensorflow</strong>. There are several features of a <strong>Tensor</strong>.</p>
+<ul>
+<li>Represents one of outputs of an <strong>Operation</strong>;</li>
+<li>As a symbolic handle to one of the outputs of an <strong>Operation</strong>, <strong>Tensor</strong> provides a mean of computing the outputs in <strong>Tensorflow</strong> session instead of hold the real value;</li>
+<li>A <strong>Tensor</strong> could also be fed as an input to another <strong>Operation</strong>, that enables Tensorflow to build a multi-step, complicated computation which is called a <strong>Graph</strong>;</li>
+<li>After the <strong>Graph</strong> has been launched to a <strong>Session</strong>, the value of the <strong>Tensor</strong> can be computed by passing it to <code>Session.run()</code>;</li>
+</ul>
+<h3 id="Exercise-Build-a-Softmax-Regression-in-Tensorflow"><a href="#Exercise-Build-a-Softmax-Regression-in-Tensorflow" class="headerlink" title="Exercise: Build a Softmax Regression in Tensorflow"></a>Exercise: Build a Softmax Regression in Tensorflow</h3><h4 id="Logistic-Regression"><a href="#Logistic-Regression" class="headerlink" title="Logistic Regression"></a>Logistic Regression</h4><p><strong>Logistic Regression</strong> applies a sigmoid function on linear combination to break the constant gradient. As ranging between 0 and 1, sigmoid function is widely used in <strong>Neural Network</strong> for neural activation.</p>
+<p>A sigmoid function is defined as  $\normalsize \sigma(z) = {1 \over 1 + e^{-z}}$, where $\normalsize z = x^T * w + b$. </p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Logistic-curve.svg/2000px-Logistic-curve.svg.png" width="300" align="center"></p>
+<h4 id="Softmax-Regression"><a href="#Softmax-Regression" class="headerlink" title="Softmax Regression"></a>Softmax Regression</h4><p><strong>Logistic Regression</strong> could properly deal with 2-class classification problem. While in machine-learned neural networks, <strong>Softmax Regression</strong> is more common used because of the capability of multiple-class classfiction. Generally, <strong>Softmax Regression</strong> is a special case of <strong>Logistic Regression</strong> and is designed for filling the vacancy on its disadvantages.</p>
+<p>A Softmax function is defined as:  $\sigma(z)_j = \Large {{e^{z_j} \over \Sigma^k_{k=1} e^{z_k}}}$ </p>
+<p>The largest $\sigma(z)_j$ is then chosen as the predicted class.</p>
+<h4 id="Relationship-between-Logistic-Regression-and-Softmax-Regression"><a href="#Relationship-between-Logistic-Regression-and-Softmax-Regression" class="headerlink" title="Relationship between Logistic Regression and Softmax Regression"></a>Relationship between Logistic Regression and Softmax Regression</h4><p>Let&#x2019;s do some simple mathmatics.</p>
+<p>When k = 2,<br>
+$
+\begin{align*} 
+\sigma(z)
+&amp;= \normalsize{{1 \over e^{z_1} + e^{z_2}} \begin{bmatrix} e^{z_1} \\ e^{z_2} \end{bmatrix}} \\
+&amp;= \large\begin{bmatrix} {1 \over 1 + e^{(z_2 - z_1)}} \\ {1 \over 1 + e^{(z_1 - z_2)}}\end{bmatrix} \\
+&amp;= \large\begin{bmatrix} {1 \over 1 + e^{(z_2 - z_1)}} \\ \normalsize 1 - {1 \over 1 + e^{(z_2 - z_1)}}\end{bmatrix}
+\end{align*}
+$
+<br><br></p>
+<p>Assume $Z = z_1 - z_2$, one of the $\sigma(z_1) = \large{1 \over 1 + e^{-Z}}$ while the other one $\sigma(z_1) = 1 - \large{1 \over 1 + e^{-Z}}$, which proves the function is consitent with <em>Logistic Regression</em>.</p>
+<h5 id="Now-try-to-build-a-Softmax-Regression-in-Tensorflow-yourself-See-Linear-Regression-sample-for-reference"><a href="#Now-try-to-build-a-Softmax-Regression-in-Tensorflow-yourself-See-Linear-Regression-sample-for-reference" class="headerlink" title="Now try to build a Softmax Regression in Tensorflow yourself. See Linear Regression sample for reference."></a>Now try to build a Softmax Regression in Tensorflow yourself. See <a href="../TF-Learn.ipynb#samplecode"><em>Linear Regression sample</em></a> for reference.</h5><h4 id="Necessary-Headers"><a href="#Necessary-Headers" class="headerlink" title="Necessary Headers"></a>Necessary Headers</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> absolute_import</div><div class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> print_function</div><div class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> division</div><div class="line"></div><div class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</div></pre></td></tr></table></figure>
+<h4 id="MNIST-data"><a href="#MNIST-data" class="headerlink" title="MNIST data"></a>MNIST data</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## MNIST data</span></div><div class="line"><span class="keyword">from</span> tensorflow.examples.tutorials.mnist <span class="keyword">import</span> input_data</div><div class="line">mnist = input_data.read_data_sets(<span class="string">&quot;/root/tensorflow/MNIST_data&quot;</span>, one_hot=<span class="keyword">True</span>)</div></pre></td></tr></table></figure>
+<h4 id="Training-Parameters"><a href="#Training-Parameters" class="headerlink" title="Training Parameters"></a>Training Parameters</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## parameters</span></div><div class="line">learning_rate = <span class="number">0.01</span></div><div class="line">training_epochs = <span class="number">25</span></div><div class="line">batch_size = <span class="number">100</span></div><div class="line">display_step = <span class="number">1</span></div></pre></td></tr></table></figure>
+<h4 id="Inputs"><a href="#Inputs" class="headerlink" title="Inputs"></a>Inputs</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## inputs</span></div><div class="line">x = tf.placeholder(tf.float32, [<span class="keyword">None</span>, <span class="number">784</span>]) <span class="comment"># MNIST data image are of shape 28*28</span></div><div class="line">y = tf.placeholder(tf.float32, [<span class="keyword">None</span>, <span class="number">10</span>]) <span class="comment"># MNIST data has 10 classes</span></div></pre></td></tr></table></figure>
+<h4 id="Variables"><a href="#Variables" class="headerlink" title="Variables"></a>Variables</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## variables</span></div><div class="line"></div><div class="line"><span class="comment"># initialize random uniform distributed weights with size of [784, 10] ranging from -1 to 1</span></div><div class="line">W = tf.Variables(tf.random_uniform([<span class="number">784</span>,<span class="number">10</span>], <span class="number">-1.0</span>, <span class="number">1.0</span>)) <span class="comment">###### write your code here ######</span></div><div class="line"></div><div class="line"><span class="comment"># initialize bias with size of [10] to zero</span></div><div class="line">b = tf.Variables(tf.zeros([<span class="number">10</span>])) <span class="comment">###### write your code here ######</span></div></pre></td></tr></table></figure>
+<h4 id="Graph-1"><a href="#Graph-1" class="headerlink" title="Graph"></a>Graph</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## graph</span></div><div class="line"></div><div class="line"><span class="comment"># comb = W * x + b (using a similar tensorflow function)</span></div><div class="line">comb = ... <span class="comment">###### write your code here ######</span></div><div class="line"></div><div class="line"><span class="comment"># predicted value</span></div><div class="line">pred = tf.nn.softmax(comb)</div><div class="line"></div><div class="line"><span class="comment"># entr equals to **negative** `tf.reduce_sum()` of y * log(pred), with reduction_indices = 1</span></div><div class="line">entr = ... <span class="comment">###### write your code here ######</span></div><div class="line"></div><div class="line"><span class="comment"># cross entropy cost</span></div><div class="line">cost = tf.reduce_mean(entr)</div><div class="line"></div><div class="line"><span class="comment"># optimizer</span></div><div class="line">opti = tf.train.GradientDescentOptimizer(learning_rate)</div><div class="line"></div><div class="line"><span class="comment"># training_steps use optimizer to minimize the cost</span></div><div class="line">training_steps = ... <span class="comment">###### write your code here ######</span></div><div class="line"></div><div class="line"><span class="comment"># initialization</span></div><div class="line">init = tf.initialize_all_variables()</div></pre></td></tr></table></figure>
+<h4 id="Run-a-Session"><a href="#Run-a-Session" class="headerlink" title="Run a Session"></a>Run a Session</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## training</span></div><div class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</div><div class="line">    sess.run(init)</div><div class="line"></div><div class="line">    <span class="comment"># training epochs</span></div><div class="line">    <span class="keyword">for</span> epoch <span class="keyword">in</span> range(training_epochs):</div><div class="line"></div><div class="line">        avg_cost = <span class="number">0</span></div><div class="line">        total_batch = int(mnist.train.num_examples / batch_size)</div><div class="line"></div><div class="line">        <span class="comment"># split the data into different batches and run</span></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(total_batch):</div><div class="line">            batch_xs, batch_ys = mnist.train.next_batch(batch_size)</div><div class="line">            <span class="comment"># run training steps and cost both in session, which should be fed `x = batch_xs` and `y = batch_ys`</span></div><div class="line">            _, cur_cost = ... <span class="comment">###### write your code here ######</span></div><div class="line"></div><div class="line">            avg_cost += cur_cost / total_batch</div><div class="line"></div><div class="line">        <span class="comment"># show the average cost</span></div><div class="line">        <span class="keyword">if</span> (epoch+<span class="number">1</span>) % display_step == <span class="number">0</span>:</div><div class="line">            print(<span class="string">&quot;Epoch:&quot;</span>, <span class="string">&apos;%04d&apos;</span> % (epoch+<span class="number">1</span>), <span class="string">&quot;cost=&quot;</span>, <span class="string">&quot;{:.9f}&quot;</span>.format(avg_cost))</div><div class="line"></div><div class="line">    print(<span class="string">&quot;Optimization Finished!&quot;</span>)</div><div class="line"></div><div class="line">    <span class="comment"># accuracy</span></div><div class="line">    correct_prediction = tf.equal(tf.argmax(pred, <span class="number">1</span>), tf.argmax(y, <span class="number">1</span>))</div><div class="line">    accuracy = tf.reduce_mean(tf.cast(correct_prediction, <span class="string">&apos;float&apos;</span>))</div><div class="line">    print(<span class="string">&quot;Accuracy:&quot;</span>, accuracy.eval({x: mnist.test.images, y: mnist.test.labels}))</div></pre></td></tr></table></figure>
+<p><a href="../TF-2-basics">Previous Chapter: Tensorflow Basics</a><br><a href="../TF-4-summary">Next Chapter: Summary and Tensorboard</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://transwarpio.github.io/2016/12/01/TF-3-graph/" data-id="cj6bkul4b0004uk9sdl69yc4e" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/teaching_ml/2016/12/01/TF-4-summary/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          TF-4-summary
+        
+      </div>
+    </a>
+  
+  
+    <a href="/teaching_ml/2016/12/01/TF-2-basics/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">TF-2-basics</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/teaching_ml/categories/数据挖掘/">数据挖掘</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/teaching_ml/tags/关联规则/">关联规则</a></li><li class="tag-list-item"><a class="tag-list-link" href="/teaching_ml/tags/数据挖掘/">数据挖掘</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/teaching_ml/tags/关联规则/" style="font-size: 10px;">关联规则</a> <a href="/teaching_ml/tags/数据挖掘/" style="font-size: 10px;">数据挖掘</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/teaching_ml/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/teaching_ml/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/teaching_ml/archives/2016/07/">July 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/teaching_ml/2016/12/01/FactorAnalysis/">FactorAnalysis</a>
+          </li>
+        
+          <li>
+            <a href="/teaching_ml/2016/12/01/TF-9-distributed/">TF-9-distributed</a>
+          </li>
+        
+          <li>
+            <a href="/teaching_ml/2016/12/01/TF-8-rnn/">TF-8-rnn</a>
+          </li>
+        
+          <li>
+            <a href="/teaching_ml/2016/12/01/TF-7-cnn/">TF-7-cnn</a>
+          </li>
+        
+          <li>
+            <a href="/teaching_ml/2016/12/01/TF-6-autoencoder/">TF-6-autoencoder</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 transwarpio<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/teaching_ml/" class="mobile-nav-link">Home</a>
+  
+    <a href="/teaching_ml/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/teaching_ml/fancybox/jquery.fancybox.css">
+  <script src="/teaching_ml/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/teaching_ml/js/script.js"></script>
+
+  </div>
+</body>
+</html>

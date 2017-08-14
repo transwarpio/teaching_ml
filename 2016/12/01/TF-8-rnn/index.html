@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>TF-8-rnn | Teaching ML</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Previous Chapter: Convolutional Neural NetworkNext Chapter: Distributed Mode Recurrent Neural Network and (LSTM)Following part is an introduction to recurrent neural networks and LSTMs quoted from thi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TF-8-rnn">
+<meta property="og:url" content="http://transwarpio.github.io/2016/12/01/TF-8-rnn/index.html">
+<meta property="og:site_name" content="Teaching ML">
+<meta property="og:description" content="Previous Chapter: Convolutional Neural NetworkNext Chapter: Distributed Mode Recurrent Neural Network and (LSTM)Following part is an introduction to recurrent neural networks and LSTMs quoted from thi">
+<meta property="og:image" content="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-unrolled.png">
+<meta property="og:image" content="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-longtermdependencies.png">
+<meta property="og:image" content="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-SimpleRNN.png">
+<meta property="og:image" content="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-chain.png">
+<meta property="og:image" content="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM2-notation.png">
+<meta property="og:image" content="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-C-line.png">
+<meta property="og:image" content="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-gate.png">
+<meta property="og:updated_time" content="2017-08-09T08:31:23.101Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TF-8-rnn">
+<meta name="twitter:description" content="Previous Chapter: Convolutional Neural NetworkNext Chapter: Distributed Mode Recurrent Neural Network and (LSTM)Following part is an introduction to recurrent neural networks and LSTMs quoted from thi">
+<meta name="twitter:image" content="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-unrolled.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Teaching ML" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/teaching_ml/css/style.css">
+  
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/teaching_ml/" id="logo">Teaching ML</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/teaching_ml/">Home</a>
+        
+          <a class="main-nav-link" href="/teaching_ml/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://transwarpio.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-TF-8-rnn" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/teaching_ml/2016/12/01/TF-8-rnn/" class="article-date">
+  <time datetime="2016-12-01T11:47:44.000Z" itemprop="datePublished">2016-12-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      TF-8-rnn
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="../TF-7-cnn">Previous Chapter: Convolutional Neural Network</a><br><a href="../TF-9-distributed">Next Chapter: Distributed Mode</a></p>
+<h2 id="Recurrent-Neural-Network-and-LSTM"><a href="#Recurrent-Neural-Network-and-LSTM" class="headerlink" title="Recurrent Neural Network and (LSTM)"></a>Recurrent Neural Network and (LSTM)</h2><p>Following part is an introduction to recurrent neural networks and LSTMs quoted from <a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank" rel="external">this great article</a>.</p>
+<h3 id="Introduction-to-Recurrent-Neural-Network"><a href="#Introduction-to-Recurrent-Neural-Network" class="headerlink" title="Introduction to Recurrent Neural Network"></a>Introduction to Recurrent Neural Network</h3><h4 id="Recurrent-Neural-Network"><a href="#Recurrent-Neural-Network" class="headerlink" title="Recurrent Neural Network"></a>Recurrent Neural Network</h4><p>Humans don&#x2019;t start their thinking from scratch every second. As you read this essay, you understand each word based on your understanding of previous words. You don&#x2019;t throw everything away and start thinking from scratch again. <em>Recurrent neural networks</em> are deep learning networks addressing this issue. <span style="color: #F08080">They have loops in them, allowing information to persist.</span></p>
+<p><img src="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-unrolled.png" width="500"></p>
+<p>This chain-like nature reveals that recurrent neural networks are intimately related to sequences and lists. They&#x2019;re the natural architecture of neural network to use for such data. RNNs have been successfly applied to a variety of problems: <span style="color: #F08080"><em>speech recognition</em></span>, <span style="color: #F08080"><em>language modeling</em></span>, <span style="color: #F08080"><em>translation</em></span>, <span style="color: #F08080"><em>image captioning</em></span>.</p>
+<h4 id="A-Major-Problem-in-RNN"><a href="#A-Major-Problem-in-RNN" class="headerlink" title="A Major Problem in RNN"></a>A Major Problem in RNN</h4><p>Consider trying to predict the last word in the text &#x201C;I grew up in France&#x2026; I speak fluent French.&#x201D; Recent information suggests that the next word is probably the name of a language, but if we want to narrow down which language, we need the context of France, from further back. It&#x2019;s entirely possible for the gap between the relevant information and the point where it is needed to become very large.</p>
+<p><img src="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-longtermdependencies.png" width="500"></p>
+<p><span style="color: #F08080">Unfortunately, as that gap grows, RNNs become unable to learn to connect the information.</span></p>
+<h4 id="LSTM-Network"><a href="#LSTM-Network" class="headerlink" title="LSTM Network"></a>LSTM Network</h4><p>Long Short Term Memory networks &#x2013; usually just called &#x201C;LSTMs&#x201D; &#x2013; are a special kind of RNN, <span style="color: #F08080">capable of learning long-term dependencies</span>. They were introduced by Hochreiter &amp; Schmidhuber (1997), and were refined and popularized by many people in following work.1 They work tremendously well on a large variety of problems, and are now widely used.</p>
+<p>LSTMs are explicitly designed to <span style="color: #F08080">avoid the long-term dependency problem</span>. Remembering information for long periods of time is practically their default behavior, not something they struggle to learn!</p>
+<p>All recurrent neural networks have the form of a chain of repeating modules of neural network. In standard RNNs, this repeating module will have a very simple structure, such as a single tanh layer.</p>
+<p><img src="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-SimpleRNN.png" width="500"></p>
+<p>LSTMs also have this chain like structure, but the repeating module has a different structure. Instead of having a single neural network layer, there are <span style="color: #F08080">four, interacting in a very special way</span>.</p>
+<p><img src="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-chain.png" width="500"></p>
+<p><span style="color: #F08080">In the above diagram, each line carries an entire vector, from the output of one node to the inputs of others.</span> The pink circles represent pointwise operations, like vector addition, while the yellow boxes are learned neural network layers. Lines merging denote concatenation, while a line forking denote its content being copied and the copies going to different locations.</p>
+<p><img src="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM2-notation.png" width="500"></p>
+<p>The key to LSTMs is the cell state, the horizontal line running through the top of the diagram.</p>
+<p>The cell state is kind of like a conveyor belt. It runs straight down the entire chain, with only some minor linear interactions. <span style="color: #F08080">It&#x2019;s very easy for information to just flow along it unchanged.</span></p>
+<p><img src="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-C-line.png" width="500"></p>
+<p>The LSTM does have the ability to remove or add information to the cell state, carefully regulated by structures called gates.</p>
+<p>Gates are a way to optionally let information through. They are composed out of a sigmoid neural net layer and a pointwise multiplication operation.</p>
+<p><img src="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-gate.png" width="100"></p>
+<p>The sigmoid layer outputs numbers between zero and one, describing how much of each component should be let through. A value of zero means &#x201C;let nothing through,&#x201D; while a value of one means &#x201C;let everything through!&#x201D;</p>
+<p><span style="color: #F08080">An LSTM has three of these gates, to protect and control the cell state.</span></p>
+<h4 id="Attention-System"><a href="#Attention-System" class="headerlink" title="Attention System"></a>Attention System</h4><p>LSTMs were a big step in what we can accomplish with RNNs. It&#x2019;s natural to wonder: is there another big step? A common opinion among researchers is: &#x201C;Yes! There is a next step and it&#x2019;s attention!&#x201D; The idea is to let every step of an RNN pick information to look at from some larger collection of information. For example, if you are using an RNN to create a caption describing an image, it might pick a part of the image to look at for every word it outputs. In fact, Xu, et al. (2015) do exactly this &#x2013; it might be a fun starting point if you want to explore attention! There&#x2019;s been a number of really exciting results using attention, and it seems like a lot more are around the corner&#x2026;</p>
+<p>Attention isn&#x2019;t the only exciting thread in RNN research. For example, Grid LSTMs by Kalchbrenner, et al. (2015) seem extremely promising. Work using RNNs in generative models &#x2013; such as Gregor, et al. (2015), Chung, et al. (2015), or Bayer &amp; Osendorfer (2015) &#x2013; also seems very interesting. The last few years have been an exciting time for recurrent neural networks, and the coming ones promise to only be more so!</p>
+<h3 id="Exercise-Recurrent-Neural-Network"><a href="#Exercise-Recurrent-Neural-Network" class="headerlink" title="Exercise: Recurrent Neural Network"></a>Exercise: Recurrent Neural Network</h3><p>This is an exercise of <em>Recurrent Neural Network</em>.</p>
+<h4 id="Same-as-previous-chapter"><a href="#Same-as-previous-chapter" class="headerlink" title="Same as previous chapter"></a>Same as previous chapter</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> absolute_import</div><div class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> print_function</div><div class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> division</div><div class="line"></div><div class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"></div><div class="line"><span class="comment">## import tensorflow rnn and rnn_cell</span></div><div class="line"><span class="keyword">from</span> tensorflow.python.ops <span class="keyword">import</span> rnn, rnn_cell</div><div class="line"></div><div class="line"><span class="comment">## MNIST data</span></div><div class="line"><span class="keyword">from</span> tensorflow.examples.tutorials.mnist <span class="keyword">import</span> input_data</div><div class="line">mnist = input_data.read_data_sets(<span class="string">&quot;/root/tensorflow/MNIST_data&quot;</span>, one_hot=<span class="keyword">True</span>)</div><div class="line"></div><div class="line"><span class="comment">## parameters</span></div><div class="line">learning_rate = <span class="number">0.001</span></div><div class="line">training_iters = <span class="number">100000</span></div><div class="line">batch_size = <span class="number">128</span></div><div class="line">display_step = <span class="number">10</span></div></pre></td></tr></table></figure>
+<h4 id="A-little-bit-difference"><a href="#A-little-bit-difference" class="headerlink" title="A little bit difference"></a>A little bit difference</h4><p>To classify images using a recurrent neural network, we consider every image row as a sequence of pixels. Because MNIST image shape is 28*28px, we will then handle 28 sequences of 28 steps for every sample.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## graph parameters</span></div><div class="line">n_input = <span class="number">28</span> <span class="comment"># MNIST data input (img shape: 28*28)</span></div><div class="line">n_steps = <span class="number">28</span> <span class="comment"># timesteps</span></div><div class="line">n_hidden = <span class="number">128</span> <span class="comment"># hidden layer num of features</span></div><div class="line">n_classes = <span class="number">10</span> <span class="comment"># MNIST total classes (0-9 digits)</span></div><div class="line"></div><div class="line"><span class="comment">## inputs</span></div><div class="line">x = tf.placeholder(<span class="string">&quot;float&quot;</span>, [<span class="keyword">None</span>, n_steps, n_input])</div><div class="line">y = tf.placeholder(<span class="string">&quot;float&quot;</span>, [<span class="keyword">None</span>, n_classes])</div></pre></td></tr></table></figure>
+<h4 id="Training-Steps"><a href="#Training-Steps" class="headerlink" title="Training Steps"></a>Training Steps</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## predicted Value</span></div><div class="line">pred = RNN(x, weights, biases)</div><div class="line"></div><div class="line"><span class="comment">## cost and optimizer</span></div><div class="line">cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(pred, y))</div><div class="line">optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)</div><div class="line"></div><div class="line"><span class="comment">## accuracy</span></div><div class="line">correct_pred = tf.equal(tf.argmax(pred,<span class="number">1</span>), tf.argmax(y,<span class="number">1</span>))</div><div class="line">accuracy = tf.reduce_mean(tf.cast(correct_pred, tf.float32))</div><div class="line"></div><div class="line"><span class="comment">## initialization</span></div><div class="line">init = tf.initialize_all_variables()</div></pre></td></tr></table></figure>
+<h4 id="Weights-and-Biases"><a href="#Weights-and-Biases" class="headerlink" title="Weights and Biases"></a>Weights and Biases</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## weights and biases</span></div><div class="line">weights = {<span class="string">&apos;out&apos;</span>: tf.Variable(tf.random_normal([n_hidden, n_classes]))}</div><div class="line">biases = {<span class="string">&apos;out&apos;</span>: tf.Variable(tf.random_normal([n_classes]))}</div></pre></td></tr></table></figure>
+<h4 id="Graph"><a href="#Graph" class="headerlink" title="Graph"></a>Graph</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## graph</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">RNN</span><span class="params">(x, weights, biases)</span>:</span></div><div class="line"></div><div class="line">    <span class="comment"># transpose batch_size and n_steps</span></div><div class="line">    x = tf.transpose(x, [<span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>])</div><div class="line">    <span class="comment"># reshaping to (n_steps*batch_size, n_input)</span></div><div class="line">    x = tf.reshape(x, [<span class="number">-1</span>, n_input])</div><div class="line">    <span class="comment"># split to get a list of &apos;n_steps&apos; tensors of shape (batch_size, n_input)</span></div><div class="line">    x = tf.split(<span class="number">0</span>, n_steps, x)</div><div class="line"></div><div class="line">    <span class="comment"># define a lstm cell with tensorflow</span></div><div class="line">    lstm_cell = rnn_cell.BasicLSTMCell(n_hidden, forget_bias=<span class="number">1.0</span>)</div><div class="line"></div><div class="line">    <span class="comment"># get lstm cell output</span></div><div class="line">    outputs, states = rnn.rnn(lstm_cell, x, dtype=tf.float32)</div><div class="line"></div><div class="line">    <span class="comment"># linear activation</span></div><div class="line">    <span class="keyword">return</span> tf.matmul(outputs[<span class="number">-1</span>], weights[<span class="string">&apos;out&apos;</span>]) + biases[<span class="string">&apos;out&apos;</span>]</div></pre></td></tr></table></figure>
+<h4 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># summary writer</span></div><div class="line">writer = tf.train.SummaryWriter(<span class="string">&apos;/root/tensorflow/summaries/rnn&apos;</span>, graph = tf.get_default_graph())</div></pre></td></tr></table></figure>
+<h4 id="Run-a-Session"><a href="#Run-a-Session" class="headerlink" title="Run a Session"></a>Run a Session</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># training</span></div><div class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</div><div class="line">    sess.run(init)</div><div class="line">    step = <span class="number">1</span></div><div class="line"></div><div class="line">    <span class="comment"># keep training until reach max iterations</span></div><div class="line">    <span class="keyword">while</span> step * batch_size &lt; training_iters:</div><div class="line">        <span class="comment"># reshape data to get 28 sequence of 28 elements</span></div><div class="line">        batch_x, batch_y = mnist.train.next_batch(batch_size)</div><div class="line">        batch_x = batch_x.reshape((batch_size, n_steps, n_input))</div><div class="line"></div><div class="line">        sess.run(optimizer, feed_dict={x: batch_x, y: batch_y})</div><div class="line"></div><div class="line">        <span class="keyword">if</span> step % display_step == <span class="number">0</span>:</div><div class="line">            acc, loss = sess.run([accuracy, cost], feed_dict={x: batch_x, y: batch_y})</div><div class="line"></div><div class="line">            print(<span class="string">&quot;Iter &quot;</span> + str(step*batch_size) + <span class="string">&quot;, Minibatch Loss= &quot;</span> + \</div><div class="line">                  <span class="string">&quot;{:.6f}&quot;</span>.format(loss) + <span class="string">&quot;, Training Accuracy= &quot;</span> + \</div><div class="line">                  <span class="string">&quot;{:.5f}&quot;</span>.format(acc))</div><div class="line">        step += <span class="number">1</span></div><div class="line">    print(<span class="string">&quot;Optimization Finished!&quot;</span>)</div><div class="line"></div><div class="line">    <span class="comment"># calculate accuracy for 128 mnist test images</span></div><div class="line">    test_len = <span class="number">128</span></div><div class="line">    test_data = mnist.test.images[:test_len].reshape((<span class="number">-1</span>, n_steps, n_input))</div><div class="line">    test_label = mnist.test.labels[:test_len]</div><div class="line">    print(<span class="string">&quot;Testing Accuracy:&quot;</span>, sess.run(accuracy, feed_dict={x: test_data, y: test_label}))</div></pre></td></tr></table></figure>
+<p><a href="../TF-7-cnn">Previous Chapter: Convolutional Neural Network</a><br><a href="../TF-9-distributed">Next Chapter: Distributed Mode</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://transwarpio.github.io/2016/12/01/TF-8-rnn/" data-id="cj6bkul4p0009uk9sibp4xrl5" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/teaching_ml/2016/12/01/TF-9-distributed/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          TF-9-distributed
+        
+      </div>
+    </a>
+  
+  
+    <a href="/teaching_ml/2016/12/01/TF-7-cnn/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">TF-7-cnn</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/teaching_ml/categories/数据挖掘/">数据挖掘</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/teaching_ml/tags/关联规则/">关联规则</a></li><li class="tag-list-item"><a class="tag-list-link" href="/teaching_ml/tags/数据挖掘/">数据挖掘</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/teaching_ml/tags/关联规则/" style="font-size: 10px;">关联规则</a> <a href="/teaching_ml/tags/数据挖掘/" style="font-size: 10px;">数据挖掘</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/teaching_ml/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/teaching_ml/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/teaching_ml/archives/2016/07/">July 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/teaching_ml/2016/12/01/FactorAnalysis/">FactorAnalysis</a>
+          </li>
+        
+          <li>
+            <a href="/teaching_ml/2016/12/01/TF-9-distributed/">TF-9-distributed</a>
+          </li>
+        
+          <li>
+            <a href="/teaching_ml/2016/12/01/TF-8-rnn/">TF-8-rnn</a>
+          </li>
+        
+          <li>
+            <a href="/teaching_ml/2016/12/01/TF-7-cnn/">TF-7-cnn</a>
+          </li>
+        
+          <li>
+            <a href="/teaching_ml/2016/12/01/TF-6-autoencoder/">TF-6-autoencoder</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 transwarpio<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/teaching_ml/" class="mobile-nav-link">Home</a>
+  
+    <a href="/teaching_ml/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/teaching_ml/fancybox/jquery.fancybox.css">
+  <script src="/teaching_ml/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/teaching_ml/js/script.js"></script>
+
+  </div>
+</body>
+</html>

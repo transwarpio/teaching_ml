@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>TF-9-distributed | Teaching ML</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Previous Chapter: Recurrent Neural Network Distributed ModeHere is a sample of running a Neural Network on distributed clustering. Because of the busted Tensorflow distributed management, it could not">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TF-9-distributed">
+<meta property="og:url" content="http://transwarpio.github.io/2016/12/01/TF-9-distributed/index.html">
+<meta property="og:site_name" content="Teaching ML">
+<meta property="og:description" content="Previous Chapter: Recurrent Neural Network Distributed ModeHere is a sample of running a Neural Network on distributed clustering. Because of the busted Tensorflow distributed management, it could not">
+<meta property="og:updated_time" content="2017-08-09T08:31:23.101Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TF-9-distributed">
+<meta name="twitter:description" content="Previous Chapter: Recurrent Neural Network Distributed ModeHere is a sample of running a Neural Network on distributed clustering. Because of the busted Tensorflow distributed management, it could not">
+  
+    <link rel="alternate" href="/atom.xml" title="Teaching ML" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/teaching_ml/css/style.css">
+  
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/teaching_ml/" id="logo">Teaching ML</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/teaching_ml/">Home</a>
+        
+          <a class="main-nav-link" href="/teaching_ml/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://transwarpio.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-TF-9-distributed" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/teaching_ml/2016/12/01/TF-9-distributed/" class="article-date">
+  <time datetime="2016-12-01T11:48:16.000Z" itemprop="datePublished">2016-12-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      TF-9-distributed
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="../TF-8-rnn">Previous Chapter: Recurrent Neural Network</a></p>
+<h2 id="Distributed-Mode"><a href="#Distributed-Mode" class="headerlink" title="Distributed Mode"></a>Distributed Mode</h2><p>Here is a sample of running a <em>Neural Network</em> on distributed clustering. Because of the busted Tensorflow distributed management, it could not run now here. Hope it could still help you though.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div></pre></td><td class="code"><pre><div class="line"><span class="string">&quot;&quot;&quot;</span></div><div class="line"><span class="string">Here is a mnist training example using a single-layer </span></div><div class="line"><span class="string">neural network and a softmax classifier.</span></div><div class="line"><span class="string">To run this file,</span></div><div class="line"><span class="string">1. please check &apos;172.16.3.227:~/tensorflow/scripts&apos;</span></div><div class="line"><span class="string">   and execute &apos;exec_mnist_distributed.sh&apos;.</span></div><div class="line"><span class="string">2. execute &apos;python mnist_distributed.py \</span></div><div class="line"><span class="string">            --job_name=worker \</span></div><div class="line"><span class="string">            --task_index=${0|1|2}&apos; on each worker</span></div><div class="line"><span class="string">   and &apos;python mnist_distributed.py \</span></div><div class="line"><span class="string">        --job_name=ps \</span></div><div class="line"><span class="string">        --task_index=0&apos; on parameter server</span></div><div class="line"><span class="string"></span></div><div class="line"><span class="string">Check (https://www.tensorflow.org/versions/r0.10/how_tos/style_guide.html) for tensorflow styling guide.</span></div><div class="line"><span class="string">&quot;&quot;&quot;</span></div><div class="line"></div><div class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> absolute_import</div><div class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> division</div><div class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> print_function</div><div class="line"></div><div class="line"><span class="keyword">import</span> math</div><div class="line"><span class="keyword">import</span> sys</div><div class="line"><span class="keyword">import</span> tempfile</div><div class="line"><span class="keyword">import</span> time</div><div class="line"></div><div class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</div><div class="line"><span class="keyword">from</span> tensorflow.examples.tutorials.mnist <span class="keyword">import</span> input_data</div><div class="line"></div><div class="line"><span class="comment"># input or default parameters</span></div><div class="line">flags = tf.app.flags</div><div class="line"></div><div class="line">flags.DEFINE_string(</div><div class="line">    <span class="string">&quot;data_dir&quot;</span>,</div><div class="line">    <span class="string">&quot;/root/tensorflow/MNIST_data&quot;</span>,</div><div class="line">    <span class="string">&quot;Directory for storing mnist data&quot;</span>)</div><div class="line">flags.DEFINE_string(</div><div class="line">    <span class="string">&quot;log_dir&quot;</span>,</div><div class="line">    <span class="string">&quot;/root/tensorflow/logs/mnist_log&quot;</span>,</div><div class="line">    <span class="string">&quot;Directory for storing log&quot;</span>)</div><div class="line">flags.DEFINE_boolean(</div><div class="line">    <span class="string">&quot;download_only&quot;</span>,</div><div class="line">    <span class="keyword">False</span>,</div><div class="line">    <span class="string">&quot;Only perform downloading of data&quot;</span>)</div><div class="line">flags.DEFINE_string(</div><div class="line">    <span class="string">&quot;job_name&quot;</span>,</div><div class="line">    <span class="keyword">None</span>,</div><div class="line">    <span class="string">&quot;job name: worker or ps&quot;</span>)</div><div class="line">flags.DEFINE_integer(</div><div class="line">    <span class="string">&quot;task_index&quot;</span>,</div><div class="line">    <span class="keyword">None</span>,</div><div class="line">    <span class="string">&quot;Worker task index, should be &gt;= 0.&quot;</span>)</div><div class="line">flags.DEFINE_integer(</div><div class="line">    <span class="string">&quot;hidden_units&quot;</span>,</div><div class="line">    <span class="number">100</span>,</div><div class="line">    <span class="string">&quot;Number of units in the hidden layer of the NN&quot;</span>)</div><div class="line">flags.DEFINE_integer(</div><div class="line">    <span class="string">&quot;training_steps&quot;</span>,</div><div class="line">    <span class="number">20000</span>,</div><div class="line">    <span class="string">&quot;Number of (global) training steps to perform&quot;</span>)</div><div class="line">flags.DEFINE_integer(</div><div class="line">    <span class="string">&quot;batch_size&quot;</span>,</div><div class="line">    <span class="number">100</span>,</div><div class="line">    <span class="string">&quot;Training batch size to be fetched each time&quot;</span>)</div><div class="line">flags.DEFINE_float(</div><div class="line">    <span class="string">&quot;learning_rate&quot;</span>,</div><div class="line">    <span class="number">0.01</span>,</div><div class="line">    <span class="string">&quot;Learning rate in machine learning&quot;</span>)</div><div class="line">flags.DEFINE_string(</div><div class="line">    <span class="string">&quot;ps_hosts&quot;</span>,</div><div class="line">    <span class="string">&quot;172.16.3.230:2222&quot;</span>,</div><div class="line">    <span class="string">&quot;Comma-separated list of hostname:port pairs&quot;</span>)</div><div class="line">flags.DEFINE_string(</div><div class="line">    <span class="string">&quot;worker_hosts&quot;</span>,</div><div class="line">    <span class="string">&quot;172.16.3.227:2222,172.16.3.228:2222,172.16.3.229:2222&quot;</span>,</div><div class="line">    <span class="string">&quot;Comma-separated list of hostname:port pairs&quot;</span>)</div><div class="line"></div><div class="line">FLAGS = flags.FLAGS</div><div class="line">IMAGE_PIXELS = <span class="number">28</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">(_)</span>:</span></div><div class="line"></div><div class="line">  <span class="comment"># validate and print necessary arguments</span></div><div class="line">  <span class="keyword">if</span> FLAGS.job_name <span class="keyword">is</span> <span class="keyword">None</span> <span class="keyword">or</span> FLAGS.job_name == <span class="string">&quot;&quot;</span>:</div><div class="line">    <span class="keyword">raise</span> ValueError(<span class="string">&quot;Must specify an explicit `job_name`&quot;</span>)</div><div class="line">  <span class="keyword">if</span> FLAGS.task_index <span class="keyword">is</span> <span class="keyword">None</span> <span class="keyword">or</span> FLAGS.task_index ==<span class="string">&quot;&quot;</span>:</div><div class="line">    <span class="keyword">raise</span> ValueError(<span class="string">&quot;Must specify an explicit `task_index`&quot;</span>)</div><div class="line">  print(<span class="string">&quot;job name = %s&quot;</span> % FLAGS.job_name)</div><div class="line">  print(<span class="string">&quot;task index = %d&quot;</span> % FLAGS.task_index)</div><div class="line"></div><div class="line">  <span class="comment"># parse the ps(es) and worker(s)</span></div><div class="line">  ps_spec = FLAGS.ps_hosts.split(<span class="string">&quot;,&quot;</span>)</div><div class="line">  worker_spec = FLAGS.worker_hosts.split(<span class="string">&quot;,&quot;</span>)</div><div class="line">  num_workers = len(worker_spec)</div><div class="line"></div><div class="line">  <span class="comment"># construct the cluster and server</span></div><div class="line">  cluster = tf.train.ClusterSpec({<span class="string">&quot;ps&quot;</span>: ps_spec, <span class="string">&quot;worker&quot;</span>: worker_spec})</div><div class="line">  server = tf.train.Server(</div><div class="line">      cluster,</div><div class="line">      job_name=FLAGS.job_name,</div><div class="line">      task_index=FLAGS.task_index)</div><div class="line"></div><div class="line">  <span class="keyword">if</span> FLAGS.job_name == <span class="string">&quot;ps&quot;</span>:</div><div class="line">    server.join()</div><div class="line">  <span class="keyword">elif</span> FLAGS.job_name == <span class="string">&quot;worker&quot;</span>:</div><div class="line"></div><div class="line">    <span class="comment"># replica the devices</span></div><div class="line">    <span class="keyword">with</span> tf.device(tf.train.replica_device_setter(</div><div class="line">        worker_device=<span class="string">&quot;/job:worker/task:%d&quot;</span> % FLAGS.task_index,</div><div class="line">        cluster=cluster)):</div><div class="line"></div><div class="line">      <span class="comment"># weight(s) and bias(es) of the hidden layer</span></div><div class="line">      hid_w = tf.Variable(tf.truncated_normal(</div><div class="line">        [IMAGE_PIXELS * IMAGE_PIXELS, FLAGS.hidden_units],</div><div class="line">        stddev=<span class="number">1.0</span> / IMAGE_PIXELS), name=<span class="string">&quot;hid_w&quot;</span>)</div><div class="line">      hid_b = tf.Variable(tf.zeros([FLAGS.hidden_units]), name=<span class="string">&quot;hid_b&quot;</span>)</div><div class="line"></div><div class="line">      <span class="comment"># weight(s) and bias(es) of the softmax layer</span></div><div class="line">      sm_w = tf.Variable(tf.truncated_normal([FLAGS.hidden_units, <span class="number">10</span>],</div><div class="line">        stddev=<span class="number">1.0</span> / math.sqrt(FLAGS.hidden_units)), name=<span class="string">&quot;sm_w&quot;</span>)</div><div class="line">      sm_b = tf.Variable(tf.zeros([<span class="number">10</span>]), name=<span class="string">&quot;sm_b&quot;</span>)</div><div class="line"></div><div class="line">      <span class="comment"># inputs for future calculation </span></div><div class="line">      x = tf.placeholder(tf.float32, [<span class="keyword">None</span>, IMAGE_PIXELS * IMAGE_PIXELS])</div><div class="line">      y_ = tf.placeholder(tf.float32, [<span class="keyword">None</span>, <span class="number">10</span>])</div><div class="line"></div><div class="line">      <span class="comment"># hidden layer computation logic</span></div><div class="line">      hid_lin = tf.nn.xw_plus_b(x, hid_w, hid_b)</div><div class="line">      hid = tf.nn.relu(hid_lin)</div><div class="line"></div><div class="line">      <span class="comment"># softmax layer computation logic</span></div><div class="line">      y = tf.nn.softmax(tf.nn.xw_plus_b(hid, sm_w, sm_b))</div><div class="line">      cross_entropy = -tf.reduce_sum(y_ * tf.log(tf.clip_by_value(y, <span class="number">1e-10</span>, <span class="number">1.0</span>)))</div><div class="line"></div><div class="line">      <span class="comment"># global step</span></div><div class="line">      global_step = tf.Variable(<span class="number">0</span>, name=<span class="string">&quot;global_step&quot;</span>, trainable=<span class="keyword">False</span>)</div><div class="line"></div><div class="line">      <span class="comment"># train step</span></div><div class="line">      train_step = tf.train.AdamOptimizer(FLAGS.learning_rate).minimize(</div><div class="line">          cross_entropy, global_step=global_step)</div><div class="line"></div><div class="line">      <span class="comment"># accuary calculation</span></div><div class="line">      correct_prediction = tf.equal(tf.argmax(y, <span class="number">1</span>), tf.argmax(y_, <span class="number">1</span>))</div><div class="line">      accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))</div><div class="line"></div><div class="line">      <span class="comment"># initialization</span></div><div class="line">      init_op = tf.initialize_all_variables()</div><div class="line">      summary_op = tf.merge_all_summaries()</div><div class="line">      <span class="comment"># <span class="doctag">TODO:</span> (xiao) restore problem(temporary annotated)</span></div><div class="line">      <span class="comment"># saver = tf.train.Saver(tf.all_variables(), sharded=True)</span></div><div class="line"></div><div class="line">    <span class="comment"># create a training supervisor</span></div><div class="line">    sv = tf.train.Supervisor(</div><div class="line">        is_chief=(FLAGS.task_index == <span class="number">0</span>),</div><div class="line">        logdir=FLAGS.log_dir,</div><div class="line">        init_op=init_op,</div><div class="line">        summary_op=summary_op,</div><div class="line">	<span class="comment"># <span class="doctag">TODO:</span> (xiao) checkpoint cannot be restored here</span></div><div class="line">	<span class="comment"># 1. figure out how to use sharded saver</span></div><div class="line">	<span class="comment"># 2. use hdfs instead when 0.11 released</span></div><div class="line">        saver=<span class="keyword">None</span>,</div><div class="line">        global_step=global_step,</div><div class="line">        save_model_secs=<span class="number">600</span>)</div><div class="line"></div><div class="line">    <span class="comment"># mnist data(exit the system is download_only is set True)</span></div><div class="line">    mnist = input_data.read_data_sets(FLAGS.data_dir, one_hot=<span class="keyword">True</span>)</div><div class="line"></div><div class="line">    <span class="keyword">with</span> sv.managed_session(server.target) <span class="keyword">as</span> sess:</div><div class="line"></div><div class="line">      time_begin = time.time()</div><div class="line">      local_step = <span class="number">0</span></div><div class="line">      step = <span class="number">0</span></div><div class="line"></div><div class="line">      <span class="keyword">while</span> <span class="keyword">not</span> sv.should_stop():</div><div class="line">        <span class="comment"># Training feed</span></div><div class="line">        batch_xs, batch_ys = mnist.train.next_batch(FLAGS.batch_size)</div><div class="line">        train_feed = {x: batch_xs, y_: batch_ys}</div><div class="line"></div><div class="line">        <span class="comment"># perform training</span></div><div class="line">        _, step = sess.run([train_step, global_step], feed_dict=train_feed)</div><div class="line">        local_step += <span class="number">1</span></div><div class="line"></div><div class="line">        now = time.time()</div><div class="line">        print(<span class="string">&quot;%f: Worker %d: training step %d done (global step: %d)&quot;</span></div><div class="line">            % (now, FLAGS.task_index, local_step, step))</div><div class="line"></div><div class="line">        <span class="keyword">if</span> step &gt;= FLAGS.training_steps:</div><div class="line">          <span class="keyword">break</span></div><div class="line"></div><div class="line">      time_end = time.time()</div><div class="line">      training_time = time_end - time_begin</div><div class="line">      print(<span class="string">&quot;Training elapsed time: %f s&quot;</span> % training_time)</div><div class="line"></div><div class="line">      <span class="comment"># Validation feed</span></div><div class="line">      val_feed = {x: mnist.validation.images, y_: mnist.validation.labels}</div><div class="line">      val_xent = sess.run(cross_entropy, feed_dict=val_feed)</div><div class="line">      print(<span class="string">&quot;After %d training step(s), validation cross entropy = %g&quot;</span></div><div class="line">          % (FLAGS.training_steps, val_xent))</div><div class="line"></div><div class="line">      <span class="comment"># let&apos;s calculate the accuracy</span></div><div class="line">      pred_feed = {x: mnist.test.images, y_: mnist.test.labels}</div><div class="line">      print(<span class="string">&quot;Accuracy is: %f&quot;</span> % sess.run(accuracy, feed_dict=pred_feed))</div><div class="line"></div><div class="line">    <span class="comment"># sv.stop()</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</div><div class="line">  tf.app.run()</div></pre></td></tr></table></figure>
+<p><a href="../TF-8-rnn">Previous Chapter: Recurrent Neural Network</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://transwarpio.github.io/2016/12/01/TF-9-distributed/" data-id="cj6bkul4s000auk9soyih998g" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/teaching_ml/2016/12/01/FactorAnalysis/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          FactorAnalysis
+        
+      </div>
+    </a>
+  
+  
+    <a href="/teaching_ml/2016/12/01/TF-8-rnn/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">TF-8-rnn</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/teaching_ml/categories/数据挖掘/">数据挖掘</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/teaching_ml/tags/关联规则/">关联规则</a></li><li class="tag-list-item"><a class="tag-list-link" href="/teaching_ml/tags/数据挖掘/">数据挖掘</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/teaching_ml/tags/关联规则/" style="font-size: 10px;">关联规则</a> <a href="/teaching_ml/tags/数据挖掘/" style="font-size: 10px;">数据挖掘</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/teaching_ml/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/teaching_ml/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/teaching_ml/archives/2016/07/">July 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/teaching_ml/2016/12/01/FactorAnalysis/">FactorAnalysis</a>
+          </li>
+        
+          <li>
+            <a href="/teaching_ml/2016/12/01/TF-9-distributed/">TF-9-distributed</a>
+          </li>
+        
+          <li>
+            <a href="/teaching_ml/2016/12/01/TF-8-rnn/">TF-8-rnn</a>
+          </li>
+        
+          <li>
+            <a href="/teaching_ml/2016/12/01/TF-7-cnn/">TF-7-cnn</a>
+          </li>
+        
+          <li>
+            <a href="/teaching_ml/2016/12/01/TF-6-autoencoder/">TF-6-autoencoder</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 transwarpio<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/teaching_ml/" class="mobile-nav-link">Home</a>
+  
+    <a href="/teaching_ml/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/teaching_ml/fancybox/jquery.fancybox.css">
+  <script src="/teaching_ml/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/teaching_ml/js/script.js"></script>
+
+  </div>
+</body>
+</html>
