@@ -19,7 +19,19 @@
 <meta property="og:image" content="http://transwarpio.github.io/2017/08/11/Word2vec/6.png">
 <meta property="og:image" content="http://transwarpio.github.io/2017/08/11/Word2vec/7.png">
 <meta property="og:image" content="http://transwarpio.github.io/2017/08/11/Word2vec/8.png">
-<meta property="og:updated_time" content="2017-08-14T08:09:39.252Z">
+<meta property="og:image" content="http://transwarpio.github.io/2017/08/11/Word2vec/9.png">
+<meta property="og:image" content="http://transwarpio.github.io/2017/08/11/Word2vec/10.png">
+<meta property="og:image" content="http://transwarpio.github.io/2017/08/11/Word2vec/11.png">
+<meta property="og:image" content="http://transwarpio.github.io/2017/08/11/Word2vec/12.png">
+<meta property="og:image" content="http://transwarpio.github.io/2017/08/11/Word2vec/13.png">
+<meta property="og:image" content="http://transwarpio.github.io/2017/08/11/Word2vec/14.png">
+<meta property="og:image" content="http://transwarpio.github.io/2017/08/11/Word2vec/15.png">
+<meta property="og:image" content="http://transwarpio.github.io/2017/08/11/Word2vec/16.png">
+<meta property="og:image" content="http://transwarpio.github.io/2017/08/11/Word2vec/17.png">
+<meta property="og:image" content="http://transwarpio.github.io/2017/08/11/Word2vec/18.png">
+<meta property="og:image" content="http://transwarpio.github.io/2017/08/11/Word2vec/19.png">
+<meta property="og:image" content="http://transwarpio.github.io/2017/08/11/Word2vec/20.png">
+<meta property="og:updated_time" content="2017-08-14T08:55:51.126Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[Word2vec]">
 <meta name="twitter:description" content="Word2VecOutline &amp;#x7EDF;&amp;#x8BA1;&amp;#x8BED;&amp;#x8A00;&amp;#x6A21;&amp;#x578B; &amp;#x795E;&amp;#x7ECF;&amp;#x6982;&amp;#x7387;&amp;#x8BED;&amp;#x8A00;&amp;#x6A21;&amp;#x578B; &amp;#x57FA;&amp;#x4E8E;Hierarchical Softmax&amp;#x7684;CBOW&amp;#x6A21;&amp;#x578B; &amp;#x57">
@@ -168,7 +180,21 @@
 <p>&#x6613;&#x77E5;,&#x4E00;&#x4E2A;&#x7ED3;&#x70B9;&#x88AB;&#x5206;&#x4E3A;&#x6B63;&#x7C7B;&#x7684;&#x6982;&#x7387;&#x662F;<img src="/2017/08/11/Word2vec/6.png" alt="alt text">,&#x88AB;&#x5206;&#x4E3A;&#x8D1F;&#x7C7B;&#x7684;&#x6982;&#x7387;&#x662F;<img src="/2017/08/11/Word2vec/7.png" alt="alt text"></p>
 <p>&#x5BF9;&#x4E8E;&#x4ECE;&#x6839;&#x7ED3;&#x70B9;&#x51FA;&#x53D1;&#x5230;&#x201C;&#x8DB3;&#x7403;&#x201D;&#x53F6;&#x5B50;&#x7ED3;&#x70B9;&#x7684;4&#x6B21;&#x4E8C;&#x5206;&#x7C7B;,&#x6BCF;&#x6B21;&#x5206;&#x7C7B;&#x7ED3;&#x679C;&#x7684;&#x6982;&#x7387;&#x662F;</p>
 <p><img src="/2017/08/11/Word2vec/8.png" alt="alt text"></p>
-<p>&#x6839;&#x636E;<br>( p(w|Context(w)=\prod<em>{j=2}^{l^{w}} p(d</em>{j}^{w}|x<em>{w},\theta</em>{j-1}^{w}) $<br>$\frac{1}{3}$<br>$P(v)=\frac{1}{1+exp(-v/T)} )</p>
+<p>&#x6839;&#x636E;  <img src="/2017/08/11/Word2vec/9.png" alt="alt text"></p>
+<p>&#x5176;&#x4E2D;&#xFF0C;<img src="/2017/08/11/Word2vec/10.png" alt="alt text">  </p>
+<p>&#x7531;&#x4E8E;  <img src="/2017/08/11/Word2vec/11.png" alt="alt text"> </p>
+<p><img src="/2017/08/11/Word2vec/12.png" alt="alt text"></p>
+<p><img src="/2017/08/11/Word2vec/13.png" alt="alt text"></p>
+<p><img src="/2017/08/11/Word2vec/14.png" alt="alt text"></p>
+<h3 id="&#x57FA;&#x4E8E;Negative-Sampling&#x7684;Skip-gram&#x6A21;&#x578B;"><a href="#&#x57FA;&#x4E8E;Negative-Sampling&#x7684;Skip-gram&#x6A21;&#x578B;" class="headerlink" title="&#x57FA;&#x4E8E;Negative Sampling&#x7684;Skip-gram&#x6A21;&#x578B;"></a>&#x57FA;&#x4E8E;Negative Sampling&#x7684;Skip-gram&#x6A21;&#x578B;</h3><ul>
+<li>&#x4E0E;Hierarchical Softmax&#x76F8;&#x6BD4;,Negative Sampling&#x4E0D;&#x518D;&#x4F7F;&#x7528;&#x590D;&#x6742;&#x7684;Huffman&#x6811;,&#x800C;&#x662F;&#x5229;&#x7528;&#x968F;<br>&#x673A;&#x8D1F;&#x91C7;&#x6837;,&#x6765;&#x63D0;&#x9AD8;&#x8BAD;&#x7EC3;&#x901F;&#x5EA6;&#x5E76;&#x6539;&#x5584;&#x6240;&#x5F97;&#x8BCD;&#x5411;&#x91CF;&#x7684;&#x8D28;&#x91CF;&#x3002;</li>
+</ul>
+<p><img src="/2017/08/11/Word2vec/15.png" alt="alt text"></p>
+<p><img src="/2017/08/11/Word2vec/16.png" alt="alt text"></p>
+<p><img src="/2017/08/11/Word2vec/17.png" alt="alt text"></p>
+<p><img src="/2017/08/11/Word2vec/18.png" alt="alt text"></p>
+<p><img src="/2017/08/11/Word2vec/19.png" alt="alt text"></p>
+<h2 id="Word2Vec&#x6548;&#x679C;&#x5C55;&#x793A;"><a href="#Word2Vec&#x6548;&#x679C;&#x5C55;&#x793A;" class="headerlink" title="Word2Vec&#x6548;&#x679C;&#x5C55;&#x793A;"></a>Word2Vec&#x6548;&#x679C;&#x5C55;&#x793A;</h2><p><img src="/2017/08/11/Word2vec/20.png" alt="alt text"></p>
 
       
     </div>
