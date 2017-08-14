@@ -4,16 +4,17 @@
 
 # 常见机器学习算法
 ## 已分享
-1. [SVM](https://github.com/transwarpio/teaching_ml/blob/master/source/_posts/svm.org)
-2. [关联规则](https://github.com/transwarpio/teaching_ml/blob/master/source/_posts/associations/%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99%E6%8C%96%E6%8E%98%E5%9F%BA%E7%A1%80%E7%AF%87.md)
+1. [SVM](2016/08/30/svm)
+2. [关联规则](2016/07/04/associations/关联规则挖掘基础篇)
 3. [ALS](https://github.com/endymecy/spark-ml-source-analysis/blob/master/%E6%8E%A8%E8%8D%90/ALS.md)
 4. [LDA](https://github.com/endymecy/spark-ml-source-analysis/blob/master/%E8%81%9A%E7%B1%BB/LDA/lda.md)
 5. [Gaussian Mixture](https://github.com/endymecy/spark-ml-source-analysis/blob/master/%E8%81%9A%E7%B1%BB/gaussian-mixture/gaussian-mixture.md)
 6. [Bistecting KMeans](https://github.com/endymecy/spark-ml-source-analysis/blob/master/%E8%81%9A%E7%B1%BB/bis-k-means/bisecting-k-means.md)
 7. [KMeans](https://github.com/endymecy/spark-ml-source-analysis/blob/master/%E8%81%9A%E7%B1%BB/k-means/k-means.md)
 8. [PIC](https://github.com/endymecy/spark-ml-source-analysis/blob/master/%E8%81%9A%E7%B1%BB/PIC/pic.md)
-9. [Factor Analysis](https://github.com/transwarpio/teaching_ml/blob/master/source/_posts/FactorAnalysis.md)
-10. [test](https://github.com/transwarpio/teaching_ml/blob/master/source/_posts/test.md)
+9. [Factor Analysis](2016/12/01/FactorAnalysis)
+10. [自然语言处理介绍](2017/08/14/NLP)
+
 ## 将分享
 5. Logistic Regression
 6. Decision Tree
@@ -44,7 +45,7 @@
 ## 已分享
 1. [MXNet框架从原理到代码](2016/07/05/mxnet)
 2. [深度信念网络在蛋白质突变检测中的应用](https://github.com/xzry6/notes/blob/master/transwarp/dbn.md)
-3. [Word2Vec](https://github.com/transwarpio/teaching_ml/blob/master/source/_posts/Word2vec.md)
+3. [Word2Vec](2017/08/11/Word2vec)
 ## 将分享
 1. tensor,conv,pooling
 2. Word2Vec
