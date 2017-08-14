@@ -84,6 +84,6 @@ Quiz：CBOW模型和神经概率语言模型相比,结构有什么区别?
 ![alt text](Word2vec/8.png)
 
 根据 p(w|Context(w)=\prod_{j=2}^{l^{w}} p(d_{j}^{w}|x_{w},\theta_{j-1}^{w})
-<img src="http://chart.googleapis.com/chart?cht=tx&chl= p(w|Context(w)=\prod_{j=2}^{l^{w}} p(d_{j}^{w}|x_{w},\theta_{j-1}^{w})" style="border:none;">
+<img src="http://chart.googleapis.com/chart?cht=tx&chl= \frac{2}{|w|}" style="border:none;">
 
 
