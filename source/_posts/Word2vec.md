@@ -36,7 +36,7 @@ tags:
   - 若count(w k-n+1 ,w k-n+2 ,...,w k-1 )=count(w k-n+1 ,w k-n+2 ,...,w k ),能否认为
 p(w k |w 1 ,w 2 ...w k-1 )=1?
 ### 神经概率语言模型
-![alt text](Word2vec/1.png)
+![](Word2vec/1.png)
 
     其中,是词w的输出向量(长度为N),i_w是词w在词典中的位置,y_w(i_w)是输
 出向量y_w上位于i_w的元素,N是词典的大小
@@ -52,7 +52,7 @@ __定义__:低维稠密实向量
   - 优点:具有语义、语法相似性
   - 缺点:缺乏解释性,计算复杂
 
-![alt text](Word2vec/2.png)
+![](Word2vec/2.png)
 
 + *复杂度估计*
  + w的上下文词的数量,通常不超过5
@@ -67,52 +67,52 @@ __定义__:低维稠密实向量
 + 投影层:将输入层中2c个词向量求和累加
 + 输出层:是一棵二叉树,由词典中的词作为叶子节点,以各词在语料中出现的次数作为权值,构建出来的一棵Huffman树
 
-![alt text](Word2vec/3.png)
+![](Word2vec/3.png)
 
 Quiz：CBOW模型和神经概率语言模型相比,结构有什么区别?
 
-![alt text](Word2vec/4.png)
+![](Word2vec/4.png)
 
 将Huffman编码为1的结点定义为负类,将编码为0的结点定义为正类,即
 
-![alt text](Word2vec/5.png)
+![](Word2vec/5.png)
 
-易知,一个结点被分为正类的概率是![alt text](Word2vec/6.png),被分为负类的概率是![alt text](Word2vec/7.png)
+易知,一个结点被分为正类的概率是![](Word2vec/6.png),被分为负类的概率是![](Word2vec/7.png)
 
 对于从根结点出发到“足球”叶子结点的4次二分类,每次分类结果的概率是
 
-![alt text](Word2vec/8.png)
+![](Word2vec/8.png)
 
-根据  ![alt text](Word2vec/9.png)
+根据  ![](Word2vec/9.png)
 
-其中，![alt text](Word2vec/10.png)  
+其中，![](Word2vec/10.png) 
 
-由于  ![alt text](Word2vec/11.png) 
+由于  ![](Word2vec/11.png) 
 
-![alt text](Word2vec/12.png)
+![](Word2vec/12.png)
 
-![alt text](Word2vec/13.png)
+![](Word2vec/13.png)
 
-![alt text](Word2vec/14.png)
+![](Word2vec/14.png)
 
 ### 基于Negative Sampling的Skip-gram模型
 
 + 与Hierarchical Softmax相比,Negative Sampling不再使用复杂的Huffman树,而是利用随
 机负采样,来提高训练速度并改善所得词向量的质量。
 
-![alt text](Word2vec/15.png)
+![](Word2vec/15.png)
 
-![alt text](Word2vec/16.png)
+![](Word2vec/16.png)
 
-![alt text](Word2vec/17.png)
+![](Word2vec/17.png)
 
-![alt text](Word2vec/18.png)
+![](Word2vec/18.png)
 
-![alt text](Word2vec/19.png)
+![](Word2vec/19.png)
 
 ## Word2Vec效果展示
 
-![alt text](Word2vec/20.png)
+![](Word2vec/20.png)
 
 
 
