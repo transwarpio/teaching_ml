@@ -29,7 +29,7 @@ markdown的具体语法可以参考：[master markdown](https://guides.github.co
 对于资源文件比如图片，在`source/_posts/`文件夹下创建与文章同名的子文件夹。比如`source/_posts/doc.md` ，则有 `source/_posts/doc`文件夹。
 然后在文章中引用时使用相对路径。比如`source/_posts/doc/pic.jpg`。
 引用时为`doc/pic.jpg`
-
+ 
 ## 公式
 可以使用latex编辑公式，或使用公式编辑器编辑后转成图片展示。
 对于latex公式，使用美元符号`$`来包含inline公式，比如`$ y = x + b $`会显式为$ y = x + b $。
@@ -46,8 +46,22 @@ $$
 $\large \sigma(z) = {1 \over 1 + e^{-z}}$,
 {% endraw %}
 ```
+若发生图片显示失败的问题，参考以下解决方案：
+
+由于hexo自带的hexo-asset-image插件中调用图片链接缺失github库的部分，故piggy在/teaching_ml/node_modules/hexo-asset-image/index.js的一行代码 $(this).attr('src', '/__teaching_ml__/' + link + src)加入的黑体字部分为库的名称，blog网页中的图片方能正常显示。
+
 
 # 部署
 当你写完后，可以使用`hexo server`命令在本地查看效果。
-满意后使用`hexo generate --deploy`部署到github。
+满意后使用
+
+git add .
+
+git commit -m "备注“
+
+git push origin master
+
+hexo generate --deploy
+
+部署到github。
 
