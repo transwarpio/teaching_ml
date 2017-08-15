@@ -13,7 +13,6 @@
 7. [KMeans](https://github.com/endymecy/spark-ml-source-analysis/blob/master/%E8%81%9A%E7%B1%BB/k-means/k-means.md)
 8. [PIC](https://github.com/endymecy/spark-ml-source-analysis/blob/master/%E8%81%9A%E7%B1%BB/PIC/pic.md)
 9. [Factor Analysis](2016/12/01/FactorAnalysis)
-10. [自然语言处理介绍](2017/08/14/NLP)
 
 ## 将分享
 5. Logistic Regression
@@ -28,6 +27,14 @@
 14. BFGS and L-BFGS
 15. 其它最优化算法
 16. 集成学习相关算法介绍
+
+# 自然语言处理
+
+## 已分享
+1. [介绍](2017/08/14/NLP)
+2. [最大熵模型](2017/08/15/最大熵模型)
+
+
 
 # 深度学习
 ## コースの周先生Tensorflow
