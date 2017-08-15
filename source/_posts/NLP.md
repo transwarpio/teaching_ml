@@ -31,7 +31,7 @@ __1. 语音学__
 
 __语音学(Phonetics)问题__:研究词及其语音的关联
 
-![Phonetics](NLP/1.png)
+![Phonetics](NLP/1.png) {% asset_img NLP/1.jpg Phonetics %}
 
 __2. 形态学__
 
