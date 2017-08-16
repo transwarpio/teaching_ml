@@ -25,7 +25,28 @@
 <meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/15/最大熵模型/12.png">
 <meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/15/最大熵模型/13.png">
 <meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/15/最大熵模型/14.png">
-<meta property="og:updated_time" content="2017-08-15T09:59:21.405Z">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/15/最大熵模型/15.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/15/最大熵模型/16.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/15/最大熵模型/17.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/15/最大熵模型/18.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/15/最大熵模型/19.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/15/最大熵模型/20.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/15/最大熵模型/21.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/15/最大熵模型/22.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/15/最大熵模型/23.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/15/最大熵模型/24.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/15/最大熵模型/25.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/15/最大熵模型/26.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/15/最大熵模型/27.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/15/最大熵模型/28.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/15/最大熵模型/29.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/15/最大熵模型/30.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/15/最大熵模型/31.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/15/最大熵模型/32.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/15/最大熵模型/33.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/15/最大熵模型/34.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/15/最大熵模型/35.png">
+<meta property="og:updated_time" content="2017-08-16T01:29:39.238Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[最大熵模型]">
 <meta name="twitter:description" content="&amp;#x6700;&amp;#x5927;&amp;#x71B5;&amp;#x6A21;&amp;#x578B;&amp;#x76EE;&amp;#x5F55; 1.&amp;#x4EC0;&amp;#x4E48;&amp;#x662F;&amp;#x6700;&amp;#x5927;&amp;#x71B5;&amp;#x6A21;&amp;#x578B; 2.&amp;#x76F8;&amp;#x5173;&amp;#x6570;&amp;#x5B66;&amp;#x77E5;&amp;#x8BC6; 3.&amp;#x6700;&amp;#x5927;&amp;#x71B5">
@@ -72,9 +93,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://transwarpio.github.io"></form>
@@ -191,12 +212,98 @@
 <li>&#x6700;&#x5927;&#x71B5;&#x6A21;&#x578B;&#x7684;&#x5B66;&#x4E60;&#x8FC7;&#x7A0B;&#x5C31;&#x662F;&#x6C42;&#x89E3;&#x6700;&#x5927;&#x71B5;&#x6A21;&#x578B;&#x7684;&#x8FC7;&#x7A0B;&#x3002;&#x6C42;&#x89E3;&#x7EA6;&#x675F;&#x6700;&#x4F18;&#x5316;&#x95EE;&#x9898;(3.12),(3.13)&#x6240;&#x5F97;&#x7684;&#x89E3;&#x5C31;&#x662F;&#x6700;&#x5927;&#x71B5;&#x6A21;&#x578B;&#x5B66;&#x4E60;&#x7684;&#x89E3;&#x3002;&#x601D;&#x8DEF;&#x5982;&#x4E0B;:</li>
 <li>&#x5229;&#x7528;&#x62C9;&#x683C;&#x6717;&#x65E5;&#x4E58;&#x5B50;&#x6CD5;&#x5C06;&#x6700;&#x5927;&#x71B5;&#x6A21;&#x578B;&#x7531;&#x4E00;&#x4E2A;&#x5E26;&#x7EA6;&#x675F;&#x7684;&#x6700;&#x4F18;&#x5316;&#x95EE;&#x9898;&#x8F6C;&#x5316;&#x4E3A;&#x4E00;&#x4E2A;&#x4E0E;&#x4E4B;&#x7B49;&#x4EF7;&#x7684;&#x65E0;&#x7EA6;&#x675F;&#x7684;&#x6700;&#x4F18;&#x5316;&#x95EE;&#x9898;,&#x5B83;&#x662F;&#x4E00;&#x4E2A;min max&#x95EE;&#x9898;&#x3002;</li>
 <li>&#x5229;&#x7528;&#x5BF9;&#x5076;&#x95EE;&#x9898;&#x7684;&#x7B49;&#x4EF7;&#x6027;,&#x5C06;&#x539F;&#x59CB;&#x95EE;&#x9898;&#x8F6C;&#x6362;&#x4E3A;&#x4E00;&#x4E2A;max min&#x95EE;&#x9898;&#x3002;</li>
+<li><p><strong>&#x539F;&#x59CB;&#x95EE;&#x9898;&#x548C;&#x5BF9;&#x5076;&#x95EE;&#x9898;</strong></p>
+<ul>
+<li>&#x5229;&#x7528;&#x62C9;&#x683C;&#x6717;&#x65E5;&#x4E58;&#x5B50;&#x6CD5;&#x5B9A;&#x4E49;&#x5173;&#x4E8E;(3.7)&#x3001;(3.12)&#x548C;(3.13)&#x7684;&#x62C9;&#x683C;&#x6717;&#x65E5;&#x51FD;&#x6570;&#x5982;&#x4E0B;:</li>
+</ul>
+</li>
+</ul>
+<p><img src="/teaching_ml/2017/08/15/&#x6700;&#x5927;&#x71B5;&#x6A21;&#x578B;/15.png" alt=""></p>
+<ul>
+<li>&#x5229;&#x7528;&#x62C9;&#x683C;&#x6717;&#x65E5;&#x5BF9;&#x5076;&#x6027;,(3.6)&#x3001;(3.12)&#x548C;(3.13)&#x5B9A;&#x4E49;&#x7684;&#x6700;&#x5927;&#x71B5;&#x6A21;&#x578B;&#x7B49;&#x4EF7;&#x4E8E;&#x6C42;&#x89E3;:</li>
+</ul>
+<p><img src="/teaching_ml/2017/08/15/&#x6700;&#x5927;&#x71B5;&#x6A21;&#x578B;/16.png" alt=""></p>
+<ul>
+<li>&#x901A;&#x8FC7;&#x4EA4;&#x6362;&#x6781;&#x5927;&#x548C;&#x6781;&#x5C0F;&#x7684;&#x4F4D;&#x7F6E;,&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x516C;&#x5F0F;(4.2)&#x7684;&#x5BF9;&#x5076;&#x95EE;&#x9898;:</li>
+</ul>
+<p><img src="/teaching_ml/2017/08/15/&#x6700;&#x5927;&#x71B5;&#x6A21;&#x578B;/17.png" alt=""></p>
+<ul>
+<li>&#x7ECF;&#x8FC7;&#x4E24;&#x6B21;&#x7B49;&#x4EF7;&#x8F6C;&#x6362;,&#x6C42;&#x89E3;&#x6700;&#x5927;&#x71B5;&#x6A21;&#x578B;,&#x5C31;&#x662F;&#x6C42;&#x89E3;&#x5BF9;&#x5076;&#x95EE;&#x9898;(4.3)&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#x3002;<ul>
+<li><strong>&#x6781;&#x5C0F;&#x95EE;&#x9898;&#x6C42;&#x89E3;</strong></li>
+</ul>
+</li>
+<li>&#x5BF9;&#x5076;&#x95EE;&#x9898;(4.3)&#x5185;&#x90E8;&#x7684;&#x6781;&#x5C0F;&#x95EE;&#x9898;&#x662F;&#x5173;&#x4E8E;&#x53C2;&#x6570;lamba&#x7684;&#x95EE;&#x9898;</li>
+</ul>
+<p><img src="/teaching_ml/2017/08/15/&#x6700;&#x5927;&#x71B5;&#x6A21;&#x578B;/18.png" alt=""></p>
+<ul>
+<li>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5229;&#x7528;&#x62C9;&#x683C;&#x6717;&#x65E5;&#x4E58;&#x5B50;&#x6CD5;&#x83B7;&#x53D6;p&#x3002;</li>
+<li>&#x9996;&#x5148;&#x8BA1;&#x7B97;&#x62C9;&#x683C;&#x6717;&#x65E5;&#x51FD;&#x6570;L&#x5BF9;p(y|x)&#x7684;&#x504F;&#x5BFC;&#x6570;&#x3002;</li>
+</ul>
+<p><img src="/teaching_ml/2017/08/15/&#x6700;&#x5927;&#x71B5;&#x6A21;&#x578B;/19.png" alt=""></p>
+<ul>
+<li>&#x4EE4;&#x4E0A;&#x9762;&#x7684;&#x516C;&#x5F0F;&#x7B49;&#x4E8E;0&#xFF0C;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#xFF1A;<img src="/teaching_ml/2017/08/15/&#x6700;&#x5927;&#x71B5;&#x6A21;&#x578B;/20.png" alt="">&#xFF0C;&#x8FDB;&#x4E00;&#x6B65;&#x53EF;&#x4EE5;&#x89E3;&#x5F97;&#xFF1A;<img src="/teaching_ml/2017/08/15/&#x6700;&#x5927;&#x71B5;&#x6A21;&#x578B;/21.png" alt=""><br>&#x5C06;&#x4E0A;&#x9762;&#x7684;&#x516C;&#x793A;&#x5E26;&#x5165;(3.13),&#x53EF;&#x4EE5;&#x5F97;&#x5230;<img src="/teaching_ml/2017/08/15/&#x6700;&#x5927;&#x71B5;&#x6A21;&#x578B;/22.png" alt="">&#xFF0C;&#x8FDB;&#x4E00;&#x6B65;&#x53EF;&#x5F97;&#xFF1A;<img src="/teaching_ml/2017/08/15/&#x6700;&#x5927;&#x71B5;&#x6A21;&#x578B;/23.png" alt="">&#xFF0C;&#x5C06;(4.7)&#x5E26;&#x56DE;(4.6),&#x53EF;&#x4EE5;&#x5F97;&#x5230;:</li>
+</ul>
+<p><img src="/teaching_ml/2017/08/15/&#x6700;&#x5927;&#x71B5;&#x6A21;&#x578B;/24.png" alt=""></p>
+<p><img src="/teaching_ml/2017/08/15/&#x6700;&#x5927;&#x71B5;&#x6A21;&#x578B;/25.png" alt=""></p>
+<ul>
+<li>(4.9)&#x79F0;&#x4E3A;&#x89C4;&#x8303;&#x5316;&#x56E0;&#x5B50;&#x3002;(4.8)&#x4E2D;&#x7684;p&#x662F;&#x6700;&#x5927;&#x71B5;&#x6A21;&#x578B;&#x7684;&#x89E3;,&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x4ED6;&#x5177;&#x6709;&#x6307;&#x6570;<br>&#x7684;&#x5F62;&#x5F0F;&#x3002;<ul>
+<li><strong>&#x6700;&#x5927;&#x4F3C;&#x7136;&#x4F30;&#x8BA1;</strong></li>
+</ul>
+</li>
+<li>&#x5F97;&#x5230;&#x5BF9;&#x5076;&#x95EE;&#x9898;(4.3)&#x5185;&#x90E8;&#x7684;&#x6781;&#x5C0F;&#x95EE;&#x9898;&#x7684;&#x89E3;p&#x4E4B;&#x540E;,&#x9700;&#x8981;&#x8FDB;&#x4E00;&#x6B65;&#x6C42;&#x89E3;&#x5916;&#x5C42;&#x7684;&#x6781;&#x5927;&#x503C;&#x95EE;&#x9898;&#x3002;</li>
+</ul>
+<p><img src="/teaching_ml/2017/08/15/&#x6700;&#x5927;&#x71B5;&#x6A21;&#x578B;/26.png" alt=""></p>
+<p><img src="/teaching_ml/2017/08/15/&#x6700;&#x5927;&#x71B5;&#x6A21;&#x578B;/27.png" alt=""></p>
+<ul>
+<li><strong>&#x4F8B;&#x5B50;</strong><ul>
+<li>&#x9898;:&#x5047;&#x8BBE;&#x968F;&#x673A;&#x53D8;&#x91CF;X&#x6709;5&#x4E2A;&#x53D6;&#x503C;{A,B,C,D,E},&#x4E14;&#x6EE1;&#x8DB3;&#x6761;&#x4EF6;P(A)+P(B)=0.3&#x4E14;P(A)+P(B)+P(C)+P(D)+P(E)=1&#x3002;&#x6C42;&#x6700;&#x5927;&#x71B5;&#x6A21;&#x578B;&#x3002;</li>
+<li>&#x4E3A;&#x4E86;&#x65B9;&#x4FBF;,&#x5206;&#x522B;&#x7528;y 1 ~y 5 &#x8868;&#x793A;A~E&#x4E8E;&#x662F;&#x6700;&#x5927;&#x71B5;&#x6A21;&#x578B;&#x7684;&#x6700;&#x4F18;&#x5316;&#x95EE;&#x9898;&#x662F;:</li>
+</ul>
+</li>
+</ul>
+<p><img src="/teaching_ml/2017/08/15/&#x6700;&#x5927;&#x71B5;&#x6A21;&#x578B;/28.png" alt=""></p>
+<ul>
+<li>&#x5F15;&#x8FDB;&#x62C9;&#x683C;&#x6717;&#x65E5;&#x4E58;&#x5B50;w0&#x548C;w1,&#x5B9A;&#x4E49;&#x62C9;&#x683C;&#x6717;&#x65E5;&#x51FD;&#x6570;&#x5982;&#x4E0B;:</li>
+</ul>
+<p><img src="/teaching_ml/2017/08/15/&#x6700;&#x5927;&#x71B5;&#x6A21;&#x578B;/29.png" alt=""></p>
+<ul>
+<li>&#x6839;&#x636E;&#x62C9;&#x683C;&#x6717;&#x65E5;&#x5BF9;&#x5076;&#x6027;,&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x6C42;&#x89E3;&#x5BF9;&#x5076;&#x6700;&#x4F18;&#x5316;&#x95EE;&#x9898;&#x5F97;&#x5230;&#x539F;&#x59CB;&#x6700;&#x4F18;&#x5316;&#x95EE;&#x9898;&#x7684;&#x89E3;&#x3002;&#x6240;&#x4EE5;&#x6C42;&#x89E3;max min L(p,w)&#x9996;&#x5148;&#x9700;&#x8981;&#x6C42;&#x89E3;&#x5173;&#x4E8E;p&#x7684;&#x6781;&#x5C0F;&#x5316;&#x95EE;&#x9898;&#x3002;&#x4E3A;&#x6B64;&#x9700;&#x8981;&#x56FA;&#x5B9A;w0&#x548C;w1&#x3002;&#x6C42;&#x504F;&#x5BFC;&#x6570;:</li>
+</ul>
+<p><img src="/teaching_ml/2017/08/15/&#x6700;&#x5927;&#x71B5;&#x6A21;&#x578B;/30.png" alt=""></p>
+<ul>
+<li>&#x4EE4;&#x5404;&#x4E2A;&#x504F;&#x5BFC;&#x6570;&#x4E3A;0,&#x53EF;&#x4EE5;&#x5F97;&#x5230;:</li>
+</ul>
+<p><img src="/teaching_ml/2017/08/15/&#x6700;&#x5927;&#x71B5;&#x6A21;&#x578B;/31.png" alt=""></p>
+<ul>
+<li>&#x518D;&#x6C42;L(p,w)&#x5173;&#x4E8E;w&#x7684;&#x6781;&#x5927;&#x5316;&#x95EE;&#x9898;:</li>
+</ul>
+<p><img src="/teaching_ml/2017/08/15/&#x6700;&#x5927;&#x71B5;&#x6A21;&#x578B;/32.png" alt=""></p>
+<ul>
+<li>&#x5206;&#x522B;&#x5BF9;w0&#x548C;w1&#x6C42;&#x504F;&#x5BFC;,&#x5E76;&#x4EE4;&#x5176;&#x7B49;&#x4E8E;0,&#x53EF;&#x4EE5;&#x5F97;&#x5230;</li>
+</ul>
+<p><img src="/teaching_ml/2017/08/15/&#x6700;&#x5927;&#x71B5;&#x6A21;&#x578B;/33.png" alt=""></p>
+<h2 id="&#x6700;&#x4F18;&#x5316;&#x7B97;&#x6CD5;"><a href="#&#x6700;&#x4F18;&#x5316;&#x7B97;&#x6CD5;" class="headerlink" title="&#x6700;&#x4F18;&#x5316;&#x7B97;&#x6CD5;"></a>&#x6700;&#x4F18;&#x5316;&#x7B97;&#x6CD5;</h2><ul>
+<li>&#x516C;&#x5F0F;(4.11)&#x6CA1;&#x6709;&#x663E;&#x5F0F;&#x7684;&#x89E3;&#x6790;&#x89E3;,&#x56E0;&#x6B64;&#x9700;&#x8981;&#x501F;&#x52A9;&#x4E8E;&#x5176;&#x4ED6;&#x7684;&#x65B9;&#x6CD5;&#x3002;&#x7531;&#x4E8E;&#x76EE;&#x6807;&#x51FD;&#x6570;&#x662F;&#x4E00;&#x4E2A; &#x51F8;&#x51FD;&#x6570;,&#x6240;&#x4EE5;&#x53EF;&#x4EE5;&#x501F;&#x52A9;&#x591A;&#x79CD;&#x4F18;&#x5316;&#x65B9;&#x6CD5;&#x6765;&#x8FDB;&#x884C;&#x6C42;&#x89E3;,&#x5E76;&#x4E14;&#x80FD;&#x4FDD;&#x8BC1;&#x5F97;&#x5230;&#x5168;&#x5C40;&#x6700;&#x4F18;&#x89E3;&#x3002;</li>
+<li>&#x4E3A;&#x6700;&#x5927;&#x71B5;&#x6A21;&#x578B;&#x91CF;&#x8EAB;&#x5B9A;&#x5236;&#x7684;&#x4E24;&#x4E2A;&#x6700;&#x4F18;&#x5316;&#x65B9;&#x6CD5;&#x5206;&#x522B;&#x662F;&#x901A;&#x7528;&#x8FED;&#x4EE3;&#x5C3A;&#x5EA6;&#x6CD5;(GIS)&#x548C;&#x6539;&#x8FDB;&#x7684;&#x8FED;&#x4EE3;&#x5C3A;&#x5EA6;&#x6CD5;(IIS)&#x3002;</li>
+<li><strong>GIS&#x7B97;&#x6CD5;</strong></li>
+</ul>
+<p><img src="/teaching_ml/2017/08/15/&#x6700;&#x5927;&#x71B5;&#x6A21;&#x578B;/34.png" alt=""></p>
+<ul>
+<li><strong>IIS&#x7B97;&#x6CD5;</strong></li>
+</ul>
+<p><img src="/teaching_ml/2017/08/15/&#x6700;&#x5927;&#x71B5;&#x6A21;&#x578B;/35.png" alt=""></p>
+<h2 id="&#x53C2;&#x8003;&#x8D44;&#x6599;"><a href="#&#x53C2;&#x8003;&#x8D44;&#x6599;" class="headerlink" title="&#x53C2;&#x8003;&#x8D44;&#x6599;"></a>&#x53C2;&#x8003;&#x8D44;&#x6599;</h2><ul>
+<li>&#x674E;&#x822A;. &#x7EDF;&#x8BA1;&#x5B66;&#x4E60;&#x65B9;&#x6CD5;[M]. &#x5317;&#x4EAC;:&#x6E05;&#x534E;&#x5927;&#x5B66;&#x51FA;&#x7248;&#x793E;,2012</li>
+<li>&#x5434;&#x519B;. &#x6570;&#x5B66;&#x4E4B;&#x7F8E;[M]. &#x5317;&#x4EAC;:&#x4EBA;&#x6C11;&#x90AE;&#x7535;&#x51FA;&#x7248;&#x793E;,2012</li>
+<li>&#x6700;&#x5927;&#x71B5;&#x5B66;&#x4E60;&#x7B14;&#x8BB0;</li>
+<li>&#x5173;&#x4E8E;&#x6700;&#x5927;&#x71B5;&#x6A21;&#x578B;&#x7684;&#x4E25;&#x91CD;&#x56F0;&#x60D1;:&#x4E3A;&#x4EC0;&#x4E48;&#x6CA1;&#x6709;&#x89E3;&#x6790;&#x89E3;?</li>
+<li>&#x6700;&#x5927;&#x71B5;-IIS(Improved Iterative Scaling)&#x8BAD;&#x7EC3;&#x7B97;&#x6CD5;&#x7684;Java&#x5B9E;&#x73B0;<br>&#x5982;&#x4F55;&#x7406;&#x89E3;&#x6700;&#x5927;&#x71B5;&#x6A21;&#x578B;&#x91CC;&#x9762;&#x7684;&#x7279;&#x5F81;?</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://transwarpio.github.io/2017/08/15/最大熵模型/" data-id="cj6de0npc000ip89son3xu14o" class="article-share-link">Share</a>
+      <a data-url="http://transwarpio.github.io/2017/08/15/最大熵模型/" data-id="cj6de0npc000ip89son3xu14o" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -207,7 +314,7 @@
   
   
     <a href="/teaching_ml/2017/08/14/NLP/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
+      <strong class="article-nav-caption">Ancien</strong>
       <div class="article-nav-title">[NLP]</div>
     </a>
   
@@ -222,7 +329,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
+    <h3 class="widget-title">Catégories</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/teaching_ml/categories/数据挖掘/">数据挖掘</a></li></ul>
     </div>
@@ -232,7 +339,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">Mot-clés</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/teaching_ml/tags/关联规则/">关联规则</a></li><li class="tag-list-item"><a class="tag-list-link" href="/teaching_ml/tags/数据挖掘/">数据挖掘</a></li></ul>
     </div>
@@ -242,7 +349,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">Nuage de mot-clés</h3>
     <div class="widget tagcloud">
       <a href="/teaching_ml/tags/关联规则/" style="font-size: 10px;">关联规则</a> <a href="/teaching_ml/tags/数据挖掘/" style="font-size: 10px;">数据挖掘</a>
     </div>
@@ -261,7 +368,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
         
@@ -298,7 +405,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 transwarpio<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
