@@ -3,14 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives | Teaching ML</title>
+  <title>分词和HMM | Teaching ML</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Teaching ML">
-<meta property="og:url" content="http://transwarpio.github.io/archives/page/2/index.html">
+  <meta name="description" content="&amp;#x76EE;&amp;#x5F55; &amp;#x5206;&amp;#x8BCD;&amp;#x7684;&amp;#x5B9A;&amp;#x4E49; &amp;#x5206;&amp;#x8BCD;&amp;#x7684;&amp;#x96BE;&amp;#x70B9; &amp;#x5206;&amp;#x8BCD;&amp;#x7684;&amp;#x65B9;&amp;#x6CD5; &amp;#x9A6C;&amp;#x513F;&amp;#x53EF;&amp;#x592B;&amp;#x6A21;&amp;#x578B;&amp;#x4ECB;&amp;#x7">
+<meta property="og:type" content="article">
+<meta property="og:title" content="分词和HMM">
+<meta property="og:url" content="http://transwarpio.github.io/2017/08/16/分词和HMM/index.html">
 <meta property="og:site_name" content="Teaching ML">
+<meta property="og:description" content="&amp;#x76EE;&amp;#x5F55; &amp;#x5206;&amp;#x8BCD;&amp;#x7684;&amp;#x5B9A;&amp;#x4E49; &amp;#x5206;&amp;#x8BCD;&amp;#x7684;&amp;#x96BE;&amp;#x70B9; &amp;#x5206;&amp;#x8BCD;&amp;#x7684;&amp;#x65B9;&amp;#x6CD5; &amp;#x9A6C;&amp;#x513F;&amp;#x53EF;&amp;#x592B;&amp;#x6A21;&amp;#x578B;&amp;#x4ECB;&amp;#x7">
+<meta property="og:updated_time" content="2017-08-16T03:12:23.188Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Teaching ML">
+<meta name="twitter:title" content="分词和HMM">
+<meta name="twitter:description" content="&amp;#x76EE;&amp;#x5F55; &amp;#x5206;&amp;#x8BCD;&amp;#x7684;&amp;#x5B9A;&amp;#x4E49; &amp;#x5206;&amp;#x8BCD;&amp;#x7684;&amp;#x96BE;&amp;#x70B9; &amp;#x5206;&amp;#x8BCD;&amp;#x7684;&amp;#x65B9;&amp;#x6CD5; &amp;#x9A6C;&amp;#x513F;&amp;#x53EF;&amp;#x592B;&amp;#x6A21;&amp;#x578B;&amp;#x4ECB;&amp;#x7">
   
     <link rel="alternate" href="/atom.xml" title="Teaching ML" type="application/atom+xml">
   
@@ -64,196 +68,60 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/teaching_ml/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/teaching_ml/2016/12/01/TF-4-summary/" class="archive-article-date">
-  <time datetime="2016-12-01T11:37:00.000Z" itemprop="datePublished">Dec 1</time>
+        <section id="main"><article id="post-分词和HMM" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/teaching_ml/2017/08/16/分词和HMM/" class="article-date">
+  <time datetime="2017-08-16T01:51:28.000Z" itemprop="datePublished">2017-08-16</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/teaching_ml/2016/12/01/TF-4-summary/">TF-4-summary</a>
+    <h1 class="article-title" itemprop="name">
+      分词和HMM
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/teaching_ml/2016/12/01/TF-3-graph/" class="archive-article-date">
-  <time datetime="2016-12-01T11:20:49.000Z" itemprop="datePublished">Dec 1</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/teaching_ml/2016/12/01/TF-3-graph/">TF-3--graph</a>
-    </h1>
-  
+        <h1 id="&#x76EE;&#x5F55;"><a href="#&#x76EE;&#x5F55;" class="headerlink" title="&#x76EE;&#x5F55;"></a>&#x76EE;&#x5F55;</h1><ol>
+<li>&#x5206;&#x8BCD;&#x7684;&#x5B9A;&#x4E49;</li>
+<li>&#x5206;&#x8BCD;&#x7684;&#x96BE;&#x70B9;</li>
+<li>&#x5206;&#x8BCD;&#x7684;&#x65B9;&#x6CD5;</li>
+<li>&#x9A6C;&#x513F;&#x53EF;&#x592B;&#x6A21;&#x578B;&#x4ECB;&#x7ECD;</li>
+<li>&#x9690;&#x9A6C;&#x513F;&#x53EF;&#x592B;&#x6A21;&#x578B;&#x4ECB;&#x7ECD;</li>
+<li>&#x603B;&#x7ED3;</li>
+</ol>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/teaching_ml/2016/12/01/TF-2-basics/" class="archive-article-date">
-  <time datetime="2016-12-01T11:19:30.000Z" itemprop="datePublished">Dec 1</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/teaching_ml/2016/12/01/TF-2-basics/">TF-2-basics</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/teaching_ml/2016/12/01/TF-1-style/" class="archive-article-date">
-  <time datetime="2016-12-01T11:17:49.000Z" itemprop="datePublished">Dec 1</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://transwarpio.github.io/2017/08/16/分词和HMM/" data-id="cj6er47a9000iym9slwnzm665" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/teaching_ml/2016/12/01/TF-1-style/">TF-1-style</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/teaching_ml/2016/12/01/TF-Introduction/" class="archive-article-date">
-  <time datetime="2016-12-01T11:13:38.000Z" itemprop="datePublished">Dec 1</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/teaching_ml/2016/12/01/TF-Introduction/">TF-Introduction</a>
-    </h1>
-  
-
-    </header>
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/teaching_ml/2017/08/15/最大熵模型/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">最大熵模型</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/teaching_ml/2016/08/30/svm/" class="archive-article-date">
-  <time datetime="2016-08-30T00:00:00.000Z" itemprop="datePublished">Aug 30</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/teaching_ml/2016/08/30/svm/">Support Vector Machine</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/teaching_ml/2016/07/05/mxnet/" class="archive-article-date">
-  <time datetime="2016-07-04T16:00:00.000Z" itemprop="datePublished">Jul 5</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/teaching_ml/2016/07/05/mxnet/">mxnet 概述</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/teaching_ml/2016/07/04/howto/" class="archive-article-date">
-  <time datetime="2016-07-04T12:15:27.000Z" itemprop="datePublished">Jul 4</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/teaching_ml/2016/07/04/howto/">How to</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/teaching_ml/2016/07/04/关联规则挖掘基础篇/" class="archive-article-date">
-  <time datetime="2016-07-04T06:46:01.000Z" itemprop="datePublished">Jul 4</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/teaching_ml/2016/07/04/关联规则挖掘基础篇/">关联规则挖掘基础篇</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-
-  <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/teaching_ml/archives/">&laquo; __('prev')</a><a class="page-number" href="/teaching_ml/archives/">1</a><span class="page-number current">2</span>
-  </nav>
 </section>
         
           <aside id="sidebar">
