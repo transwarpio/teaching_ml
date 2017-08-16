@@ -31,10 +31,10 @@
 # 自然语言处理
 
 ## 已分享
-1. [介绍](2017/08/14/NLP)
+1. [NLP介绍](2017/08/14/NLP)
 2. [最大熵模型](2017/08/15/最大熵模型)
-
-
+3. [Word2Vec](2017/08/11/Word2vec)
+4. [分词和HMM](2017/08/16/分词和HMM)
 
 # 深度学习
 ## コースの周先生Tensorflow
@@ -52,10 +52,9 @@
 ## 已分享
 1. [MXNet框架从原理到代码](2016/07/05/mxnet)
 2. [深度信念网络在蛋白质突变检测中的应用](https://github.com/xzry6/notes/blob/master/transwarp/dbn.md)
-3. [Word2Vec](2017/08/11/Word2vec)
+
 ## 将分享
 1. tensor,conv,pooling
-2. Word2Vec
 3. BP
 4. Auto Encoder
 5. RBM
