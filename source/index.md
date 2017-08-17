@@ -52,17 +52,15 @@
 ## 已分享
 1. [MXNet框架从原理到代码](2016/07/05/mxnet)
 2. [深度信念网络在蛋白质突变检测中的应用](https://github.com/xzry6/notes/blob/master/transwarp/dbn.md)
-
+3. [RBM](https://deeplearning4j.org/cn/restrictedboltzmannmachine)
+4. [DBN](https://deeplearning4j.org/cn/deepbeliefnetwork)
+5. [CNN](https://deeplearning4j.org/cn/convolutionalnets)
+6. [Deep auto encoder](https://deeplearning4j.org/cn/deepautoencoder)
+7. [LSTM](https://deeplearning4j.org/cn/lstm)
+8. [RNN](https://deeplearning4j.org/cn/usingrnns)
 ## 将分享
 1. tensor,conv,pooling
 3. BP
-4. Auto Encoder
-5. RBM
-6. DBN
-7. CNN
-8. RNN
-9. LSTM
-10. LSTM改进
 
 
 # 高级机器学习算法
