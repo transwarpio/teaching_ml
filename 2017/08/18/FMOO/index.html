@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  
-  <title>FMOO | Teaching ML</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Factorization Machines &amp;amp; Online OptimizationOutline Online Optimization TG FOBOS RDA FTRL   Factorization Machines Model Training    Outline Learning Online Learning &amp;#x662F;&amp;#x5DE5;&amp;#x4E1A;&amp;#x754">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      FMOO | Teaching ML 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="transwarpio">
+    
+    
+
+    <meta name="description" content="Factorization Machines &amp;amp; Online OptimizationOutline Online Optimization TG FOBOS RDA FTRL   Factorization Machines Model Training    Outline Learning Online Learning &amp;#x662F;&amp;#x5DE5;&amp;#x4E1A;&amp;#x754">
 <meta property="og:type" content="article">
-<meta property="og:title" content="FMOO">
+<meta property="og:title" content="FMOO | Teaching ML">
 <meta property="og:url" content="http://transwarpio.github.io/2017/08/18/FMOO/index.html">
 <meta property="og:site_name" content="Teaching ML">
 <meta property="og:description" content="Factorization Machines &amp;amp; Online OptimizationOutline Online Optimization TG FOBOS RDA FTRL   Factorization Machines Model Training    Outline Learning Online Learning &amp;#x662F;&amp;#x5DE5;&amp;#x4E1A;&amp;#x754">
@@ -36,87 +47,162 @@
 <meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/18/FMOO/23.png">
 <meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/18/FMOO/24.png">
 <meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/18/FMOO/25.png">
-<meta property="og:updated_time" content="2017-08-18T07:19:58.320Z">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/18/FMOO/26.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/18/FMOO/27.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/18/FMOO/28.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/18/FMOO/29.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/18/FMOO/30.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/18/FMOO/31.png">
+<meta property="og:updated_time" content="2017-08-18T07:44:08.098Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="FMOO">
+<meta name="twitter:title" content="FMOO | Teaching ML">
 <meta name="twitter:description" content="Factorization Machines &amp;amp; Online OptimizationOutline Online Optimization TG FOBOS RDA FTRL   Factorization Machines Model Training    Outline Learning Online Learning &amp;#x662F;&amp;#x5DE5;&amp;#x4E1A;&amp;#x754">
 <meta name="twitter:image" content="http://transwarpio.github.io/teaching_ml/2017/08/18/FMOO/1.png">
-  
-    <link rel="alternate" href="/atom.xml" title="Teaching ML" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/teaching_ml/css/style.css">
-  
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/teaching_ml/css/uno.css">
+    <link rel="stylesheet" href="/teaching_ml/css/highlight.css">
+    <link rel="stylesheet" href="/teaching_ml/css/archive.css">
+    <link rel="stylesheet" href="/teaching_ml/css/china-social-icon.css">
 
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
-</script>
-<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
 </head>
-
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/teaching_ml/" id="logo">Teaching ML</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
         
-          <a class="main-nav-link" href="/teaching_ml/">Home</a>
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Teaching ML</a></h1>
+        <hr class="panel-cover__divider" />
+
         
-          <a class="main-nav-link" href="/teaching_ml/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://transwarpio.github.io"></form>
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
       </div>
+
     </div>
+
+    <div class="panel-cover--overlay"></div>
   </div>
 </header>
-      <div class="outer">
-        <section id="main"><article id="post-FMOO" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/teaching_ml/2017/08/18/FMOO/" class="article-date">
-  <time datetime="2017-08-18T03:30:43.000Z" itemprop="datePublished">2017-08-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      FMOO
-    </h1>
-  
 
-      </header>
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Factorization-Machines-amp-Online-Optimization"><a href="#Factorization-Machines-amp-Online-Optimization" class="headerlink" title="Factorization Machines &amp; Online Optimization"></a>Factorization Machines &amp; Online Optimization</h1><h2 id="Outline"><a href="#Outline" class="headerlink" title="Outline"></a>Outline</h2><ul>
+    <h1 class="post-title">FMOO</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-08-18" class="post-meta__date date">2017-08-18</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h1 id="Factorization-Machines-amp-Online-Optimization"><a href="#Factorization-Machines-amp-Online-Optimization" class="headerlink" title="Factorization Machines &amp; Online Optimization"></a>Factorization Machines &amp; Online Optimization</h1><h2 id="Outline"><a href="#Outline" class="headerlink" title="Outline"></a>Outline</h2><ul>
 <li>Online Optimization<ul>
 <li>TG</li>
 <li>FOBOS</li>
@@ -190,135 +276,66 @@
 <p><img src="/teaching_ml/2017/08/18/FMOO/23.png" alt=""></p>
 <p><img src="/teaching_ml/2017/08/18/FMOO/24.png" alt=""></p>
 <p><img src="/teaching_ml/2017/08/18/FMOO/25.png" alt=""></p>
+<h3 id="RDA"><a href="#RDA" class="headerlink" title="RDA"></a>RDA</h3><p>&#x5728; RDA &#x4E2D;,&#x6743;&#x91CD;&#x7684;&#x66F4;&#x65B0;&#x7B56;&#x7565;&#x662F;<br><img src="/teaching_ml/2017/08/18/FMOO/26.png" alt=""><br>&#x5176;&#x4E2D;,&#x7EBF;&#x6027;&#x9879;<img src="/teaching_ml/2017/08/18/FMOO/27.png" alt=""> &#x5305;&#x542B;&#x4E4B;&#x524D;&#x6240;&#x6709;&#x68AF;&#x5EA6;&#x4E0E; W &#x4E58;&#x79EF;&#x7684;&#x5E73;&#x5747;&#x503C;,&#x6B63;&#x5219;&#x9879;<img src="/teaching_ml/2017/08/18/FMOO/28.png" alt=""> &#x989D;&#x5916;&#x6B63;&#x5219;&#x9879;<img src="/teaching_ml/2017/08/18/FMOO/29.png" alt="">&#xFF0C;<img src="/teaching_ml/2017/08/18/FMOO/30.png" alt="">&#x662F;&#x4E00;&#x4E2A;&#x975E;&#x8D1F;&#x4E14;&#x975E;&#x9012;&#x51CF;&#x5E8F;&#x5217;, h(W) &#x662F;&#x4E00;&#x4E2A;&#x8F85;&#x52A9;&#x7684;&#x4E25;&#x683C;&#x51F8;&#x51FD;&#x6570;&#x3002;</p>
+<h3 id="L1&#x2014;RDA"><a href="#L1&#x2014;RDA" class="headerlink" title="L1&#x2014;RDA"></a>L1&#x2014;RDA</h3><p><img src="/teaching_ml/2017/08/18/FMOO/31.png" alt=""></p>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://transwarpio.github.io/2017/08/18/FMOO/" data-id="cj6hcmkf60002m49s2lhopxjv" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
     
-<nav id="article-nav">
-  
-  
-    <a href="/teaching_ml/2017/08/17/时间序列分析/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">时间序列分析</div>
-    </a>
-  
-</nav>
+</section>
 
-  
+
 </article>
 
-</section>
-        
-          <aside id="sidebar">
-  
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/teaching_ml/categories/数据挖掘/">数据挖掘</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/teaching_ml/tags/关联规则/">关联规则</a></li><li class="tag-list-item"><a class="tag-list-link" href="/teaching_ml/tags/数据挖掘/">数据挖掘</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/teaching_ml/tags/关联规则/" style="font-size: 10px;">关联规则</a> <a href="/teaching_ml/tags/数据挖掘/" style="font-size: 10px;">数据挖掘</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/teaching_ml/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/teaching_ml/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/teaching_ml/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/teaching_ml/archives/2016/07/">July 2016</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/teaching_ml/2017/08/18/FMOO/">FMOO</a>
-          </li>
-        
-          <li>
-            <a href="/teaching_ml/2017/08/17/时间序列分析/">时间序列分析</a>
-          </li>
-        
-          <li>
-            <a href="/teaching_ml/2017/08/16/分词和HMM/">分词和HMM</a>
-          </li>
-        
-          <li>
-            <a href="/teaching_ml/2017/08/15/最大熵模型/">最大熵模型</a>
-          </li>
-        
-          <li>
-            <a href="/teaching_ml/2017/08/14/NLP/">[NLP]</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2017 transwarpio<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
 </footer>
+        </div>
     </div>
-    <nav id="mobile-nav">
-  
-    <a href="/teaching_ml/" class="mobile-nav-link">Home</a>
-  
-    <a href="/teaching_ml/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+
+    <!-- js files -->
+    <script src="/teaching_ml/js/jquery.min.js"></script>
+    <script src="/teaching_ml/js/main.js"></script>
+    <script src="/teaching_ml/js/scale.fix.js"></script>
     
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
 
 
-  <link rel="stylesheet" href="/teaching_ml/fancybox/jquery.fancybox.css">
-  <script src="/teaching_ml/fancybox/jquery.fancybox.pack.js"></script>
+    
+
+    <script src="/teaching_ml/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
 
 
-<script src="/teaching_ml/js/script.js"></script>
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
 
-  </div>
 </body>
 </html>

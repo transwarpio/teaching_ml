@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  
-  <title>TF-5-ann | Teaching ML</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Previous Chapter: Summary and TensorboardNext Chapter: AutoEncoder Neural NetworkHere is an exercise of building a Neural Network using Tensorflow. Following note of Neural Network is quoted from here">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      TF-5-ann | Teaching ML 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="transwarpio">
+    
+    
+
+    <meta name="description" content="Previous Chapter: Summary and TensorboardNext Chapter: AutoEncoder Neural NetworkHere is an exercise of building a Neural Network using Tensorflow. Following note of Neural Network is quoted from here">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TF-5-ann">
+<meta property="og:title" content="TF-5-ann | Teaching ML">
 <meta property="og:url" content="http://transwarpio.github.io/2016/12/01/TF-5-ann/index.html">
 <meta property="og:site_name" content="Teaching ML">
 <meta property="og:description" content="Previous Chapter: Summary and TensorboardNext Chapter: AutoEncoder Neural NetworkHere is an exercise of building a Neural Network using Tensorflow. Following note of Neural Network is quoted from here">
@@ -17,85 +28,154 @@
 <meta property="og:image" content="http://i.stack.imgur.com/H1KsG.png">
 <meta property="og:updated_time" content="2017-08-09T08:31:23.101Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TF-5-ann">
+<meta name="twitter:title" content="TF-5-ann | Teaching ML">
 <meta name="twitter:description" content="Previous Chapter: Summary and TensorboardNext Chapter: AutoEncoder Neural NetworkHere is an exercise of building a Neural Network using Tensorflow. Following note of Neural Network is quoted from here">
 <meta name="twitter:image" content="http://cs231n.github.io/assets/nn1/neural_net2.jpeg">
-  
-    <link rel="alternate" href="/atom.xml" title="Teaching ML" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/teaching_ml/css/style.css">
-  
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/teaching_ml/css/uno.css">
+    <link rel="stylesheet" href="/teaching_ml/css/highlight.css">
+    <link rel="stylesheet" href="/teaching_ml/css/archive.css">
+    <link rel="stylesheet" href="/teaching_ml/css/china-social-icon.css">
 
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
-</script>
-<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
 </head>
-
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/teaching_ml/" id="logo">Teaching ML</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
         
-          <a class="main-nav-link" href="/teaching_ml/">Home</a>
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Teaching ML</a></h1>
+        <hr class="panel-cover__divider" />
+
         
-          <a class="main-nav-link" href="/teaching_ml/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://transwarpio.github.io"></form>
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
       </div>
+
     </div>
+
+    <div class="panel-cover--overlay"></div>
   </div>
 </header>
-      <div class="outer">
-        <section id="main"><article id="post-TF-5-ann" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/teaching_ml/2016/12/01/TF-5-ann/" class="article-date">
-  <time datetime="2016-12-01T11:37:53.000Z" itemprop="datePublished">2016-12-01</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      TF-5-ann
-    </h1>
-  
 
-      </header>
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="../TF-4-summary">Previous Chapter: Summary and Tensorboard</a><br><a href="../TF-6-autoencoder">Next Chapter: AutoEncoder</a></p>
+    <h1 class="post-title">TF-5-ann</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2016-12-01" class="post-meta__date date">2016-12-01</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <p><a href="../TF-4-summary">Previous Chapter: Summary and Tensorboard</a><br><a href="../TF-6-autoencoder">Next Chapter: AutoEncoder</a></p>
 <h2 id="Neural-Network"><a href="#Neural-Network" class="headerlink" title="Neural Network"></a>Neural Network</h2><p>Here is an exercise of building a <em>Neural Network</em> using <em>Tensorflow</em>.</p>
 <p>Following note of <em>Neural Network</em> is quoted from <a href="https://github.com/xzry6/notes/blob/master/transwarp/ann.md" target="_blank" rel="external">here</a>.</p>
 <h3 id="Note-&#x4EBA;&#x5DE5;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;"><a href="#Note-&#x4EBA;&#x5DE5;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;" class="headerlink" title="Note: &#x4EBA;&#x5DE5;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;"></a>Note: &#x4EBA;&#x5DE5;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;</h3><p><strong>&#x4EBA;&#x5DE5;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;</strong>&#x662F;&#x53D7;&#x5230;&#x4E86;&#x751F;&#x7269;&#x5B66;&#x4E0A;&#x52A8;&#x7269;&#x7684;&#x4E2D;&#x67A2;&#x795E;&#x7ECF;&#x7CFB;&#x7EDF;&#x7684;&#x542F;&#x53D1;&#x800C;&#x5F00;&#x53D1;&#x51FA;&#x6765;&#x7684;&#x4E00;&#x79CD;&#x8BA1;&#x7B97;&#x6A21;&#x578B;&#x3002;<br><strong>&#x4EBA;&#x5DE5;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;</strong>&#x6700;&#x65E9;&#x4E8E;20&#x4E16;&#x7EAA;40&#x5E74;&#x4EE3;&#x63D0;&#x51FA;&#xFF0C;&#x4F46;&#x7531;&#x4E8E;&#x5E9E;&#x5927;&#x7684;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x548C;&#x5F53;&#x65F6;&#x8BA1;&#x7B97;&#x80FD;&#x529B;&#x7684;&#x5C40;&#x9650;&#xFF0C;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x7684;&#x7814;&#x7A76;&#x4E00;&#x76F4;&#x505C;&#x6EDE;&#x4E0D;&#x524D;&#x3002;<br>&#x76F4;&#x5230;20&#x4E16;&#x7EAA;80&#x5E74;&#x4EE3;<strong>&#x5206;&#x6563;&#x5F0F;&#x5E76;&#x884C;&#x5904;&#x7406;</strong>&#x7684;&#x6D41;&#x884C;&#x548C;&#x7531;<em>Paul Werbos</em>&#x521B;&#x9020;&#x7684;&#x53CD;&#x5411;&#x4F20;&#x64AD;&#x7B97;&#x6CD5;&#xFF0C;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x6E10;&#x6E10;&#x53C8;&#x5F00;&#x59CB;&#x6D41;&#x884C;&#x8D77;&#x6765;&#x3002;&#x5E76;&#x4E8E;21&#x4E16;&#x7EAA;&#x5F00;&#x59CB;&#x540C;<strong>&#x6DF1;&#x5EA6;&#x5B66;&#x4E60;</strong>&#x4E00;&#x8D77;&#x6210;&#x4E3A;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x9886;&#x57DF;&#x7684;&#x70ED;&#x70B9;&#x3002;</p>
@@ -148,143 +228,63 @@
 <h4 id="Run-a-Session"><a href="#Run-a-Session" class="headerlink" title="Run a Session"></a>Run a Session</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## training</span></div><div class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</div><div class="line">    sess.run(init)</div><div class="line"></div><div class="line">    <span class="comment"># training epochs</span></div><div class="line">    <span class="keyword">for</span> epoch <span class="keyword">in</span> range(training_epochs):</div><div class="line"></div><div class="line">        avg_cost = <span class="number">0</span></div><div class="line">        total_batch = int(mnist.train.num_examples / batch_size)</div><div class="line"></div><div class="line">        <span class="comment"># split the data into different batches and run</span></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(total_batch):</div><div class="line">            batch_xs, batch_ys = mnist.train.next_batch(batch_size)</div><div class="line">            _, cur_cost = sess.run([training_steps, cost],</div><div class="line">                            feed_dict={x: batch_xs, y: batch_ys})</div><div class="line"></div><div class="line">            avg_cost += cur_cost / total_batch</div><div class="line"></div><div class="line">        <span class="comment"># show the average cost</span></div><div class="line">        <span class="keyword">if</span> (epoch+<span class="number">1</span>) % display_step == <span class="number">0</span>:</div><div class="line">            print(<span class="string">&quot;Epoch:&quot;</span>, <span class="string">&apos;%04d&apos;</span> % (epoch+<span class="number">1</span>), <span class="string">&quot;cost=&quot;</span>, <span class="string">&quot;{:.9f}&quot;</span>.format(avg_cost))</div><div class="line"></div><div class="line">    print(<span class="string">&quot;Optimization Finished!&quot;</span>)</div><div class="line"></div><div class="line">    <span class="comment"># calculate accuracy</span></div><div class="line">    <span class="comment"># use `tf.equal()` and `tf.argmax()` to get correction prediction</span></div><div class="line">    correct_prediction = ... <span class="comment">###### write your code here ######</span></div><div class="line">    <span class="comment"># use `tf.reduce_mean` to get accuracy here</span></div><div class="line">    accuracy = ... <span class="comment">###### write your code here</span></div><div class="line">    print(<span class="string">&quot;Accuracy:&quot;</span>, accuracy.eval({x: mnist.test.images, y: mnist.test.labels}))</div></pre></td></tr></table></figure>
 <p><a href="../TF-4-summary">Previous Chapter: Summary and Tensorboard</a><br><a href="../TF-6-autoencoder">Next Chapter: AutoEncoder</a></p>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://transwarpio.github.io/2016/12/01/TF-5-ann/" data-id="cj6hcmkfj0007m49sk9vrhelz" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/teaching_ml/2016/12/01/TF-6-autoencoder/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          TF-6-autoencoder
-        
-      </div>
-    </a>
-  
-  
-    <a href="/teaching_ml/2016/12/01/TF-4-summary/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">TF-4-summary</div>
-    </a>
-  
-</nav>
+  </section>
 
-  
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
 </article>
 
-</section>
-        
-          <aside id="sidebar">
-  
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/teaching_ml/categories/数据挖掘/">数据挖掘</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/teaching_ml/tags/关联规则/">关联规则</a></li><li class="tag-list-item"><a class="tag-list-link" href="/teaching_ml/tags/数据挖掘/">数据挖掘</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/teaching_ml/tags/关联规则/" style="font-size: 10px;">关联规则</a> <a href="/teaching_ml/tags/数据挖掘/" style="font-size: 10px;">数据挖掘</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/teaching_ml/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/teaching_ml/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/teaching_ml/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/teaching_ml/archives/2016/07/">July 2016</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/teaching_ml/2017/08/18/FMOO/">FMOO</a>
-          </li>
-        
-          <li>
-            <a href="/teaching_ml/2017/08/17/时间序列分析/">时间序列分析</a>
-          </li>
-        
-          <li>
-            <a href="/teaching_ml/2017/08/16/分词和HMM/">分词和HMM</a>
-          </li>
-        
-          <li>
-            <a href="/teaching_ml/2017/08/15/最大熵模型/">最大熵模型</a>
-          </li>
-        
-          <li>
-            <a href="/teaching_ml/2017/08/14/NLP/">[NLP]</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2017 transwarpio<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
 </footer>
+        </div>
     </div>
-    <nav id="mobile-nav">
-  
-    <a href="/teaching_ml/" class="mobile-nav-link">Home</a>
-  
-    <a href="/teaching_ml/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+
+    <!-- js files -->
+    <script src="/teaching_ml/js/jquery.min.js"></script>
+    <script src="/teaching_ml/js/main.js"></script>
+    <script src="/teaching_ml/js/scale.fix.js"></script>
     
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
 
 
-  <link rel="stylesheet" href="/teaching_ml/fancybox/jquery.fancybox.css">
-  <script src="/teaching_ml/fancybox/jquery.fancybox.pack.js"></script>
+    
+
+    <script src="/teaching_ml/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
 
 
-<script src="/teaching_ml/js/script.js"></script>
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
 
-  </div>
 </body>
 </html>
