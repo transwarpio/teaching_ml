@@ -13,16 +13,17 @@
 7. [KMeans](https://github.com/endymecy/spark-ml-source-analysis/blob/master/%E8%81%9A%E7%B1%BB/k-means/k-means.md)
 8. [PIC](https://github.com/endymecy/spark-ml-source-analysis/blob/master/%E8%81%9A%E7%B1%BB/PIC/pic.md)
 9. [Factor Analysis](2016/12/01/FactorAnalysis)
+10. [Logistic Regression](https://github.com/endymecy/spark-ml-source-analysis/blob/master/%E5%88%86%E7%B1%BB%E5%92%8C%E5%9B%9E%E5%BD%92/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/logic-regression.md)
+11. [Decision Tree](https://github.com/endymecy/spark-ml-source-analysis/blob/master/%E5%88%86%E7%B1%BB%E5%92%8C%E5%9B%9E%E5%BD%92/%E5%86%B3%E7%AD%96%E6%A0%91/decision-tree.md)
+12. [Random Forest](https://github.com/endymecy/spark-ml-source-analysis/blob/master/%E5%88%86%E7%B1%BB%E5%92%8C%E5%9B%9E%E5%BD%92/%E7%BB%84%E5%90%88%E6%A0%91/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/random-forests.md)
+13. [Gradient-boosted tree](https://github.com/endymecy/spark-ml-source-analysis/blob/master/%E5%88%86%E7%B1%BB%E5%92%8C%E5%9B%9E%E5%BD%92/%E7%BB%84%E5%90%88%E6%A0%91/%E6%A2%AF%E5%BA%A6%E6%8F%90%E5%8D%87%E6%A0%91/gbts.md)
+14. [Survival Regression](https://github.com/endymecy/spark-ml-source-analysis/blob/master/%E5%88%86%E7%B1%BB%E5%92%8C%E5%9B%9E%E5%BD%92/%E7%94%9F%E5%AD%98%E5%9B%9E%E5%BD%92/survival-regression.md)
+15. [Isotonic Regression](https://github.com/endymecy/spark-ml-source-analysis/blob/master/%E5%88%86%E7%B1%BB%E5%92%8C%E5%9B%9E%E5%BD%92/%E4%BF%9D%E5%BA%8F%E5%9B%9E%E5%BD%92/isotonic-regression.md)
 
 ## 将分享
-5. Logistic Regression
-6. Decision Tree
-7. Random Forest
-8. Gradient-boosted tree
+
 9. One-vs-Rest classifier
 10. boosting and bagging
-11. Survival Regression
-12. Isotonic Regression
 13. SGD
 14. BFGS and L-BFGS
 15. 其它最优化算法
@@ -30,12 +31,13 @@
 
 # 自然语言处理
 
-## 已分享
 1. [NLP介绍](2017/08/14/NLP)
 2. [最大熵模型](2017/08/15/最大熵模型)
 3. [Word2Vec](2017/08/11/Word2vec)
 4. [分词和HMM](2017/08/16/分词和HMM)
 5. [时间序列分析](2017/08/17/时间序列分析)
+
+
 # 深度学习
 ## コースの周先生Tensorflow
 #### [Introduction](2016/12/01/TF-Introduction)
