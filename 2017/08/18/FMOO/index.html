@@ -26,7 +26,17 @@
 <meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/18/FMOO/13.png">
 <meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/18/FMOO/14.png">
 <meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/18/FMOO/15.png">
-<meta property="og:updated_time" content="2017-08-18T07:03:31.792Z">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/18/FMOO/16.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/18/FMOO/17.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/18/FMOO/19.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/18/FMOO/18.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/18/FMOO/20.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/18/FMOO/21.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/18/FMOO/22.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/18/FMOO/23.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/18/FMOO/24.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/18/FMOO/25.png">
+<meta property="og:updated_time" content="2017-08-18T07:19:58.320Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="FMOO">
 <meta name="twitter:description" content="Factorization Machines &amp;amp; Online OptimizationOutline Online Optimization TG FOBOS RDA FTRL   Factorization Machines Model Training    Outline Learning Online Learning &amp;#x662F;&amp;#x5DE5;&amp;#x4E1A;&amp;#x754">
@@ -175,9 +185,11 @@
 <h3 id="&#x7B80;&#x5355;&#x622A;&#x65AD;&#x6CD5;&#x548C;&#x68AF;&#x5EA6;&#x622A;&#x65AD;&#x6CD5;&#x6BD4;&#x8F83;"><a href="#&#x7B80;&#x5355;&#x622A;&#x65AD;&#x6CD5;&#x548C;&#x68AF;&#x5EA6;&#x622A;&#x65AD;&#x6CD5;&#x6BD4;&#x8F83;" class="headerlink" title="&#x7B80;&#x5355;&#x622A;&#x65AD;&#x6CD5;&#x548C;&#x68AF;&#x5EA6;&#x622A;&#x65AD;&#x6CD5;&#x6BD4;&#x8F83;"></a>&#x7B80;&#x5355;&#x622A;&#x65AD;&#x6CD5;&#x548C;&#x68AF;&#x5EA6;&#x622A;&#x65AD;&#x6CD5;&#x6BD4;&#x8F83;</h3><p><img src="/teaching_ml/2017/08/18/FMOO/14.png" alt=""></p>
 <h3 id="FOBOS&#x7B97;&#x6CD5;"><a href="#FOBOS&#x7B97;&#x6CD5;" class="headerlink" title="FOBOS&#x7B97;&#x6CD5;"></a>FOBOS&#x7B97;&#x6CD5;</h3><p>&#x5728; FOBOS &#x7B97;&#x6CD5;&#x4E2D;,&#x6743;&#x91CD;&#x7684;&#x66F4;&#x65B0;&#x5206;&#x4E3A;&#x4E24;&#x6B65;:</p>
 <p><img src="/teaching_ml/2017/08/18/FMOO/15.png" alt=""></p>
-<p>&#x524D;&#x4E00;&#x4E2A;&#x6B65;&#x9AA4;&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x4E00;&#x4E2A;&#x6807;&#x51C6;&#x7684;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x6B65;&#x9AA4;,&#x540E;&#x4E00;&#x4E2A;&#x6B65;&#x9AA4;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x5BF9;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x7684;&#x7ED3;&#x679C;&#x8FDB;&#x884C;&#x5FAE;&#x8C03;&#x3002;<br>&#x89C2;&#x5BDF;&#x7B2C;&#x4E8C;&#x4E2A;&#x6B65;&#x9AA4;,&#x53D1;&#x73B0;&#x5BF9; W &#x7684;&#x5FAE;&#x8C03;&#x4E5F;&#x5206;&#x4E3A;&#x4E24;&#x90E8;&#x5206; :</p>
-<p>(1) &#x524D;&#x4E00;&#x90E8;&#x5206;&#x4FDD;&#x8BC1;&#x5FAE;&#x8C03;&#x53D1;&#x751F;&#x5728;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x7ED3;&#x679C;&#x7684;&#x9644;&#x8FD1; ;</p>
-<p>(2) &#x540E;&#x4E00;&#x90E8;&#x5206;&#x5219;&#x7528;&#x4E8E;&#x5904;&#x7406;&#x6B63;&#x5219;&#x5316;,&#x4EA7;&#x751F;&#x7A00;&#x758F;&#x6027;&#x3002;</p>
+<p>&#x524D;&#x4E00;&#x4E2A;&#x6B65;&#x9AA4;&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x4E00;&#x4E2A;&#x6807;&#x51C6;&#x7684;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x6B65;&#x9AA4;,&#x540E;&#x4E00;&#x4E2A;&#x6B65;&#x9AA4;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x5BF9;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x7684;&#x7ED3;&#x679C;&#x8FDB;&#x884C;&#x5FAE;&#x8C03;&#x3002;<br>&#x89C2;&#x5BDF;&#x7B2C;&#x4E8C;&#x4E2A;&#x6B65;&#x9AA4;,&#x53D1;&#x73B0;&#x5BF9; W &#x7684;&#x5FAE;&#x8C03;&#x4E5F;&#x5206;&#x4E3A;&#x4E24;&#x90E8;&#x5206; :<br>(1) &#x524D;&#x4E00;&#x90E8;&#x5206;&#x4FDD;&#x8BC1;&#x5FAE;&#x8C03;&#x53D1;&#x751F;&#x5728;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x7ED3;&#x679C;&#x7684;&#x9644;&#x8FD1; ;<br>(2) &#x540E;&#x4E00;&#x90E8;&#x5206;&#x5219;&#x7528;&#x4E8E;&#x5904;&#x7406;&#x6B63;&#x5219;&#x5316;,&#x4EA7;&#x751F;&#x7A00;&#x758F;&#x6027;&#x3002;</p>
+<h3 id="L1-FOBOS-&#x7B97;&#x6CD5;"><a href="#L1-FOBOS-&#x7B97;&#x6CD5;" class="headerlink" title="L1-FOBOS &#x7B97;&#x6CD5;"></a>L1-FOBOS &#x7B97;&#x6CD5;</h3><p>&#x5728;L1&#x7684;&#x6B63;&#x5219;&#x5316;&#x4E0B;&#xFF0C;&#x6709; <img src="/teaching_ml/2017/08/18/FMOO/16.png" alt="">&#x3002;&#x4E3A;&#x7B80;&#x5316;&#xFF0C;&#x7528;&#x5411;&#x91CF;<img src="/teaching_ml/2017/08/18/FMOO/17.png" alt=""> &#x6765;&#x8868;&#x793A;<img src="/teaching_ml/2017/08/18/FMOO/19.png" alt=""> &#x3002;&#x7528;&#x6807;&#x91CF;<img src="/teaching_ml/2017/08/18/FMOO/18.png" alt=""> &#x6765;&#x8868;&#x793A;<img src="/teaching_ml/2017/08/18/FMOO/20.png" alt=""> &#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x53EF;&#x5F97;&#xFF0C;<br><img src="/teaching_ml/2017/08/18/FMOO/21.png" alt=""><br>&#x7531;&#x4E8E;&#x6C42;&#x548C;&#x516C;&#x5F0F;&#x7684;&#x6BCF;&#x4E00;&#x9879;&#x90FD;&#x5927;&#x4E8E;&#x7B49;&#x4E8E;&#x96F6;&#xFF0C;&#x6240;&#x4EE5;&#x53EF;&#x4EE5;&#x6309;&#x6BCF;&#x4E00;&#x7EF4;&#x5EA6;&#x5355;&#x72EC;&#x6C42;&#x89E3;&#xFF0C;<br><img src="/teaching_ml/2017/08/18/FMOO/22.png" alt=""></p>
+<p><img src="/teaching_ml/2017/08/18/FMOO/23.png" alt=""></p>
+<p><img src="/teaching_ml/2017/08/18/FMOO/24.png" alt=""></p>
+<p><img src="/teaching_ml/2017/08/18/FMOO/25.png" alt=""></p>
 
       
     </div>
