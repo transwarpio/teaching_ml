@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>FMOO | Teaching ML</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Factorization Machines &amp;amp; Online OptimizationOutline Online Optimization TG FOBOS RDA FTRL   Factorization Machines Model Training    Outline Learning Online Learning &amp;#x662F;&amp;#x5DE5;&amp;#x4E1A;&amp;#x754">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FMOO">
+<meta property="og:url" content="http://transwarpio.github.io/2017/08/18/FMOO/index.html">
+<meta property="og:site_name" content="Teaching ML">
+<meta property="og:description" content="Factorization Machines &amp;amp; Online OptimizationOutline Online Optimization TG FOBOS RDA FTRL   Factorization Machines Model Training    Outline Learning Online Learning &amp;#x662F;&amp;#x5DE5;&amp;#x4E1A;&amp;#x754">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/18/FMOO/1.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/18/FMOO/2.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/18/FMOO/3.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/18/FMOO/4.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/18/FMOO/5.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/18/FMOO/6.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/18/FMOO/7.png">
+<meta property="og:updated_time" content="2017-08-18T04:01:28.965Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="FMOO">
+<meta name="twitter:description" content="Factorization Machines &amp;amp; Online OptimizationOutline Online Optimization TG FOBOS RDA FTRL   Factorization Machines Model Training    Outline Learning Online Learning &amp;#x662F;&amp;#x5DE5;&amp;#x4E1A;&amp;#x754">
+<meta name="twitter:image" content="http://transwarpio.github.io/teaching_ml/2017/08/18/FMOO/1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Teaching ML" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/teaching_ml/css/style.css">
+  
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/teaching_ml/" id="logo">Teaching ML</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/teaching_ml/">Home</a>
+        
+          <a class="main-nav-link" href="/teaching_ml/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://transwarpio.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-FMOO" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/teaching_ml/2017/08/18/FMOO/" class="article-date">
+  <time datetime="2017-08-18T03:30:43.000Z" itemprop="datePublished">2017-08-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      FMOO
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Factorization-Machines-amp-Online-Optimization"><a href="#Factorization-Machines-amp-Online-Optimization" class="headerlink" title="Factorization Machines &amp; Online Optimization"></a>Factorization Machines &amp; Online Optimization</h1><h2 id="Outline"><a href="#Outline" class="headerlink" title="Outline"></a>Outline</h2><ul>
+<li>Online Optimization<ul>
+<li>TG</li>
+<li>FOBOS</li>
+<li>RDA</li>
+<li>FTRL</li>
+</ul>
+</li>
+<li>Factorization Machines<ul>
+<li>Model</li>
+<li>Training</li>
+</ul>
+</li>
+</ul>
+<h2 id="Outline-Learning"><a href="#Outline-Learning" class="headerlink" title="Outline Learning"></a>Outline Learning</h2><ul>
+<li>Online Learning &#x662F;&#x5DE5;&#x4E1A;&#x754C;&#x6BD4;&#x8F83;&#x5E38;&#x7528;&#x7684;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x7B97;&#x6CD5;,&#x5728;&#x5F88;&#x591A;&#x573A;&#x666F;&#x4E0B;&#x90FD;&#x80FD;&#x6709;&#x5F88;&#x597D;&#x7684;&#x6548;&#x679C;&#x3002;</li>
+<li>Online Learning &#x80FD;&#x591F;&#x6839;&#x636E;&#x7EBF;&#x4E0A;&#x53CD;&#x9988;&#x6570;&#x636E;,&#x5B9E;&#x65F6;&#x5FEB;&#x901F;&#x5730;&#x8FDB;&#x884C;&#x6A21;&#x578B;&#x8C03;&#x6574;,&#x4F7F;&#x5F97;&#x6A21;&#x578B;&#x53CA;&#x65F6;&#x53CD;&#x6620;&#x7EBF;<br>&#x4E0A;&#x7684;&#x53D8;&#x5316;,&#x63D0;&#x9AD8;&#x7EBF;&#x4E0A;&#x9884;&#x6D4B;&#x7684;&#x51C6;&#x786E;&#x7387;&#x3002;</li>
+<li><p>Batch Learning vs. Online Learning</p>
+<ul>
+<li><p>Batch Learning &#x66F4;&#x65B0;&#x6A21;&#x578B;&#x7684;&#x5468;&#x671F;&#x8F83;&#x957F;,</p>
+<p>Online Learning &#x80FD;&#x591F;&#x5B9E;&#x65F6;&#x66F4;&#x65B0;&#x6A21;&#x578B;&#x3002;</p>
+</li>
+<li><p>Batch Learning &#x5BF9;&#x786C;&#x4EF6;&#x8D44;&#x6E90;&#x8981;&#x6C42;&#x9AD8;,</p>
+<p>Online Learning &#x5BF9;&#x786C;&#x4EF6;&#x8D44;&#x6E90;&#x8981;&#x6C42;&#x4F4E;&#x3002;</p>
+</li>
+<li><p>Batch Learning &#x5047;&#x8BBE;&#x6837;&#x672C;&#x670D;&#x4ECE; IID &#x5206;&#x5E03;,</p>
+<p>Online Learning &#x5BF9;&#x6837;&#x672C;&#x5206;&#x5E03;&#x65E0;&#x8981;&#x6C42;&#x3002;</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="/teaching_ml/2017/08/18/FMOO/1.png" alt=""></p>
+<h2 id="&#x6700;&#x4F18;&#x5316;&#x95EE;&#x9898;"><a href="#&#x6700;&#x4F18;&#x5316;&#x95EE;&#x9898;" class="headerlink" title="&#x6700;&#x4F18;&#x5316;&#x95EE;&#x9898;"></a>&#x6700;&#x4F18;&#x5316;&#x95EE;&#x9898;</h2><ul>
+<li>&#x901A;&#x5E38;&#x6700;&#x4F18;&#x5316;&#x95EE;&#x9898;&#x53EF;&#x4EE5;&#x5F62;&#x5F0F;&#x5316;&#x5730;&#x8868;&#x793A;&#x4E3A;:</li>
+</ul>
+<p><img src="/teaching_ml/2017/08/18/FMOO/2.png" alt=""></p>
+<ul>
+<li>&#x5176;&#x4E2D;, Z&#x662F;&#x89C2;&#x6D4B;&#x6837;&#x672C;&#x96C6;&#x5408;(&#x8BAD;&#x7EC3;&#x96C6;),<img src="/teaching_ml/2017/08/18/FMOO/3.png" alt="">&#x662F;&#x7B2C; j &#x4E2A;&#x6837;&#x672C;&#x7684;&#x7279;&#x5F81;&#x5411;&#x91CF;,<img src="/teaching_ml/2017/08/18/FMOO/4.png" alt=""> &#x662F;&#x7B2C;j&#x4E2A;&#x6837;&#x672C;&#x7684;&#x9884;&#x6D4B;&#x503C;&#x3002;<img src="/teaching_ml/2017/08/18/FMOO/5.png" alt="">&#x662F;&#x7279;&#x5F81;&#x5411;&#x91CF;&#x5230;&#x9884;&#x6D4B;&#x503C;&#x7684;&#x6620;&#x5C04;&#x51FD;&#x6570;&#x3002;<img src="/teaching_ml/2017/08/18/FMOO/6.png" alt="">&#x662F;&#x6700;&#x4F18;&#x5316;&#x6C42;&#x89E3;&#x7684;&#x76EE;&#x6807;&#x51FD;&#x6570;,&#x5373;&#x635F;&#x5931;&#x51FD;&#x6570;,&#x901A;&#x5E38;&#x8868;&#x793A;&#x4E3A;&#x4E3A;&#x5404;&#x4E2A;&#x6837;&#x672C;&#x635F;&#x5931;&#x51FD;&#x6570;&#x7684;&#x7D2F;&#x52A0;,&#x5373;<img src="/teaching_ml/2017/08/18/FMOO/7.png" alt="">&#x3002;W&#x662F;&#x7279;&#x5F81;&#x6743;&#x91CD;,&#x4E5F;&#x5C31;&#x662F;&#x9700;&#x8981;&#x6C42;&#x89E3;&#x7684;&#x53C2;&#x6570;&#x3002;</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://transwarpio.github.io/2017/08/18/FMOO/" data-id="cj6hcmkf60002m49s2lhopxjv" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/teaching_ml/2017/08/17/时间序列分析/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">时间序列分析</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/teaching_ml/categories/数据挖掘/">数据挖掘</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/teaching_ml/tags/关联规则/">关联规则</a></li><li class="tag-list-item"><a class="tag-list-link" href="/teaching_ml/tags/数据挖掘/">数据挖掘</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/teaching_ml/tags/关联规则/" style="font-size: 10px;">关联规则</a> <a href="/teaching_ml/tags/数据挖掘/" style="font-size: 10px;">数据挖掘</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/teaching_ml/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/teaching_ml/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/teaching_ml/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/teaching_ml/archives/2016/07/">July 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/teaching_ml/2017/08/18/FMOO/">FMOO</a>
+          </li>
+        
+          <li>
+            <a href="/teaching_ml/2017/08/17/时间序列分析/">时间序列分析</a>
+          </li>
+        
+          <li>
+            <a href="/teaching_ml/2017/08/16/分词和HMM/">分词和HMM</a>
+          </li>
+        
+          <li>
+            <a href="/teaching_ml/2017/08/15/最大熵模型/">最大熵模型</a>
+          </li>
+        
+          <li>
+            <a href="/teaching_ml/2017/08/14/NLP/">[NLP]</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 transwarpio<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/teaching_ml/" class="mobile-nav-link">Home</a>
+  
+    <a href="/teaching_ml/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/teaching_ml/fancybox/jquery.fancybox.css">
+  <script src="/teaching_ml/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/teaching_ml/js/script.js"></script>
+
+  </div>
+</body>
+</html>
