@@ -197,3 +197,23 @@ As a consequence, common patterns are more likely to be well reproduced by the t
 The reconstruction error is used as the measure of outlyingness of a datum.
 ![27](AnomalyDetection/27.jpg)
 
+![28](AnomalyDetection/28.jpg)
+
+For the middle hidden layer (k = 3), the activation function is staircase like with parameter N as the number of steps or activation levels and a3 controlling the transition rate from one level to the next
+
+![29](AnomalyDetection/29.jpg)
+
+![30](AnomalyDetection/30.jpg)
+
+![31](AnomalyDetection/31.jpg)
+
+Cost Funtion
+![32](AnomalyDetection/32.jpg)
+
+m is the number of records in the training set, n is the number of features, and xij is the input value and is also the targeted output value (i = 1, 2, . . . , m, j = 1, 2, . . . , n) and olij is the value of the output from the RNN for the lth iteration.
+
+Outlier Factor (OF) 
+We define the Outlier Factor of the ith data record OFi as our measure of outlyingness. OFi is defined by the average reconstruction error over all features (variables)
+![33](AnomalyDetection/33.jpg)
+
+where n is the number of features. The OF is evaluated for all data records using the trained RNN.
