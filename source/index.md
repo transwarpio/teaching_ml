@@ -21,7 +21,7 @@
 15. [Isotonic Regression](https://github.com/endymecy/spark-ml-source-analysis/blob/master/%E5%88%86%E7%B1%BB%E5%92%8C%E5%9B%9E%E5%BD%92/%E4%BF%9D%E5%BA%8F%E5%9B%9E%E5%BD%92/isotonic-regression.md)
 16. [BFGS and L-BFGS](https://github.com/endymecy/spark-ml-source-analysis/blob/master/%E6%9C%80%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/L-BFGS/lbfgs.md)
 17. [Factorization Machines & Online Optimization](2017/08/18/FMOO)
-18. [Anomaly(Outlier)Dection](2017/08/21/Anomaly(Outlier)Dection)
+18. [Anomaly(Outlier)Dection](2017/08/21/AnomalyDection)
 ## 将分享
 
 9. One-vs-Rest classifier
