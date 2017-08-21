@@ -180,9 +180,20 @@ Let T be a node of an isolation tree. T is either an external-node with no child
 ![22](AnomalyDetection/22.jpg)
 
 ## Isolation Forest: Evaluation Stage
-
 ![23](AnomalyDetection/23.jpg)
+
 ## Isolation Forest: Anomaly Score
-
-
 ![24](AnomalyDetection/24.jpg)
+
+## Adjusting the Granularity of Anomaly Scores
+![25](AnomalyDetection/25.jpg)
+
+![26](AnomalyDetection/26.jpg)
+
+## Replicator Neural Networks(RNNs)
+Assumption:
+The RNN attempts to reproduce the input patterns in the output. During training, the weights of the RNN are adjusted to minimise the mean square error (or mean reconstruction error) for all training patterns. 
+As a consequence, common patterns are more likely to be well reproduced by the trained RNN so that those patterns representing outliers will be less well reproduced by a trained RNN and will have a higher reconstruction error.
+The reconstruction error is used as the measure of outlyingness of a datum.
+![27](AnomalyDetection/27.jpg)
+
