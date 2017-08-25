@@ -70,7 +70,7 @@ f(w, A_t) = \frac{\lambda}{2}\|w\|^2 + \frac{1}{k}\sum_{(x_i, y_i) \in A_t}\ell(
 where \( A_t \subset S \), \( |A_t| = k \). At each iteration, we takes a subset of data point.
 
 然后梯度为：
- \[ \nabla_t = \lambda w_t - \frac{1}{k}\sum_{(x_i, y_i) \in A_t}\mathbbm{1}[y_i \langle w, x_i \rangle < 1]y_i x_i \]
+ \[ \nabla_t = \lambda w_t - \frac{1}{k}\sum_{(x_i, y_i) \in A_t}\mathbb{1}[y_i \langle w, x_i \rangle < 1]y_i x_i \]
 
 ** Pegasos and MLlib implementation
 Pegasos 是 SVM 使用梯度下降算法的一种实现。Spark MLlib 也提供了 SVM 的梯度下降实现，于 Pegasos 稍有不同。
