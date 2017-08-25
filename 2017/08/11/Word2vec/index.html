@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      [Word2vec] | Teaching ML 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="transwarpio">
+    
+    
+
+    <meta name="description" content="Word2VecOutline &amp;#x7EDF;&amp;#x8BA1;&amp;#x8BED;&amp;#x8A00;&amp;#x6A21;&amp;#x578B; &amp;#x795E;&amp;#x7ECF;&amp;#x6982;&amp;#x7387;&amp;#x8BED;&amp;#x8A00;&amp;#x6A21;&amp;#x578B; &amp;#x57FA;&amp;#x4E8E;Hierarchical Softmax&amp;#x7684;CBOW&amp;#x6A21;&amp;#x578B; &amp;#x57">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Word2vec] | Teaching ML">
+<meta property="og:url" content="http://transwarpio.github.io/teaching_ml/2017/08/11/Word2vec/index.html">
+<meta property="og:site_name" content="Teaching ML">
+<meta property="og:description" content="Word2VecOutline &amp;#x7EDF;&amp;#x8BA1;&amp;#x8BED;&amp;#x8A00;&amp;#x6A21;&amp;#x578B; &amp;#x795E;&amp;#x7ECF;&amp;#x6982;&amp;#x7387;&amp;#x8BED;&amp;#x8A00;&amp;#x6A21;&amp;#x578B; &amp;#x57FA;&amp;#x4E8E;Hierarchical Softmax&amp;#x7684;CBOW&amp;#x6A21;&amp;#x578B; &amp;#x57">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/11/Word2vec/1.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/11/Word2vec/2.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/11/Word2vec/3.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/11/Word2vec/4.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/11/Word2vec/5.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/11/Word2vec/6.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/11/Word2vec/7.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/11/Word2vec/8.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/11/Word2vec/9.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/11/Word2vec/10.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/11/Word2vec/11.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/11/Word2vec/12.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/11/Word2vec/13.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/11/Word2vec/14.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/11/Word2vec/15.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/11/Word2vec/16.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/11/Word2vec/17.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/11/Word2vec/18.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/11/Word2vec/19.png">
+<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2017/08/11/Word2vec/20.png">
+<meta property="og:updated_time" content="2017-08-15T07:37:56.065Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[Word2vec] | Teaching ML">
+<meta name="twitter:description" content="Word2VecOutline &amp;#x7EDF;&amp;#x8BA1;&amp;#x8BED;&amp;#x8A00;&amp;#x6A21;&amp;#x578B; &amp;#x795E;&amp;#x7ECF;&amp;#x6982;&amp;#x7387;&amp;#x8BED;&amp;#x8A00;&amp;#x6A21;&amp;#x578B; &amp;#x57FA;&amp;#x4E8E;Hierarchical Softmax&amp;#x7684;CBOW&amp;#x6A21;&amp;#x578B; &amp;#x57">
+<meta name="twitter:image" content="http://transwarpio.github.io/teaching_ml/2017/08/11/Word2vec/1.png">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/teaching_ml/favicon.png">
+    
+    <link rel="stylesheet" href="/teaching_ml/css/uno.css">
+    <link rel="stylesheet" href="/teaching_ml/css/highlight.css">
+    <link rel="stylesheet" href="/teaching_ml/css/archive.css">
+    <link rel="stylesheet" href="/teaching_ml/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/teaching_ml/" title="link to homepage">Teaching ML</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/teaching_ml/#blog" title="" class="blog-button">首页</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">[Word2vec]</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-08-11" class="post-meta__date date">2017-08-11</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h1 id="Word2Vec"><a href="#Word2Vec" class="headerlink" title="Word2Vec"></a>Word2Vec</h1><h2 id="Outline"><a href="#Outline" class="headerlink" title="Outline"></a>Outline</h2><ul>
+<li>&#x7EDF;&#x8BA1;&#x8BED;&#x8A00;&#x6A21;&#x578B;</li>
+<li>&#x795E;&#x7ECF;&#x6982;&#x7387;&#x8BED;&#x8A00;&#x6A21;&#x578B;</li>
+<li>&#x57FA;&#x4E8E;Hierarchical Softmax&#x7684;CBOW&#x6A21;&#x578B;</li>
+<li>&#x57FA;&#x4E8E;Negative Sampling&#x7684;Skip-gram&#x6A21;&#x578B;</li>
+</ul>
+<h3 id="&#x7EDF;&#x8BA1;&#x8BED;&#x8A00;&#x6A21;&#x578B;"><a href="#&#x7EDF;&#x8BA1;&#x8BED;&#x8A00;&#x6A21;&#x578B;" class="headerlink" title="&#x7EDF;&#x8BA1;&#x8BED;&#x8A00;&#x6A21;&#x578B;"></a>&#x7EDF;&#x8BA1;&#x8BED;&#x8A00;&#x6A21;&#x578B;</h3><ul>
+<li><p><strong>&#x5B9A;&#x4E49;</strong>:&#x7ED9;&#x5B9A;&#x4E00;&#x4E2A;&#x7279;&#x5B9A;&#x987A;&#x5E8F;&#x7684;&#x8BCD;&#x4E32;&#xFF0C;&#x7EDF;&#x8BA1;&#x8BED;&#x8A00;&#x6A21;&#x578B;&#x8BA1;&#x7B97;&#x8BE5;&#x8BCD;&#x4E32;&#x662F;&#x4E00;&#x4E2A;&#x6709;&#x610F;&#x4E49;&#x7684;&#x53E5;&#x5B50;&#x7684;&#x6982;&#x7387;</p>
+<p>  p(w 1 , w 2 ,&#x2026;, w t )=p(w 1 )&#xB7;p(w 2 |w 1 )&#xB7; &#x2026; &#xB7;p(w t |w 1 , w 2 ,&#x2026;, w t-1 )</p>
+</li>
+<li><p><strong>&#x4F8B;&#x5B50;</strong>:</p>
+<p>  p(&#x201C;Today is Friday&#x201D;)&#x2248;0.001 &gt; p(&#x201C;Today Friday is&#x201D;)&#x2248;0.00000001</p>
+</li>
+<li><strong>&#x590D;&#x6742;&#x5EA6;&#x4F30;&#x8BA1;</strong>:<ul>
+<li>&#x5047;&#x8BBE;&#x8BCD;&#x5178;&#x5927;&#x5C0F;&#x4E3A;N,&#x53E5;&#x5B50;&#x7684;&#x957F;&#x5EA6;&#x4E3A;t,&#x5219;&#x5171;&#x6709;N t &#x79CD;&#x7EC4;&#x5408;&#x3002;&#x6BCF;&#x4E00;&#x79CD;&#x7EC4;&#x5408;&#x5305;&#x542B;t&#x4E2A;&#x53C2;<br>&#x6570;,&#x603B;&#x5171;&#x9700;&#x8981;&#x8BA1;&#x7B97;&#x548C;&#x5B58;&#x50A8;t&#xB7;N t &#x4E2A;&#x53C2;&#x6570;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<h4 id="N-Gram&#x8BED;&#x8A00;&#x6A21;&#x578B;"><a href="#N-Gram&#x8BED;&#x8A00;&#x6A21;&#x578B;" class="headerlink" title="N-Gram&#x8BED;&#x8A00;&#x6A21;&#x578B;"></a>N-Gram&#x8BED;&#x8A00;&#x6A21;&#x578B;</h4><ul>
+<li><p><strong>&#x57FA;&#x672C;&#x601D;&#x60F3;</strong>:&#x4E00;&#x4E2A;&#x8BCD;&#x51FA;&#x73B0;&#x7684;&#x6982;&#x7387;&#x53EA;&#x4E0E;&#x5176;&#x524D;&#x9762;n-1&#x4E2A;&#x8BCD;&#x76F8;&#x5173;</p>
+<p>p(w k |w 1 ,w 2 &#x2026;w k-1 )&#x2248;p(w k |w k-n+1 ,w k-n+2 ,&#x2026;,w k-1 )</p>
+<p>=p(w k-n+1 ,w k-n+2 ,&#x2026;,w k )/p(w k-n+1 ,w k-n+2 ,&#x2026;,w k-1 )</p>
+<p>&#x2248;count(w k-n+1 ,w k-n+2 ,&#x2026;,w k )/count(w k-n+1 ,w k-n+2 ,&#x2026;,w k-1 )</p>
+</li>
+<li><p><strong>&#x5E73;&#x6ED1;&#x5316;&#x95EE;&#x9898;</strong>:</p>
+<ul>
+<li>&#x82E5;count(w k-n+1 ,w k-n+2 ,&#x2026;,w k )=0,&#x80FD;&#x5426;&#x8BA4;&#x4E3A;p(w k |w 1 ,w 2 &#x2026;w k-1 )=0?</li>
+<li><p>&#x82E5;count(w k-n+1 ,w k-n+2 ,&#x2026;,w k-1 )=count(w k-n+1 ,w k-n+2 ,&#x2026;,w k ),&#x80FD;&#x5426;&#x8BA4;&#x4E3A;<br>p(w k |w 1 ,w 2 &#x2026;w k-1 )=1?</p>
+<h3 id="&#x795E;&#x7ECF;&#x6982;&#x7387;&#x8BED;&#x8A00;&#x6A21;&#x578B;"><a href="#&#x795E;&#x7ECF;&#x6982;&#x7387;&#x8BED;&#x8A00;&#x6A21;&#x578B;" class="headerlink" title="&#x795E;&#x7ECF;&#x6982;&#x7387;&#x8BED;&#x8A00;&#x6A21;&#x578B;"></a>&#x795E;&#x7ECF;&#x6982;&#x7387;&#x8BED;&#x8A00;&#x6A21;&#x578B;</h3><p><img src="/teaching_ml/2017/08/11/Word2vec/1.png" alt=""></p>
+<p>&#x5176;&#x4E2D;,&#x662F;&#x8BCD;w&#x7684;&#x8F93;&#x51FA;&#x5411;&#x91CF;(&#x957F;&#x5EA6;&#x4E3A;N),i_w&#x662F;&#x8BCD;w&#x5728;&#x8BCD;&#x5178;&#x4E2D;&#x7684;&#x4F4D;&#x7F6E;,y_w(i_w)&#x662F;&#x8F93;<br>&#x51FA;&#x5411;&#x91CF;y_w&#x4E0A;&#x4F4D;&#x4E8E;i_w&#x7684;&#x5143;&#x7D20;,N&#x662F;&#x8BCD;&#x5178;&#x7684;&#x5927;&#x5C0F;</p>
+<h4 id="&#x8BCD;&#x5411;&#x91CF;&#x6BD4;&#x8F83;"><a href="#&#x8BCD;&#x5411;&#x91CF;&#x6BD4;&#x8F83;" class="headerlink" title="&#x8BCD;&#x5411;&#x91CF;&#x6BD4;&#x8F83;"></a>&#x8BCD;&#x5411;&#x91CF;&#x6BD4;&#x8F83;</h4></li>
+</ul>
+</li>
+<li>One-hot representation</li>
+</ul>
+<p><strong>&#x5B9A;&#x4E49;</strong>:&#x8BCD;&#x5411;&#x91CF;&#x7684;&#x5927;&#x5C0F;&#x4E0E;&#x8BCD;&#x5178;&#x5927;&#x5C0F;&#x76F8;&#x540C;,&#x8BCD;&#x5411;&#x91CF;&#x4E2D;,&#x53EA;&#x6709;&#x8BE5;&#x8BCD;&#x5BF9;&#x5E94;&#x4F4D;&#x7F6E;&#x7684;&#x5143;&#x7D20;&#x4E3A;1,&#x5176;&#x4F59;&#x4E3A;&#x96F6;</p>
+<ul>
+<li>&#x4F18;&#x70B9;:&#x7B80;&#x5355;</li>
+<li>&#x7F3A;&#x70B9;:&#x8BED;&#x4E49;&#x9E3F;&#x6C9F;,&#x7EF4;&#x6570;&#x707E;&#x96BE;</li>
+<li>Distributed representation&#x3001;</li>
+</ul>
+<p><strong>&#x5B9A;&#x4E49;</strong>:&#x4F4E;&#x7EF4;&#x7A20;&#x5BC6;&#x5B9E;&#x5411;&#x91CF;</p>
+<ul>
+<li>&#x4F18;&#x70B9;:&#x5177;&#x6709;&#x8BED;&#x4E49;&#x3001;&#x8BED;&#x6CD5;&#x76F8;&#x4F3C;&#x6027;</li>
+<li>&#x7F3A;&#x70B9;:&#x7F3A;&#x4E4F;&#x89E3;&#x91CA;&#x6027;,&#x8BA1;&#x7B97;&#x590D;&#x6742;</li>
+</ul>
+<p><img src="/teaching_ml/2017/08/11/Word2vec/2.png" alt=""></p>
+<ul>
+<li><p><em>&#x590D;&#x6742;&#x5EA6;&#x4F30;&#x8BA1;</em></p>
+<ul>
+<li>w&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x8BCD;&#x7684;&#x6570;&#x91CF;,&#x901A;&#x5E38;&#x4E0D;&#x8D85;&#x8FC7;5</li>
+<li>&#x8BCD;&#x5411;&#x91CF;&#x7684;&#x957F;&#x5EA6;,&#x901A;&#x5E38;&#x662F;10 1 -10 2 &#x91CF;&#x7EA7;</li>
+<li>&#x9690;&#x85CF;&#x5C42;&#x795E;&#x7ECF;&#x5143;&#x6570;&#x91CF;,&#x901A;&#x5E38;&#x662F;10 2 &#x91CF;&#x7EA7;</li>
+<li>&#x8BCD;&#x5178;&#x7684;&#x5927;&#x5C0F;N,&#x901A;&#x5E38;&#x662F;10 4 -10 5 &#x91CF;&#x7EA7;</li>
+</ul>
+<p>&#x6574;&#x4E2A;&#x6A21;&#x578B;&#x7684;&#x5927;&#x90E8;&#x5206;&#x8BA1;&#x7B97;&#x96C6;&#x4E2D;&#x5728;&#x9690;&#x85CF;&#x5C42;&#x548C;&#x8F93;&#x51FA;&#x5C42;&#x7684;&#x77E9;&#x9635;&#x5411;&#x91CF;&#x8BA1;&#x7B97;&#x4EE5;&#x53CA;&#x8F93;&#x51FA;&#x5C42;&#x4E2D;<br>&#x7684;softmax&#x5F52;&#x4E00;&#x5316;!</p>
+<h3 id="&#x57FA;&#x4E8E;Hierarchical-Softmax&#x7684;CBOW&#x6A21;&#x578B;"><a href="#&#x57FA;&#x4E8E;Hierarchical-Softmax&#x7684;CBOW&#x6A21;&#x578B;" class="headerlink" title="&#x57FA;&#x4E8E;Hierarchical Softmax&#x7684;CBOW&#x6A21;&#x578B;"></a>&#x57FA;&#x4E8E;Hierarchical Softmax&#x7684;CBOW&#x6A21;&#x578B;</h3></li>
+<li>&#x8F93;&#x5165;&#x5C42;:&#x5305;&#x542B;Context(w)&#x4E2D;2c&#x4E2A;&#x8BCD;&#x7684;&#x8BCD;&#x5411;&#x91CF;</li>
+<li>&#x6295;&#x5F71;&#x5C42;:&#x5C06;&#x8F93;&#x5165;&#x5C42;&#x4E2D;2c&#x4E2A;&#x8BCD;&#x5411;&#x91CF;&#x6C42;&#x548C;&#x7D2F;&#x52A0;</li>
+<li>&#x8F93;&#x51FA;&#x5C42;:&#x662F;&#x4E00;&#x68F5;&#x4E8C;&#x53C9;&#x6811;,&#x7531;&#x8BCD;&#x5178;&#x4E2D;&#x7684;&#x8BCD;&#x4F5C;&#x4E3A;&#x53F6;&#x5B50;&#x8282;&#x70B9;,&#x4EE5;&#x5404;&#x8BCD;&#x5728;&#x8BED;&#x6599;&#x4E2D;&#x51FA;&#x73B0;&#x7684;&#x6B21;&#x6570;&#x4F5C;&#x4E3A;&#x6743;&#x503C;,&#x6784;&#x5EFA;&#x51FA;&#x6765;&#x7684;&#x4E00;&#x68F5;Huffman&#x6811;</li>
+</ul>
+<p><img src="/teaching_ml/2017/08/11/Word2vec/3.png" alt=""></p>
+<p>Quiz&#xFF1A;CBOW&#x6A21;&#x578B;&#x548C;&#x795E;&#x7ECF;&#x6982;&#x7387;&#x8BED;&#x8A00;&#x6A21;&#x578B;&#x76F8;&#x6BD4;,&#x7ED3;&#x6784;&#x6709;&#x4EC0;&#x4E48;&#x533A;&#x522B;?</p>
+<p><img src="/teaching_ml/2017/08/11/Word2vec/4.png" alt=""></p>
+<p>&#x5C06;Huffman&#x7F16;&#x7801;&#x4E3A;1&#x7684;&#x7ED3;&#x70B9;&#x5B9A;&#x4E49;&#x4E3A;&#x8D1F;&#x7C7B;,&#x5C06;&#x7F16;&#x7801;&#x4E3A;0&#x7684;&#x7ED3;&#x70B9;&#x5B9A;&#x4E49;&#x4E3A;&#x6B63;&#x7C7B;,&#x5373;</p>
+<p><img src="/teaching_ml/2017/08/11/Word2vec/5.png" alt=""></p>
+<p>&#x6613;&#x77E5;,&#x4E00;&#x4E2A;&#x7ED3;&#x70B9;&#x88AB;&#x5206;&#x4E3A;&#x6B63;&#x7C7B;&#x7684;&#x6982;&#x7387;&#x662F;<img src="/teaching_ml/2017/08/11/Word2vec/6.png" alt="">,&#x88AB;&#x5206;&#x4E3A;&#x8D1F;&#x7C7B;&#x7684;&#x6982;&#x7387;&#x662F;<img src="/teaching_ml/2017/08/11/Word2vec/7.png" alt=""></p>
+<p>&#x5BF9;&#x4E8E;&#x4ECE;&#x6839;&#x7ED3;&#x70B9;&#x51FA;&#x53D1;&#x5230;&#x201C;&#x8DB3;&#x7403;&#x201D;&#x53F6;&#x5B50;&#x7ED3;&#x70B9;&#x7684;4&#x6B21;&#x4E8C;&#x5206;&#x7C7B;,&#x6BCF;&#x6B21;&#x5206;&#x7C7B;&#x7ED3;&#x679C;&#x7684;&#x6982;&#x7387;&#x662F;</p>
+<p><img src="/teaching_ml/2017/08/11/Word2vec/8.png" alt=""></p>
+<p>&#x6839;&#x636E;  <img src="/teaching_ml/2017/08/11/Word2vec/9.png" alt=""></p>
+<p>&#x5176;&#x4E2D;&#xFF0C;<img src="/teaching_ml/2017/08/11/Word2vec/10.png" alt=""> </p>
+<p>&#x7531;&#x4E8E;  <img src="/teaching_ml/2017/08/11/Word2vec/11.png" alt=""> </p>
+<p><img src="/teaching_ml/2017/08/11/Word2vec/12.png" alt=""></p>
+<p><img src="/teaching_ml/2017/08/11/Word2vec/13.png" alt=""></p>
+<p><img src="/teaching_ml/2017/08/11/Word2vec/14.png" alt=""></p>
+<h3 id="&#x57FA;&#x4E8E;Negative-Sampling&#x7684;Skip-gram&#x6A21;&#x578B;"><a href="#&#x57FA;&#x4E8E;Negative-Sampling&#x7684;Skip-gram&#x6A21;&#x578B;" class="headerlink" title="&#x57FA;&#x4E8E;Negative Sampling&#x7684;Skip-gram&#x6A21;&#x578B;"></a>&#x57FA;&#x4E8E;Negative Sampling&#x7684;Skip-gram&#x6A21;&#x578B;</h3><ul>
+<li>&#x4E0E;Hierarchical Softmax&#x76F8;&#x6BD4;,Negative Sampling&#x4E0D;&#x518D;&#x4F7F;&#x7528;&#x590D;&#x6742;&#x7684;Huffman&#x6811;,&#x800C;&#x662F;&#x5229;&#x7528;&#x968F;<br>&#x673A;&#x8D1F;&#x91C7;&#x6837;,&#x6765;&#x63D0;&#x9AD8;&#x8BAD;&#x7EC3;&#x901F;&#x5EA6;&#x5E76;&#x6539;&#x5584;&#x6240;&#x5F97;&#x8BCD;&#x5411;&#x91CF;&#x7684;&#x8D28;&#x91CF;&#x3002;</li>
+</ul>
+<p><img src="/teaching_ml/2017/08/11/Word2vec/15.png" alt=""></p>
+<p><img src="/teaching_ml/2017/08/11/Word2vec/16.png" alt=""></p>
+<p><img src="/teaching_ml/2017/08/11/Word2vec/17.png" alt=""></p>
+<p><img src="/teaching_ml/2017/08/11/Word2vec/18.png" alt=""></p>
+<p><img src="/teaching_ml/2017/08/11/Word2vec/19.png" alt=""></p>
+<h2 id="Word2Vec&#x6548;&#x679C;&#x5C55;&#x793A;"><a href="#Word2Vec&#x6548;&#x679C;&#x5C55;&#x793A;" class="headerlink" title="Word2Vec&#x6548;&#x679C;&#x5C55;&#x793A;"></a>Word2Vec&#x6548;&#x679C;&#x5C55;&#x793A;</h2><p><img src="/teaching_ml/2017/08/11/Word2vec/20.png" alt=""></p>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/teaching_ml/js/jquery.min.js"></script>
+    <script src="/teaching_ml/js/main.js"></script>
+    <script src="/teaching_ml/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/teaching_ml/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>

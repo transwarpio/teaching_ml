@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      TF-5-ann | Teaching ML 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="transwarpio">
+    
+    
+
+    <meta name="description" content="Previous Chapter: Summary and TensorboardNext Chapter: AutoEncoder Neural NetworkHere is an exercise of building a Neural Network using Tensorflow. Following note of Neural Network is quoted from here">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TF-5-ann | Teaching ML">
+<meta property="og:url" content="http://transwarpio.github.io/teaching_ml/2016/12/01/TF-5-ann/index.html">
+<meta property="og:site_name" content="Teaching ML">
+<meta property="og:description" content="Previous Chapter: Summary and TensorboardNext Chapter: AutoEncoder Neural NetworkHere is an exercise of building a Neural Network using Tensorflow. Following note of Neural Network is quoted from here">
+<meta property="og:image" content="http://cs231n.github.io/assets/nn1/neural_net2.jpeg">
+<meta property="og:image" content="http://ufldl.stanford.edu/tutorial/images/Network331.png">
+<meta property="og:image" content="http://ufldl.stanford.edu/tutorial/images/SingleNeuron.png">
+<meta property="og:image" content="http://i.stack.imgur.com/H1KsG.png">
+<meta property="og:updated_time" content="2017-08-09T08:31:23.101Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TF-5-ann | Teaching ML">
+<meta name="twitter:description" content="Previous Chapter: Summary and TensorboardNext Chapter: AutoEncoder Neural NetworkHere is an exercise of building a Neural Network using Tensorflow. Following note of Neural Network is quoted from here">
+<meta name="twitter:image" content="http://cs231n.github.io/assets/nn1/neural_net2.jpeg">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/teaching_ml/favicon.png">
+    
+    <link rel="stylesheet" href="/teaching_ml/css/uno.css">
+    <link rel="stylesheet" href="/teaching_ml/css/highlight.css">
+    <link rel="stylesheet" href="/teaching_ml/css/archive.css">
+    <link rel="stylesheet" href="/teaching_ml/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/teaching_ml/" title="link to homepage">Teaching ML</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/teaching_ml/#blog" title="" class="blog-button">首页</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">TF-5-ann</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2016-12-01" class="post-meta__date date">2016-12-01</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <p><a href="../TF-4-summary">Previous Chapter: Summary and Tensorboard</a><br><a href="../TF-6-autoencoder">Next Chapter: AutoEncoder</a></p>
+<h2 id="Neural-Network"><a href="#Neural-Network" class="headerlink" title="Neural Network"></a>Neural Network</h2><p>Here is an exercise of building a <em>Neural Network</em> using <em>Tensorflow</em>.</p>
+<p>Following note of <em>Neural Network</em> is quoted from <a href="https://github.com/xzry6/notes/blob/master/transwarp/ann.md" target="_blank" rel="external">here</a>.</p>
+<h3 id="Note-&#x4EBA;&#x5DE5;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;"><a href="#Note-&#x4EBA;&#x5DE5;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;" class="headerlink" title="Note: &#x4EBA;&#x5DE5;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;"></a>Note: &#x4EBA;&#x5DE5;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;</h3><p><strong>&#x4EBA;&#x5DE5;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;</strong>&#x662F;&#x53D7;&#x5230;&#x4E86;&#x751F;&#x7269;&#x5B66;&#x4E0A;&#x52A8;&#x7269;&#x7684;&#x4E2D;&#x67A2;&#x795E;&#x7ECF;&#x7CFB;&#x7EDF;&#x7684;&#x542F;&#x53D1;&#x800C;&#x5F00;&#x53D1;&#x51FA;&#x6765;&#x7684;&#x4E00;&#x79CD;&#x8BA1;&#x7B97;&#x6A21;&#x578B;&#x3002;<br><strong>&#x4EBA;&#x5DE5;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;</strong>&#x6700;&#x65E9;&#x4E8E;20&#x4E16;&#x7EAA;40&#x5E74;&#x4EE3;&#x63D0;&#x51FA;&#xFF0C;&#x4F46;&#x7531;&#x4E8E;&#x5E9E;&#x5927;&#x7684;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x548C;&#x5F53;&#x65F6;&#x8BA1;&#x7B97;&#x80FD;&#x529B;&#x7684;&#x5C40;&#x9650;&#xFF0C;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x7684;&#x7814;&#x7A76;&#x4E00;&#x76F4;&#x505C;&#x6EDE;&#x4E0D;&#x524D;&#x3002;<br>&#x76F4;&#x5230;20&#x4E16;&#x7EAA;80&#x5E74;&#x4EE3;<strong>&#x5206;&#x6563;&#x5F0F;&#x5E76;&#x884C;&#x5904;&#x7406;</strong>&#x7684;&#x6D41;&#x884C;&#x548C;&#x7531;<em>Paul Werbos</em>&#x521B;&#x9020;&#x7684;&#x53CD;&#x5411;&#x4F20;&#x64AD;&#x7B97;&#x6CD5;&#xFF0C;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x6E10;&#x6E10;&#x53C8;&#x5F00;&#x59CB;&#x6D41;&#x884C;&#x8D77;&#x6765;&#x3002;&#x5E76;&#x4E8E;21&#x4E16;&#x7EAA;&#x5F00;&#x59CB;&#x540C;<strong>&#x6DF1;&#x5EA6;&#x5B66;&#x4E60;</strong>&#x4E00;&#x8D77;&#x6210;&#x4E3A;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x9886;&#x57DF;&#x7684;&#x70ED;&#x70B9;&#x3002;</p>
+<h4 id="&#x7ED3;&#x6784;"><a href="#&#x7ED3;&#x6784;" class="headerlink" title="&#x7ED3;&#x6784;"></a>&#x7ED3;&#x6784;</h4><p>&#x7ED3;&#x6784;&#x4E0A;&#xFF0C;&#x4EBA;&#x5DE5;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x7531;&#x4E00;&#x4E2A;<em>&#x8F93;&#x5165;&#x53EF;&#x89C1;&#x5C42;</em>&#xFF0C;&#x591A;&#x4E2A;<em>&#x9690;&#x85CF;&#x5C42;</em>&#x548C;&#x4E00;&#x4E2A;<em>&#x5206;&#x7C7B;&#x8F93;&#x51FA;&#x5C42;</em>&#x7EC4;&#x6210;&#x3002;&#x6BCF;&#x4E00;&#x5C42;&#x7531;&#x4E0D;&#x540C;&#x6570;&#x76EE;&#x7684;<em>&#x795E;&#x7ECF;&#x5355;&#x5143;</em>&#x7EC4;&#x6210;, &#x524D;&#x540E;&#x4E24;&#x5C42;&#x4E4B;&#x95F4;&#x7684;<em>weight</em>&#x548C;<em>bias</em>&#x7EC4;&#x6210;&#x4E86;&#x6574;&#x4E2A;&#x6A21;&#x578B;&#x3002;<br>&#x4EBA;&#x5DE5;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x6A21;&#x62DF;&#x4E86;&#x4EBA;&#x8111;&#x795E;&#x7ECF;&#x5143;&#x4F20;&#x9012;&#x7684;&#x8FC7;&#x7A0B;&#xFF0C;&#x6BCF;&#x4E00;&#x5C42;&#x7684;&#x795E;&#x7ECF;&#x5143;&#x90FD;&#x5BF9;&#x5E94;&#x7740;&#x901A;&#x8FC7;&#x89C2;&#x5BDF;&#x800C;&#x89E3;&#x6790;&#x51FA;&#x7684;&#x4E0D;&#x540C;&#x7A0B;&#x5EA6;&#x7684;&#x7279;&#x5F81;&#x3002;&#x53EF;&#x4EE5;&#x7528;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x4F8B;&#x5B50;&#x6765;&#x7406;&#x89E3;&#x4EBA;&#x5DE5;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x7684;&#x7ED3;&#x6784;&#x3002;<br>&#x5F53;&#x6211;&#x4EEC;&#x89C2;&#x5BDF;&#x4E00;&#x8F86;&#x8F66;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6211;&#x4EEC;&#x9996;&#x5148;&#x89C2;&#x5BDF;&#x5230;&#x7684;&#x53EF;&#x80FD;&#x662F;&#x201C;&#x8F66;&#x9AD8;&#x201D;&#xFF0C;&#x201C;&#x8F66;&#x5BBD;&#x201D;&#xFF0C;&#x201C;&#x56DB;&#x95E8;&#x201D;&#xFF0C;&#x201C;&#x56DB;&#x9A71;&#x201D;&#xFF0C; &#x201C;&#x759D;&#x6C14;&#x5927;&#x706F;&#x201D;&#x7B49;&#x4E00;&#x7CFB;&#x5217;&#x53EF;&#x89C1;&#x7279;&#x5F81;&#xFF0C;&#x5BF9;&#x5E94;&#x4E86;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x7684;&#x53EF;&#x89C1;&#x5C42;&#x3002;&#x4E4B;&#x540E;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x901A;&#x8FC7;&#x53EF;&#x89C1;&#x7279;&#x5F81;&#x5BF9;&#x9690;&#x85CF;&#x7279;&#x5F81;&#x8FDB;&#x884C;&#x89E3;&#x6790;&#xFF0C;&#x4E8E;&#x662F;&#x5728;&#x7B2C;&#x4E00;&#x4E2A;&#x9690;&#x85CF;&#x5C42;&#x4E2D;&#x6211;&#x4EEC;&#x5F97;&#x5230;&#x4E86;&#x6211;&#x4EEC;&#x672A;&#x89C2;&#x5BDF;&#x5230;&#x7684;&#x4FE1;&#x606F;&#x201C;&#x5965;&#x8FEA;&#x201D;&#xFF0C;&#x201C;SUV&#x201D;&#x3002;&#x4E4B;&#x540E;&#x9010;&#x5C42;&#x89E3;&#x6790;&#xFF0C;&#x901A;&#x8FC7;&#x7B2C;&#x4E00;&#x4E2A;&#x9690;&#x85CF;&#x5C42;&#x7279;&#x5F81;&#xFF0C;&#x6211;&#x4EEC;&#x5728;&#x7B2C;&#x4E8C;&#x4E2A;&#x9690;&#x85CF;&#x5C42;&#x53EF;&#x80FD;&#x4F1A;&#x5F97;&#x5230;&#x201C;Q7&#x201D;&#x8FD9;&#x6837;&#x7684;&#x7279;&#x5F81;&#xFF0C;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x9690;&#x85CF;&#x5C42;&#x4F1A;&#x89E3;&#x6790;&#x51FA;&#x4E0D;&#x540C;&#x7A0B;&#x5EA6;&#x7684;&#x9690;&#x85CF;&#x7279;&#x5F81;&#x3002;&#x5F53;&#x5F97;&#x5230;&#x4E86;&#x8FD9;&#x4E9B;&#x6BD4;&#x53EF;&#x89C1;&#x7279;&#x5F81;&#x66F4;&#x52A0;&#x5177;&#x8C61;&#x5E76;&#x4E14;&#x6709;&#x610F;&#x4E49;&#x7684;&#x7279;&#x5F81;&#x540E;&#xFF0C;&#x4F4D;&#x4E8E;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x9876;&#x5C42;&#x7684;&#x5206;&#x7C7B;&#x5668;&#x4F1A;&#x66F4;&#x52A0;&#x5BB9;&#x6613;&#x5224;&#x65AD;&#x51FA;&#x201C;&#x5F00;&#x8F66;&#x4EBA;&#x7684;&#x804C;&#x4E1A;&#x201D;&#x3002;</p>
+<p><img src="http://cs231n.github.io/assets/nn1/neural_net2.jpeg" width="440"></p>
+<p>&#x5728;&#x4E0A;&#x56FE;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x8F93;&#x5165;&#x5C42;&#x6709;&#x4E09;&#x4E2A;&#x795E;&#x7ECF;&#x5143;&#xFF0C;&#x7B2C;&#x4E00;&#x548C;&#x7B2C;&#x4E8C;&#x9690;&#x85CF;&#x5C42;&#x5206;&#x522B;&#x542B;&#x6709;&#x56DB;&#x4E2A;&#x795E;&#x7ECF;&#x5143;&#xFF0C;&#x6700;&#x540E;&#x8F93;&#x51FA;&#x4E00;&#x4E2A;&#x795E;&#x7ECF;&#x5143;&#x3002;&#x540C;&#x4E00;&#x5C42;&#x7684;&#x795E;&#x7ECF;&#x5143;&#x76F8;&#x4E92;&#x4E4B;&#x95F4;&#x6CA1;&#x6709;&#x8FDE;&#x63A5;&#xFF0C;&#x4EE3;&#x8868;&#x4E86;&#x540C;&#x4E00;&#x5C42;&#x4E4B;&#x95F4;&#x7684;&#x7279;&#x5F81;&#x76F8;&#x4E92;&#x72EC;&#x7ACB;&#x3002;&#x76F8;&#x90BB;&#x4E24;&#x5C42;&#x7684;&#x795E;&#x7ECF;&#x5143;&#x76F8;&#x4E92;&#x8FDE;&#x63A5;&#xFF0C;&#x7531;&#x76F4;&#x7EBF;&#x8868;&#x793A;&#xFF0C;&#x88AB;&#x6210;&#x4E3A;<em>weights(&#x6743;&#x91CD;)</em>&#x3002;&#x6BCF;&#x4E00;&#x4E2A;&#x795E;&#x7ECF;&#x5143;&#x7531;<strong>&#x6240;&#x6709;</strong>&#x4E0A;&#x4E00;&#x5C42;&#x7684;<em>&#x795E;&#x7ECF;&#x5143;</em>&#x548C;<em>&#x6743;&#x91CD;</em>&#x8BA1;&#x7B97;&#x5F97;&#x51FA;&#xFF0C;&#x6240;&#x4EE5;&#x53EA;&#x6709;&#x8BA1;&#x7B97;&#x51FA;&#x540C;&#x4E00;&#x5C42;&#x6240;&#x6709;&#x795E;&#x7ECF;&#x5143;&#x7684;&#x503C;&#x540E;&#xFF0C;&#x624D;&#x80FD;&#x7EE7;&#x7EED;&#x5411;&#x524D;&#x4F20;&#x9012;&#x3002;</p>
+<h4 id="&#x4EBA;&#x5DE5;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x7684;&#x8BAD;&#x7EC3;"><a href="#&#x4EBA;&#x5DE5;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x7684;&#x8BAD;&#x7EC3;" class="headerlink" title="&#x4EBA;&#x5DE5;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x7684;&#x8BAD;&#x7EC3;"></a>&#x4EBA;&#x5DE5;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x7684;&#x8BAD;&#x7EC3;</h4><p>&#x4EBA;&#x5DE5;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x7684;&#x8BAD;&#x7EC3;&#x53EF;&#x4EE5;&#x5206;&#x4E3A;&#x4E24;&#x4E2A;&#x90E8;&#x5206;&#xFF0C;<em>&#x524D;&#x5411;&#x4F20;&#x64AD;</em>&#x548C;<em>&#x53CD;&#x5411;&#x4F20;&#x64AD;</em>&#x3002;<em>&#x524D;&#x5411;&#x4F20;&#x64AD;</em>&#x8D1F;&#x8D23;&#x9010;&#x5C42;&#x4F20;&#x9012;&#x5E76;&#x6FC0;&#x6D3B;&#x795E;&#x7ECF;&#x5143;&#xFF0C;&#x5E76;&#x4E8E;&#x6700;&#x540E;&#x5206;&#x7C7B;&#x5C42;&#x9884;&#x6D4B;&#x7ED3;&#x679C;&#x3002;<em>&#x53CD;&#x5411;&#x4F20;&#x64AD;</em>&#x901A;&#x8FC7;&#x8BA1;&#x7B97;&#x9876;&#x5C42;&#x9884;&#x6D4B;&#x7ED3;&#x679C;&#x548C;&#x5B9E;&#x9645;&#x7ED3;&#x679C;&#x7684;&#x8BEF;&#x5DEE;&#xFF0C;&#x5C06;&#x8BEF;&#x5DEE;&#x9010;&#x5C42;&#x4F20;&#x9012;&#x56DE;&#x6A21;&#x578B;&#xFF0C;&#x4F7F;&#x7528;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x6216;&#x5176;&#x5B83;&#x65B9;&#x5F0F;&#x66F4;&#x65B0;&#x6A21;&#x578B;&#x6743;&#x91CD;&#x3002;<br><br><br>&#x63A5;&#x4E0B;&#x53BB;&#x6211;&#x4EEC;&#x4F1A;&#x5206;&#x5F00;&#x5BF9;<em>&#x524D;&#x5411;&#x4F20;&#x64AD;</em>&#x548C;<em>&#x53CD;&#x5411;&#x4F20;&#x64AD;</em>&#x8FDB;&#x884C;&#x4ECB;&#x7ECD;&#x3002;</p>
+<h5 id="&#x524D;&#x5411;&#x4F20;&#x64AD;"><a href="#&#x524D;&#x5411;&#x4F20;&#x64AD;" class="headerlink" title="&#x524D;&#x5411;&#x4F20;&#x64AD;"></a>&#x524D;&#x5411;&#x4F20;&#x64AD;</h5><p>&#x5BF9;&#x4EBA;&#x5DE5;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x8FDB;&#x884C;&#x8BAD;&#x7EC3;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x9996;&#x5148;&#x628A;&#x8F93;&#x5165;&#x653E;&#x5165;&#x8F93;&#x5165;&#x53EF;&#x89C1;&#x5C42;&#xFF0C;<em>&#x5582;</em>&#x8FDB;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x3002;&#x4E0A;&#x6587;&#x5DF2;&#x7ECF;&#x8BF4;&#x8FC7;&#xFF0C;&#x7531;&#x4E8E;&#x6BCF;&#x4E00;&#x4E2A;&#x795E;&#x7ECF;&#x5143;&#x4E0E;&#x4E0A;&#x4E00;&#x5C42;&#x6240;&#x6709;&#x795E;&#x7ECF;&#x5143;&#x6709;&#x8054;&#x7CFB;&#xFF0C;&#x6240;&#x4EE5;&#x4EBA;&#x5DE5;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x7684;&#x4F20;&#x9012;&#x65B9;&#x5F0F;&#x662F;<strong>&#x9010;&#x5C42;</strong>&#x4F20;&#x9012;&#x7684;&#x3002;&#x4F20;&#x9012;&#x8FC7;&#x7A0B;&#x5728;&#x751F;&#x7269;&#x610F;&#x4E49;&#x4E0A;&#x610F;&#x5473;&#x7740;<strong>&#x6FC0;&#x6D3B;</strong>&#xFF0C;&#x6240;&#x4EE5;&#x4F20;&#x9012;&#x65F6;&#x7528;&#x5230;&#x7684;&#x51FD;&#x6570;&#x88AB;&#x79F0;&#x4F5C;&#x6FC0;&#x6D3B;&#x51FD;&#x6570;&#x3002;</p>
+<p><img src="http://ufldl.stanford.edu/tutorial/images/Network331.png" width="440"></p>
+<h5 id="&#x7EC4;&#x5408;&#x51FD;&#x6570;"><a href="#&#x7EC4;&#x5408;&#x51FD;&#x6570;" class="headerlink" title="&#x7EC4;&#x5408;&#x51FD;&#x6570;"></a>&#x7EC4;&#x5408;&#x51FD;&#x6570;</h5><p>&#x5728;&#x628A;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x8FDB;&#x6FC0;&#x6D3B;&#x51FD;&#x6570;&#x524D;&#xFF0C;&#x9996;&#x5148;&#x5C06;&#x4E0A;&#x4E00;&#x5C42;&#x7684;&#x795E;&#x7ECF;&#x5143;&#x548C;&#x76F8;&#x5173;&#x6743;&#x91CD;&#x8FDB;&#x884C;&#x7EC4;&#x5408;&#xFF0C;&#x518D;&#x52A0;&#x4E0A;&#x504F;&#x7F6E;&#x3002;&#x8FD9;&#x6837;&#x7684;&#x7EC4;&#x5408;&#x51FD;&#x6570;&#x8868;&#x793A;&#x6BCF;&#x4E00;&#x5C42;&#x7684;&#x795E;&#x7ECF;&#x5355;&#x5143;&#x7531;&#x4E0A;&#x4E00;&#x5C42;&#x7684;&#x5355;&#x5143;&#x548C;&#x6743;&#x91CD;&#x751F;&#x6210;.</p>
+
+&#x4F20;&#x9012;&#x51FD;&#x6570;: $p(x_j^n) = \sigma(\Sigma_i w_{ij}^{{n-1}n}x_i^{n-1})$
+
+<p><img src="http://ufldl.stanford.edu/tutorial/images/SingleNeuron.png" width="240"></p>
+
+&#x4E0A;&#x8FF0;&#x516C;&#x5F0F;&#x4E2D;&#xFF0C;$p(x_j^n)$&#x8868;&#x793A;&#x7B2C;n&#x5C42;&#x7B2C;j&#x4E2A;&#x795E;&#x7ECF;&#x5143;&#x88AB;&#x6FC0;&#x6D3B;&#x7684;&#x6982;&#x7387;&#xFF0C;${x_i^{n-1}}$&#x8868;&#x793A;&#x7B2C;(n-1)&#x5C42;&#x7B2C;i&#x4E2A;&#x795E;&#x7ECF;&#x5143;&#x7684;&#x503C;&#xFF0C;$w_{ij}^{{n-1}n}$&#x8868;&#x793A;&#x7B2C;(n-1)&#x5C42;&#x7684;&#x7B2C;i&#x4E2A;&#x795E;&#x7ECF;&#x5143;&#x4E0E;&#x7B2C;n&#x5C42;&#x7B2C;j&#x4E2A;&#x795E;&#x7ECF;&#x5143;&#x4E4B;&#x95F4;&#x7684;&#x8FDE;&#x7EBF;&#x6743;&#x91CD;&#xFF0C;(n-1)&#x5C42;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x795E;&#x7ECF;&#x5143;+1&#x6307;&#x7684;&#x662F;n&#x5C42;&#x7B2C;j&#x4E2A;&#x7ED3;&#x70B9;&#x7684;&#x6743;&#x91CD;&#x3002;
+
+<h4 id="&#x6FC0;&#x6D3B;&#x51FD;&#x6570;"><a href="#&#x6FC0;&#x6D3B;&#x51FD;&#x6570;" class="headerlink" title="&#x6FC0;&#x6D3B;&#x51FD;&#x6570;"></a>&#x6FC0;&#x6D3B;&#x51FD;&#x6570;</h4><p>&#x5F53;&#x524D;&#x4E00;&#x5C42;&#x795E;&#x7ECF;&#x5143;&#x548C;&#x5BF9;&#x5E94;&#x6743;&#x91CD;&#x8FDB;&#x884C;&#x7EC4;&#x5408;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x628A;&#x5F97;&#x5230;&#x7684;&#x503C;&#x5F53;&#x4F5C;&#x5F53;&#x524D;&#x5355;&#x5143;&#x7684;&#x6FC0;&#x6D3B;&#x51FD;&#x6570;&#xFF0C;&#x53EF;&#x662F;&#x7531;&#x4E8E;&#x662F;&#x7B80;&#x5355;&#x7684;&#x7EBF;&#x6027;&#x51FD;&#x6570;&#xFF0C;&#x6240;&#x4EE5;&#x5BB9;&#x6613;&#x9020;&#x6210;&#x503C;&#x8FC7;&#x5927;&#x548C;&#x8FC7;&#x5C0F;&#x7684;&#x4E24;&#x6781;&#x5316;&#x5206;&#x5E03;&#x3002;&#x4E3A;&#x6B64;&#xFF0C;&#x7814;&#x7A76;&#x8005;&#x4EEC;&#x5F15;&#x5165;&#x4E86;&#x4E00;&#x4E9B;<strong>&#x6FC0;&#x6D3B;&#x51FD;&#x6570;</strong>&#x6765;&#x6539;&#x5584;&#x5206;&#x5E03;&#xFF0C;&#x66F4;&#x597D;&#x5730;<em>&#x6FC0;&#x6D3B;</em>&#x795E;&#x7ECF;&#x5143;&#x3002;</p>
+<ul>
+<li>Sigmoid: $\sigma(z) = \large{1 \over 1 + e^{-z}}$
+</li>
+</ul>
+<ul>
+<li>Tanh: $\sigma(z) = \large{sinh(z) \over cosh(z)} = {{e^z - e^{-z}} \over {e^z + e^{-z}}}$
+</li>
+<li><p>ReLU: $\sigma(z) = max(0, z)$</p>
+</li>
+</ul>
+<p>sigmoid&#x548C;tanh&#x7531;&#x4E8E;&#x6709;&#x5404;&#x81EA;&#x7684;&#x533A;&#x95F4;&#xFF08;sigmoid: (0, 1)&#xFF0C;tanh: (-1, 1)&#xFF09;&#xFF0C;&#x80FD;&#x5F88;&#x597D;&#x7684;&#x628A;&#x6FC0;&#x6D3B;&#x503C;&#x9650;&#x5236;&#x5728;&#x8FD9;&#x4E9B;&#x533A;&#x95F4;&#x5185;&#xFF0C;&#x7A33;&#x5B9A;&#x7684;&#x533A;&#x95F4;&#x540C;&#x65F6;&#x4E5F;&#x8BF4;&#x660E;&#x795E;&#x7ECF;&#x5143;&#x4E4B;&#x95F4;&#x7684;&#x6743;&#x91CD;&#x4F1A;&#x66F4;&#x52A0;&#x7A33;&#x5B9A;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x8FD9;&#x4E24;&#x4E2A;&#x51FD;&#x6570;&#x5728;&#x6781;&#x9650;&#x503C;&#x9020;&#x6210;&#x5E73;&#x6ED1;&#x7684;&#x68AF;&#x5EA6;&#xFF0C;&#x4F1A;&#x4E22;&#x5931;&#x4E00;&#x90E8;&#x5206;&#x7684;&#x4FE1;&#x606F;&#x3002;relu&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x4FDD;&#x7559;&#x7740;&#x4E00;&#x90E8;&#x5206;&#x68AF;&#x5EA6;&#xFF0C;&#x540C;&#x65F6;$max(0, z)$&#x4E5F;&#x4F1A;&#x7A00;&#x758F;&#x51FA;&#x73B0;&#x7684;negative&#x503C;&#x3002;</p>
+<h3 id="&#x53CD;&#x5411;&#x4F20;&#x64AD;"><a href="#&#x53CD;&#x5411;&#x4F20;&#x64AD;" class="headerlink" title="&#x53CD;&#x5411;&#x4F20;&#x64AD;"></a>&#x53CD;&#x5411;&#x4F20;&#x64AD;</h3><p>&#x53CD;&#x5411;&#x4F20;&#x64AD;&#x662F;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x66F4;&#x65B0;&#x6743;&#x91CD;&#x7684;&#x8FC7;&#x7A0B;&#xFF0C;&#x56E0;&#x4E3A;&#x591A;&#x5C42;&#x7684;&#x7ED3;&#x6784;&#xFF0C;&#x5F53;&#x8FDB;&#x884C;&#x8FED;&#x4EE3;&#x66F4;&#x65B0;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x8F93;&#x51FA;&#x5C42;&#x4EA7;&#x751F;&#x7684;error&#x4F1A;&#x53CD;&#x5411;&#x4F20;&#x904D;&#x6574;&#x4E2A;&#x7F51;&#x7EDC;&#xFF0C;&#x6BCF;&#x4E00;&#x5C42;&#x7684;&#x6743;&#x91CD;&#x4F1A;&#x6839;&#x636E;&#x8BEF;&#x5DEE;&#x8FDB;&#x884C;&#x66F4;&#x65B0;&#x3002;&#x548C;&#x4E00;&#x822C;&#x5206;&#x7C7B;&#x5668;&#x4E00;&#x6837;&#xFF0C;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x9876;&#x5C42;&#x7684;&#x8BEF;&#x5DEE;&#x5C31;&#x662F;&#x5206;&#x7C7B;&#x5668;&#x7684;&#x8BEF;&#x5DEE;&#xFF0C;&#x5373;&#x9884;&#x6D4B;&#x503C;&#x548C;&#x5B9E;&#x9645;&#x503C;&#x7684;&#x8BEF;&#x5DEE;&#x3002;&#x4E4B;&#x540E;&#xFF0C;&#x540C;&#x524D;&#x5411;&#x4F20;&#x64AD;&#x4E00;&#x6837;&#xFF0C;&#x6BCF;&#x524D;&#x4E00;&#x5C42;&#x7684;&#x795E;&#x7ECF;&#x5143;&#x7684;&#x8BEF;&#x5DEE;&#x7531;&#x540E;&#x4E00;&#x5C42;&#x7684;&#x6240;&#x6709;&#x795E;&#x7ECF;&#x5143;&#x548C;&#x8BEF;&#x5DEE;&#x8BA1;&#x7B97;&#x5F97;&#x51FA;&#xFF0C;&#x53CD;&#x5411;&#x9010;&#x5C42;&#x4F20;&#x9012;&#x3002;&#x5F53;&#x8BEF;&#x5DEE;&#x4F20;&#x5230;&#x5E95;&#x5C42;&#xFF0C;&#x5373;&#x6240;&#x6709;&#x8BEF;&#x5DEE;&#x90FD;&#x88AB;&#x8BA1;&#x7B97;&#x51FA;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x518D;&#x6B21;<em>&#x524D;&#x5411;</em>&#x4F20;&#x64AD;&#x66F4;&#x65B0;&#x6743;&#x91CD;&#x3002;</p>
+<p><img src="http://i.stack.imgur.com/H1KsG.png" width="440"></p>
+<ul>
+<li>&#x8F93;&#x51FA;&#x5C42;&#x7684;error&#x5C31;&#x662F;&#x5206;&#x7C7B;&#x5668;&#x7684;error: $\delta_i^n = \sigma_i^n - y_i$
+</li>
+</ul>
+<ul>
+<li>&#x524D;&#x4E00;&#x5C42;&#x7684;error&#x7531;&#x540E;&#x4E00;&#x5C42;&#x7684;error&#x4EA7;&#x751F;: $\delta_i^n = \Sigma_j w_{ij}^{n+1} \delta_j^{n+1}$
+</li>
+</ul>
+<ul>
+<li>&#x66F4;&#x65B0;&#x6743;&#x91CD;&#x4F7F;&#x7528;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;: $\Delta w_{ij} = -\gamma \sigma_i^n \delta_j^{n+1}$
+</li>
+</ul>
+<h3 id="Exercise-Neural-Network"><a href="#Exercise-Neural-Network" class="headerlink" title="Exercise: Neural Network"></a>Exercise: Neural Network</h3><p>In this exercise, our neural network will have 2 hidden layer with user defined units and one linear regression output layer.</p>
+<h4 id="Same-as-previous-chapter"><a href="#Same-as-previous-chapter" class="headerlink" title="Same as previous chapter"></a>Same as previous chapter</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> absolute_import</div><div class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> print_function</div><div class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> division</div><div class="line"></div><div class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</div><div class="line"></div><div class="line"><span class="comment">## MNIST data</span></div><div class="line"><span class="keyword">from</span> tensorflow.examples.tutorials.mnist <span class="keyword">import</span> input_data</div><div class="line">mnist = input_data.read_data_sets(<span class="string">&quot;/root/tensorflow/MNIST_data&quot;</span>, one_hot=<span class="keyword">True</span>)</div><div class="line"></div><div class="line"><span class="comment">## parameters</span></div><div class="line">learning_rate = <span class="number">0.001</span></div><div class="line">training_epochs = <span class="number">15</span></div><div class="line">batch_size = <span class="number">100</span></div><div class="line">display_step = <span class="number">1</span></div><div class="line"></div><div class="line"><span class="comment">## inputs</span></div><div class="line">x = tf.placeholder(tf.float32, [<span class="keyword">None</span>, <span class="number">784</span>])</div><div class="line">y = tf.placeholder(tf.float32, [<span class="keyword">None</span>, <span class="number">10</span>])</div></pre></td></tr></table></figure>
+<h4 id="Hidden-Layers"><a href="#Hidden-Layers" class="headerlink" title="Hidden Layers"></a>Hidden Layers</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## hidden layer number of features</span></div><div class="line"><span class="comment"># define any number of features to this two hidden layers</span></div><div class="line">n_hidden_1 = ... <span class="comment">###### write your code here ######</span></div><div class="line">n_hidden_2 = ... <span class="comment">###### write your code here ######</span></div></pre></td></tr></table></figure>
+<h4 id="Weights-and-Biases"><a href="#Weights-and-Biases" class="headerlink" title="Weights and Biases"></a>Weights and Biases</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## weights and biases</span></div><div class="line">weights = {</div><div class="line">    <span class="string">&apos;w1&apos;</span>: tf.Variable(tf.random_normal([<span class="number">784</span>, n_hidden_1])),</div><div class="line">    <span class="string">&apos;w2&apos;</span>: tf.Variable(tf.random_normal([n_hidden_1, n_hidden_2])),</div><div class="line">    <span class="string">&apos;output&apos;</span>: tf.Variable(tf.random_normal([n_hidden_2, <span class="number">10</span>]))</div><div class="line">}</div><div class="line">biases = {</div><div class="line">    <span class="string">&apos;b1&apos;</span>: tf.Variable(tf.random_normal([n_hidden_1])),</div><div class="line">    <span class="string">&apos;b2&apos;</span>: tf.Variable(tf.random_normal([n_hidden_2])),</div><div class="line">    <span class="string">&apos;output&apos;</span>: tf.Variable(tf.random_normal([<span class="number">10</span>]))</div><div class="line">}</div></pre></td></tr></table></figure>
+<h4 id="Define-a-deep-graph-function"><a href="#Define-a-deep-graph-function" class="headerlink" title="Define a deep graph function"></a>Define a deep graph function</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## graph</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">multilayer_perceptron</span><span class="params">(x, weights, biases)</span>:</span></div><div class="line">    <span class="comment"># hidden layer 1</span></div><div class="line">    comb_1 = tf.add(tf.matmul(x, weights[<span class="string">&apos;w1&apos;</span>]), biases[<span class="string">&apos;b1&apos;</span>])</div><div class="line">    <span class="comment"># layer_1 is activated using `tf.nn.relu()`</span></div><div class="line">    h_1 = ... <span class="comment">###### write your code here ######</span></div><div class="line">    </div><div class="line">    <span class="comment"># hidden layer 2</span></div><div class="line">    comb_2 = tf.add(tf.matmul(h_1, weights[<span class="string">&apos;w2&apos;</span>]), biases[<span class="string">&apos;b2&apos;</span>])</div><div class="line">    <span class="comment"># layer_2 is activated using `tf.nn.relu()`</span></div><div class="line">    h_2 = ... <span class="comment">###### write your code here ######</span></div><div class="line">    </div><div class="line">    <span class="comment"># output is just a linear combination function with `h_2 * w[output] + b[output]`</span></div><div class="line">    output = ... <span class="comment">###### write your code here ######</span></div><div class="line"></div><div class="line">    <span class="keyword">return</span> output</div></pre></td></tr></table></figure>
+<h4 id="Training-Steps"><a href="#Training-Steps" class="headerlink" title="Training Steps"></a>Training Steps</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># predicted value</span></div><div class="line">pred = multilayer_perceptron(x, weights, biases)</div><div class="line"></div><div class="line"><span class="comment"># define your cost here, use `tf.nn.softmax_cross_entropy_with_logits(pred, y)` to calculate entropy here</span></div><div class="line">cost = ... <span class="comment">###### write your code here ######</span></div><div class="line"></div><div class="line"><span class="comment"># define your optimizer here, we use a `tf.train.AdamOptimizer()` here</span></div><div class="line">optimizer = ... <span class="comment">###### write your code here ######</span></div><div class="line"></div><div class="line"><span class="comment"># training steps</span></div><div class="line">training_steps = optimizer.minimize(cost)</div><div class="line"></div><div class="line"><span class="comment"># initialization</span></div><div class="line">init = tf.initialize_all_variables()</div></pre></td></tr></table></figure>
+<h4 id="Run-a-Session"><a href="#Run-a-Session" class="headerlink" title="Run a Session"></a>Run a Session</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## training</span></div><div class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</div><div class="line">    sess.run(init)</div><div class="line"></div><div class="line">    <span class="comment"># training epochs</span></div><div class="line">    <span class="keyword">for</span> epoch <span class="keyword">in</span> range(training_epochs):</div><div class="line"></div><div class="line">        avg_cost = <span class="number">0</span></div><div class="line">        total_batch = int(mnist.train.num_examples / batch_size)</div><div class="line"></div><div class="line">        <span class="comment"># split the data into different batches and run</span></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(total_batch):</div><div class="line">            batch_xs, batch_ys = mnist.train.next_batch(batch_size)</div><div class="line">            _, cur_cost = sess.run([training_steps, cost],</div><div class="line">                            feed_dict={x: batch_xs, y: batch_ys})</div><div class="line"></div><div class="line">            avg_cost += cur_cost / total_batch</div><div class="line"></div><div class="line">        <span class="comment"># show the average cost</span></div><div class="line">        <span class="keyword">if</span> (epoch+<span class="number">1</span>) % display_step == <span class="number">0</span>:</div><div class="line">            print(<span class="string">&quot;Epoch:&quot;</span>, <span class="string">&apos;%04d&apos;</span> % (epoch+<span class="number">1</span>), <span class="string">&quot;cost=&quot;</span>, <span class="string">&quot;{:.9f}&quot;</span>.format(avg_cost))</div><div class="line"></div><div class="line">    print(<span class="string">&quot;Optimization Finished!&quot;</span>)</div><div class="line"></div><div class="line">    <span class="comment"># calculate accuracy</span></div><div class="line">    <span class="comment"># use `tf.equal()` and `tf.argmax()` to get correction prediction</span></div><div class="line">    correct_prediction = ... <span class="comment">###### write your code here ######</span></div><div class="line">    <span class="comment"># use `tf.reduce_mean` to get accuracy here</span></div><div class="line">    accuracy = ... <span class="comment">###### write your code here</span></div><div class="line">    print(<span class="string">&quot;Accuracy:&quot;</span>, accuracy.eval({x: mnist.test.images, y: mnist.test.labels}))</div></pre></td></tr></table></figure>
+<p><a href="../TF-4-summary">Previous Chapter: Summary and Tensorboard</a><br><a href="../TF-6-autoencoder">Next Chapter: AutoEncoder</a></p>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/teaching_ml/js/jquery.min.js"></script>
+    <script src="/teaching_ml/js/main.js"></script>
+    <script src="/teaching_ml/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/teaching_ml/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>

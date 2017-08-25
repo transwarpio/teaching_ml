@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      TF-7-cnn | Teaching ML 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="transwarpio">
+    
+    
+
+    <meta name="description" content="Previous Chapter: AutoEncoderNext Chapter: Recurrent Neural Network Convolutional Neural NetworkIn machine learning, a Convolutional Neural Network (CNN, or ConvNet) is a type of feed-forward artifici">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TF-7-cnn | Teaching ML">
+<meta property="og:url" content="http://transwarpio.github.io/teaching_ml/2016/12/01/TF-7-cnn/index.html">
+<meta property="og:site_name" content="Teaching ML">
+<meta property="og:description" content="Previous Chapter: AutoEncoderNext Chapter: Recurrent Neural Network Convolutional Neural NetworkIn machine learning, a Convolutional Neural Network (CNN, or ConvNet) is a type of feed-forward artifici">
+<meta property="og:image" content="http://parse.ele.tue.nl/cluster/2/CNNArchitecture.jpg">
+<meta property="og:image" content="http://ufldl.stanford.edu/tutorial/images/Convolution_schematic.gif">
+<meta property="og:image" content="http://ufldl.stanford.edu/tutorial/images/Pooling_schematic.gif">
+<meta property="og:updated_time" content="2017-08-09T08:31:23.101Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TF-7-cnn | Teaching ML">
+<meta name="twitter:description" content="Previous Chapter: AutoEncoderNext Chapter: Recurrent Neural Network Convolutional Neural NetworkIn machine learning, a Convolutional Neural Network (CNN, or ConvNet) is a type of feed-forward artifici">
+<meta name="twitter:image" content="http://parse.ele.tue.nl/cluster/2/CNNArchitecture.jpg">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/teaching_ml/favicon.png">
+    
+    <link rel="stylesheet" href="/teaching_ml/css/uno.css">
+    <link rel="stylesheet" href="/teaching_ml/css/highlight.css">
+    <link rel="stylesheet" href="/teaching_ml/css/archive.css">
+    <link rel="stylesheet" href="/teaching_ml/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/teaching_ml/" title="link to homepage">Teaching ML</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/teaching_ml/#blog" title="" class="blog-button">首页</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">TF-7-cnn</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2016-12-01" class="post-meta__date date">2016-12-01</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <p><a href="../TF-6-autoencoder">Previous Chapter: AutoEncoder</a><br><a href="../TF-8-rnn">Next Chapter: Recurrent Neural Network</a></p>
+<h2 id="Convolutional-Neural-Network"><a href="#Convolutional-Neural-Network" class="headerlink" title="Convolutional Neural Network"></a>Convolutional Neural Network</h2><p>In machine learning, a <em>Convolutional Neural Network</em> (CNN, or ConvNet) is a type of feed-forward artificial neural network in which the connectivity pattern between its neurons is inspired by the organization of the animal visual cortex. Individual neurons of the animal cortex are arranged in such a way that they respond to overlapping regions tiling the visual field, which can mathematically be described by a convolution operation. Convolutional networks were inspired by biological processes and are variations of multilayer perceptrons designed to use minimal amounts of preprocessing. They have wide applications in <strong>image and video recognition</strong>, <strong>recommender systems</strong> and <strong>natural language processing</strong>.</p>
+<p>Following note is partially quoted from <a href="http://ufldl.stanford.edu/tutorial/supervised/ConvolutionalNeuralNetwork/" target="_blank" rel="external">Standford Deep Learning Tutorial</a>.</p>
+<h3 id="Note-Convolutional-Neural-Network-CNN"><a href="#Note-Convolutional-Neural-Network-CNN" class="headerlink" title="Note: Convolutional Neural Network(CNN)"></a>Note: Convolutional Neural Network(CNN)</h3><h4 id="Structure"><a href="#Structure" class="headerlink" title="Structure"></a>Structure</h4><p><img src="http://parse.ele.tue.nl/cluster/2/CNNArchitecture.jpg" alt="cnnStructure"></p>
+<h4 id="Convolution"><a href="#Convolution" class="headerlink" title="Convolution"></a>Convolution</h4><p>Since images have the &#x2018;stationary&#x2019; property, which implies that features that are useful in one region are also likely to be useful for other regions. Thus, we use a rather small patch than the image size to convolve this image. For example, when having an image with m <em> m </em> r, we could use a n <em> n </em> q patch(where n &lt; m &amp;&amp; q &lt;= r). The output will be produced in size m - n + 1.</p>
+<p><img src="http://ufldl.stanford.edu/tutorial/images/Convolution_schematic.gif" width="440">)</p>
+<h4 id="Pooling"><a href="#Pooling" class="headerlink" title="Pooling"></a>Pooling</h4><p>To further reduce computation, pooling is introduced in CNN. As mentioned previously, a mean pooling is applied into each region of the image because of the &#x2018;stationary&#x2019; property. Pooling usually ranges from 2 to 5.</p>
+<p><img src="http://ufldl.stanford.edu/tutorial/images/Pooling_schematic.gif" width="500">)</p>
+<h4 id="Others"><a href="#Others" class="headerlink" title="Others"></a>Others</h4><ul>
+<li>Densely Connected Layers: after several convolutional layers, a few densely conncetedly layers are usually constructed before the output layer;</li>
+<li>Top Layer Classifier: a top classifier is used to do supervised learning on CNN;</li>
+<li>Back Propogation: unsample on pooling layer and use the flipped filter on convolution layer;<br>Here is an exercise of building a <em>Convolutional Neural Network</em> using <em>Tensorflow</em>. </li>
+</ul>
+<h3 id="Exercise-Convolutional-Neural-Network"><a href="#Exercise-Convolutional-Neural-Network" class="headerlink" title="Exercise: Convolutional Neural Network"></a>Exercise: Convolutional Neural Network</h3><h4 id="Necessary-Header"><a href="#Necessary-Header" class="headerlink" title="Necessary Header"></a>Necessary Header</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## header</span></div><div class="line"><span class="comment">###### write your code here ######</span></div></pre></td></tr></table></figure>
+<h4 id="MNIST-data"><a href="#MNIST-data" class="headerlink" title="MNIST data"></a>MNIST data</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## MNIST data</span></div><div class="line">mnist = ... <span class="comment">###### write your code here ######</span></div></pre></td></tr></table></figure>
+<h4 id="Parameters"><a href="#Parameters" class="headerlink" title="Parameters"></a>Parameters</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## parameters</span></div><div class="line">learning_rate = ... <span class="comment">###### write your code here ######</span></div><div class="line">training_iters = ... <span class="comment">###### write your code here ######</span></div><div class="line">batch_size = ... <span class="comment">###### write your code here ######</span></div><div class="line">display_step = ... <span class="comment">###### write your code here ######</span></div></pre></td></tr></table></figure>
+<h4 id="Inputs"><a href="#Inputs" class="headerlink" title="Inputs"></a>Inputs</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## placeholder inputs</span></div><div class="line">x = ... <span class="comment">###### write your code here ######</span></div><div class="line">y = ... <span class="comment">###### write your code here ######</span></div><div class="line"><span class="comment"># dropout is a probability for randomly dropping a unit away, it should be a float 32 value</span></div><div class="line">dropout = ... <span class="comment">###### write your code here ######</span></div></pre></td></tr></table></figure>
+<h4 id="Weights-and-Biases"><a href="#Weights-and-Biases" class="headerlink" title="Weights and Biases"></a>Weights and Biases</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## weights and biases</span></div><div class="line">weights = {</div><div class="line">    <span class="string">&apos;wc1&apos;</span>: tf.Variable(tf.random_normal([<span class="number">5</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">32</span>])),</div><div class="line">    <span class="string">&apos;wc2&apos;</span>: tf.Variable(tf.random_normal([<span class="number">5</span>, <span class="number">5</span>, <span class="number">32</span>, <span class="number">64</span>])),</div><div class="line">    <span class="string">&apos;wd&apos;</span>: tf.Variable(tf.random_normal([<span class="number">7</span> * <span class="number">7</span> * <span class="number">64</span>, <span class="number">1024</span>])),</div><div class="line">    <span class="string">&apos;output&apos;</span>: tf.Variable(tf.random_normal([<span class="number">1024</span>, n_classes]))</div><div class="line">}</div><div class="line"></div><div class="line">biases = {</div><div class="line">    <span class="string">&apos;bc1&apos;</span>: tf.Variable(tf.random_normal([<span class="number">32</span>])),</div><div class="line">    <span class="string">&apos;bc2&apos;</span>: tf.Variable(tf.random_normal([<span class="number">64</span>])),</div><div class="line">    <span class="string">&apos;bd&apos;</span>: tf.Variable(tf.random_normal([<span class="number">1024</span>])),</div><div class="line">    <span class="string">&apos;output&apos;</span>: tf.Variable(tf.random_normal([n_classes]))</div><div class="line">}</div></pre></td></tr></table></figure>
+<h4 id="Graph"><a href="#Graph" class="headerlink" title="Graph"></a>Graph</h4><p>In a traditional <em>Convolutional Neural Network</em>, we have several <em>convolution layers</em> and <em>pool layers</em> following by a <em>fully-connected layer</em>.</p>
+<h6 id="Covolutional-Layer"><a href="#Covolutional-Layer" class="headerlink" title="Covolutional Layer"></a>Covolutional Layer</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># convolutional layer</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">conv2d</span><span class="params">(x, W, b, strides=<span class="number">1</span>)</span>:</span></div><div class="line">    <span class="comment"># Conv2D wrapper, with bias and relu activation</span></div><div class="line">    x = tf.nn.conv2d(x, W, strides=[<span class="number">1</span>, strides, strides, <span class="number">1</span>], padding=<span class="string">&apos;SAME&apos;</span>)</div><div class="line">    x = tf.nn.bias_add(x, b)</div><div class="line">    <span class="keyword">return</span> tf.nn.relu(x)</div></pre></td></tr></table></figure>
+<h6 id="Pool-Layer"><a href="#Pool-Layer" class="headerlink" title="Pool Layer"></a>Pool Layer</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># max pool layer</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">maxpool2d</span><span class="params">(x, k=<span class="number">2</span>)</span>:</span></div><div class="line">    <span class="comment"># MaxPool2D wrapper</span></div><div class="line">    <span class="keyword">return</span> tf.nn.max_pool(x, ksize=[<span class="number">1</span>, k, k, <span class="number">1</span>],</div><div class="line">                          strides=[<span class="number">1</span>, k, k, <span class="number">1</span>],</div><div class="line">                          padding=<span class="string">&apos;SAME&apos;</span>)</div></pre></td></tr></table></figure>
+<h6 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># graph</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">conv_net</span><span class="params">(x, weights, biases, dropout)</span>:</span></div><div class="line">    <span class="comment"># reshape</span></div><div class="line">    x = tf.reshape(x, shape=[<span class="number">-1</span>, <span class="number">28</span>, <span class="number">28</span>, <span class="number">1</span>])</div><div class="line"></div><div class="line">    <span class="comment"># convolution layer 1</span></div><div class="line">    conv1 = ... <span class="comment">###### write your code here ######</span></div><div class="line">    <span class="comment"># max pooling layer 1</span></div><div class="line">    conv1 = ... <span class="comment">###### write your code here ######</span></div><div class="line"></div><div class="line">    <span class="comment"># convolution layer 2</span></div><div class="line">    conv2 = ... <span class="comment">###### write your code here ######</span></div><div class="line">    <span class="comment"># max pooling layer 2</span></div><div class="line">    conv2 = ... <span class="comment">###### write your code here ######</span></div><div class="line"></div><div class="line">    <span class="comment"># fully connected layer</span></div><div class="line">    <span class="comment"># reshape conv2 output to fit fully connected layer input</span></div><div class="line">    fc = tf.reshape(conv2, [<span class="number">-1</span>, weights[<span class="string">&apos;wd&apos;</span>].get_shape().as_list()[<span class="number">0</span>]])</div><div class="line">    <span class="comment"># apply `tf.nn.relu()` on linear combination of `fc * w[wd] + b[wd]`</span></div><div class="line">    fc = ... <span class="comment">###### write your code here ######</span></div><div class="line">    </div><div class="line">    <span class="comment"># apply dropout on fully connected layer</span></div><div class="line">    fc = tf.nn.dropout(fc1, dropout)</div><div class="line"></div><div class="line">    <span class="comment"># output is also a linear combination</span></div><div class="line">    output = ... <span class="comment">###### write your code here ######</span></div><div class="line"></div><div class="line">    <span class="keyword">return</span> output</div></pre></td></tr></table></figure>
+<h4 id="Training-Steps"><a href="#Training-Steps" class="headerlink" title="Training Steps"></a>Training Steps</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># predicted value</span></div><div class="line">pred = conv_net(x, weights, biases, dropout)</div><div class="line"></div><div class="line"><span class="comment"># cost and optimizer</span></div><div class="line">cost = ... <span class="comment">###### write your code here ######</span></div><div class="line">optimizer = ... <span class="comment">###### write your code here ######</span></div><div class="line">training_steps = ... <span class="comment">###### write your code here ######</span></div><div class="line"></div><div class="line"><span class="comment"># accuracy</span></div><div class="line">correct_prediction = ... <span class="comment">###### write your code here ######</span></div><div class="line">accuracy = ... <span class="comment">###### write your code here ######</span></div><div class="line"></div><div class="line"><span class="comment"># initialization</span></div><div class="line">init = tf.initialize_all_variables()</div></pre></td></tr></table></figure>
+<h4 id="Run-a-Session"><a href="#Run-a-Session" class="headerlink" title="Run a Session"></a>Run a Session</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## training</span></div><div class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</div><div class="line">    sess.run(init)</div><div class="line">    step = <span class="number">1</span></div><div class="line"></div><div class="line">    <span class="comment"># keep training until reach max iterations</span></div><div class="line">    <span class="keyword">while</span> step * batch_size &lt; training_iters:</div><div class="line">        batch_x, batch_y = mnist.train.next_batch(batch_size)</div><div class="line">        <span class="comment"># run training steps, use `x = batch_x`, `y = batch_y` and `dropout = 0.5` here</span></div><div class="line">        sess.run(... <span class="comment">###### write your code here ######)</span></div><div class="line"></div><div class="line">        <span class="keyword">if</span> step % display_step == <span class="number">0</span>:</div><div class="line">            <span class="comment"># run batch loss and accuracy, use `x = batch_x`, `y = batch_y` and `dropout = 1` here</span></div><div class="line">            loss, acc = ... <span class="comment">###### write your code here ######</span></div><div class="line"></div><div class="line">            print(<span class="string">&quot;Iter &quot;</span> + str(step*batch_size) + <span class="string">&quot;, Minibatch Loss= &quot;</span> + \</div><div class="line">                  <span class="string">&quot;{:.6f}&quot;</span>.format(loss) + <span class="string">&quot;, Training Accuracy= &quot;</span> + \</div><div class="line">                  <span class="string">&quot;{:.5f}&quot;</span>.format(acc))</div><div class="line">        step += <span class="number">1</span></div><div class="line"></div><div class="line">    print(<span class="string">&quot;Optimization Finished!&quot;</span>)</div><div class="line"></div><div class="line">    <span class="comment"># calculate accuracy for 256 mnist test images</span></div><div class="line">    print(<span class="string">&quot;Testing Accuracy:&quot;</span>, \</div><div class="line">        sess.run(accuracy, feed_dict={x: mnist.test.images[:<span class="number">256</span>],</div><div class="line">                                      y: mnist.test.labels[:<span class="number">256</span>],</div><div class="line">                                      dropout: <span class="number">1.</span>}))</div></pre></td></tr></table></figure>
+<p><a href="../TF-6-autoencoder">Previous Chapter: AutoEncoder</a><br><a href="../TF-8-rnn">Next Chapter: Recurrent Neural Network</a></p>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/teaching_ml/js/jquery.min.js"></script>
+    <script src="/teaching_ml/js/main.js"></script>
+    <script src="/teaching_ml/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/teaching_ml/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
