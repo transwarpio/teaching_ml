@@ -19,20 +19,20 @@
     <meta name="description" content="1 SVM   1.1 &amp;#x4ECB;&amp;#x7ECD;   Support Vector Machine &amp;#x652F;&amp;#x6301;&amp;#x5411;&amp;#x91CF;&amp;#x673A;&amp;#x662F;&amp;#x4E00;&amp;#x79CD;&amp;#x673A;&amp;#x5668;&amp;#x5B66;&amp;#x4E60;&amp;#x7B97;&amp;#x6CD5;&amp;#x3002;     &amp;#x7ED9;&amp;#x5B9A;&amp;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Support Vector Machine | Teaching ML">
-<meta property="og:url" content="http://transwarpio.github.io/teaching_ml/2016/08/30/svm/index.html">
+<meta property="og:url" content="http://transwarpio.github.io/2016/08/30/svm/index.html">
 <meta property="og:site_name" content="Teaching ML">
 <meta property="og:description" content="1 SVM   1.1 &amp;#x4ECB;&amp;#x7ECD;   Support Vector Machine &amp;#x652F;&amp;#x6301;&amp;#x5411;&amp;#x91CF;&amp;#x673A;&amp;#x662F;&amp;#x4E00;&amp;#x79CD;&amp;#x673A;&amp;#x5668;&amp;#x5B66;&amp;#x4E60;&amp;#x7B97;&amp;#x6CD5;&amp;#x3002;     &amp;#x7ED9;&amp;#x5B9A;&amp;">
-<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2016/08/30/svm/svm.png">
-<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2016/08/30/svm/tree.png">
-<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2016/08/30/svm/2d_linear.png">
-<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2016/08/30/svm/3d_linear.png">
-<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2016/08/30/svm/step1.png">
-<meta property="og:image" content="http://transwarpio.github.io/teaching_ml/2016/08/30/svm/step2.png">
-<meta property="og:updated_time" content="2017-08-09T08:31:23.109Z">
+<meta property="og:image" content="http://transwarpio.github.io/2016/08/30/svm/svm.png">
+<meta property="og:image" content="http://transwarpio.github.io/2016/08/30/svm/tree.png">
+<meta property="og:image" content="http://transwarpio.github.io/2016/08/30/svm/2d_linear.png">
+<meta property="og:image" content="http://transwarpio.github.io/2016/08/30/svm/3d_linear.png">
+<meta property="og:image" content="http://transwarpio.github.io/2016/08/30/svm/step1.png">
+<meta property="og:image" content="http://transwarpio.github.io/2016/08/30/svm/step2.png">
+<meta property="og:updated_time" content="2017-08-23T06:02:00.923Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Support Vector Machine | Teaching ML">
 <meta name="twitter:description" content="1 SVM   1.1 &amp;#x4ECB;&amp;#x7ECD;   Support Vector Machine &amp;#x652F;&amp;#x6301;&amp;#x5411;&amp;#x91CF;&amp;#x673A;&amp;#x662F;&amp;#x4E00;&amp;#x79CD;&amp;#x673A;&amp;#x5668;&amp;#x5B66;&amp;#x4E60;&amp;#x7B97;&amp;#x6CD5;&amp;#x3002;     &amp;#x7ED9;&amp;#x5B9A;&amp;">
-<meta name="twitter:image" content="http://transwarpio.github.io/teaching_ml/2016/08/30/svm/svm.png">
+<meta name="twitter:image" content="http://transwarpio.github.io/2016/08/30/svm/svm.png">
     
     
     
@@ -218,7 +218,7 @@ subject to \( y_i(w \cdot x_i - b) \geq 1 \) for all \( 1 \leq i \leq n \)
 
 
 <div id="svm" class="figure">
-<p><img src="/teaching_ml/2016/08/30/svm/svm.png" alt="captionm" width="400px">
+<p><img src="/2016/08/30/svm/svm.png" alt="captionm" width="400px">
 </p>
 <p><span class="figure-number">Figure 1:</span> SVM</p>
 </div>
@@ -263,7 +263,7 @@ f(w) = \frac{\lambda}{2}\|w\|^2 + \frac{1}{m}\sum_{(x_i, y_i) \in S}\ell(w; (x_i
 
 <p>
 \[
-\nabla_t = \lambda w_t - \frac{1}{m}\sum_{(x_i, y_i) \in S}\mathbbm{1}[y_i \langle w, x_i \rangle &lt; 1]y_i x_i
+\nabla_t = \lambda w_t - \frac{1}{m}\sum_{(x_i, y_i) \in S}\mathbb{1}[y_i \langle w, x_i \rangle &lt; 1]y_i x_i
 \]
 </p>
 
@@ -349,7 +349,7 @@ Spark &#x6765;&#x8BA1;&#x7B97; SGD &#x7684;&#x4E3B;&#x8981;&#x4F18;&#x52BF;&#x4F
 
 <div class="org-src-container">
 
-<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line"><span class="type">RDD</span>.treeAggregate(zeroValue: <span class="type">U</span>)(</span><br><span class="line">      seqOp: (<span class="type">U</span>, <span class="type">T</span>) =&amp;gt; <span class="type">U</span>,</span><br><span class="line">      combOp: (<span class="type">U</span>, <span class="type">U</span>) =&amp;gt; <span class="type">U</span>,</span><br><span class="line">      depth: <span class="type">Int</span> = <span class="number">2</span>): <span class="type">U</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line"><span class="type">RDD</span>.treeAggregate(zeroValue: <span class="type">U</span>)(</span><br><span class="line">      seqOp: (<span class="type">U</span>, <span class="type">T</span>) =&gt; <span class="type">U</span>,</span><br><span class="line">      combOp: (<span class="type">U</span>, <span class="type">U</span>) =&gt; <span class="type">U</span>,</span><br><span class="line">      depth: <span class="type">Int</span> = <span class="number">2</span>): <span class="type">U</span></span><br></pre></td></tr></table></figure>
 </div>
 
 <p>
@@ -367,7 +367,7 @@ Spark &#x6765;&#x8BA1;&#x7B97; SGD &#x7684;&#x4E3B;&#x8981;&#x4F18;&#x52BF;&#x4F
 
 
 <div id="tree" class="figure">
-<p><img src="/teaching_ml/2016/08/30/svm/tree.png" alt="tree.png">
+<p><img src="/2016/08/30/svm/tree.png" alt="tree.png">
 </p>
 <p><span class="figure-number">Figure 2:</span> tree aggregate</p>
 </div>
@@ -394,7 +394,7 @@ SGD &#x662F;&#x4E00;&#x4E2A;&#x6C42;&#x6700;&#x4F18;&#x5316;&#x7684;&#x7B97;&#x6
 
 <div class="org-src-container">
 
-<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HingeGradient</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">Gradient</span> {</span></span><br><span class="line">  <span class="keyword">override</span> <span class="function"><span class="keyword">def</span> <span class="title">compute</span>(</span>data: <span class="type">Vector</span>, label: <span class="type">Double</span>, weights: <span class="type">Vector</span>): (<span class="type">Vector</span>, <span class="type">Double</span>) = {</span><br><span class="line">    <span class="keyword">val</span> dotProduct = dot(data, weights)</span><br><span class="line">    <span class="comment">// Our loss function with {0, 1} labels is max(0, 1 - (2y - 1) (f_w(x)))</span></span><br><span class="line">    <span class="comment">// Therefore the gradient is -(2y - 1)*x</span></span><br><span class="line">    <span class="keyword">val</span> labelScaled = <span class="number">2</span> * label - <span class="number">1.0</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="number">1.0</span> &amp;gt; labelScaled * dotProduct) {</span><br><span class="line">      <span class="keyword">val</span> gradient = data.copy</span><br><span class="line">      scal(-labelScaled, gradient)</span><br><span class="line">      (gradient, <span class="number">1.0</span> - labelScaled * dotProduct)</span><br><span class="line">    } <span class="keyword">else</span> {</span><br><span class="line">      (<span class="type">Vectors</span>.sparse(weights.size, <span class="type">Array</span>.empty, <span class="type">Array</span>.empty), <span class="number">0.0</span>)</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="keyword">override</span> <span class="function"><span class="keyword">def</span> <span class="title">compute</span>(</span></span><br><span class="line">      data: <span class="type">Vector</span>,</span><br><span class="line">      label: <span class="type">Double</span>,</span><br><span class="line">      weights: <span class="type">Vector</span>,</span><br><span class="line">      cumGradient: <span class="type">Vector</span>): <span class="type">Double</span> = {</span><br><span class="line">    <span class="keyword">val</span> dotProduct = dot(data, weights)</span><br><span class="line">    <span class="comment">// Our loss function with {0, 1} labels is max(0, 1 - (2y - 1) (f_w(x)))</span></span><br><span class="line">    <span class="comment">// Therefore the gradient is -(2y - 1)*x</span></span><br><span class="line">    <span class="keyword">val</span> labelScaled = <span class="number">2</span> * label - <span class="number">1.0</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="number">1.0</span> &amp;gt; labelScaled * dotProduct) {</span><br><span class="line">      axpy(-labelScaled, data, cumGradient)</span><br><span class="line">      <span class="number">1.0</span> - labelScaled * dotProduct</span><br><span class="line">    } <span class="keyword">else</span> {</span><br><span class="line">      <span class="number">0.0</span></span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HingeGradient</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">Gradient</span> {</span></span><br><span class="line">  <span class="keyword">override</span> <span class="function"><span class="keyword">def</span> <span class="title">compute</span>(</span>data: <span class="type">Vector</span>, label: <span class="type">Double</span>, weights: <span class="type">Vector</span>): (<span class="type">Vector</span>, <span class="type">Double</span>) = {</span><br><span class="line">    <span class="keyword">val</span> dotProduct = dot(data, weights)</span><br><span class="line">    <span class="comment">// Our loss function with {0, 1} labels is max(0, 1 - (2y - 1) (f_w(x)))</span></span><br><span class="line">    <span class="comment">// Therefore the gradient is -(2y - 1)*x</span></span><br><span class="line">    <span class="keyword">val</span> labelScaled = <span class="number">2</span> * label - <span class="number">1.0</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="number">1.0</span> &gt; labelScaled * dotProduct) {</span><br><span class="line">      <span class="keyword">val</span> gradient = data.copy</span><br><span class="line">      scal(-labelScaled, gradient)</span><br><span class="line">      (gradient, <span class="number">1.0</span> - labelScaled * dotProduct)</span><br><span class="line">    } <span class="keyword">else</span> {</span><br><span class="line">      (<span class="type">Vectors</span>.sparse(weights.size, <span class="type">Array</span>.empty, <span class="type">Array</span>.empty), <span class="number">0.0</span>)</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="keyword">override</span> <span class="function"><span class="keyword">def</span> <span class="title">compute</span>(</span></span><br><span class="line">      data: <span class="type">Vector</span>,</span><br><span class="line">      label: <span class="type">Double</span>,</span><br><span class="line">      weights: <span class="type">Vector</span>,</span><br><span class="line">      cumGradient: <span class="type">Vector</span>): <span class="type">Double</span> = {</span><br><span class="line">    <span class="keyword">val</span> dotProduct = dot(data, weights)</span><br><span class="line">    <span class="comment">// Our loss function with {0, 1} labels is max(0, 1 - (2y - 1) (f_w(x)))</span></span><br><span class="line">    <span class="comment">// Therefore the gradient is -(2y - 1)*x</span></span><br><span class="line">    <span class="keyword">val</span> labelScaled = <span class="number">2</span> * label - <span class="number">1.0</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="number">1.0</span> &gt; labelScaled * dotProduct) {</span><br><span class="line">      axpy(-labelScaled, data, cumGradient)</span><br><span class="line">      <span class="number">1.0</span> - labelScaled * dotProduct</span><br><span class="line">    } <span class="keyword">else</span> {</span><br><span class="line">      <span class="number">0.0</span></span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 </div>
 
 <div class="org-src-container">
@@ -415,7 +415,7 @@ SGD &#x662F;&#x4E00;&#x4E2A;&#x6C42;&#x6700;&#x4F18;&#x5316;&#x7684;&#x7B97;&#x6
 
 <div class="org-src-container">
 <label class="org-src-name">GradientDescent &#x4EE3;&#x7801;&#x7247;&#x65AD;</label>
-<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> (!converged &amp;amp;&amp;amp; i &amp;lt;= numIterations) {</span><br><span class="line">  <span class="keyword">val</span> bcWeights = data.context.broadcast(weights)</span><br><span class="line">  <span class="comment">// Sample a subset (fraction miniBatchFraction) of the total data</span></span><br><span class="line">  <span class="comment">// compute and sum up the subgradients on this subset (this is one map-reduce)</span></span><br><span class="line">  <span class="keyword">val</span> (gradientSum, lossSum, miniBatchSize) = data.sample(<span class="literal">false</span>, miniBatchFraction, <span class="number">42</span> + i)</span><br><span class="line">    .treeAggregate((<span class="type">BDV</span>.zeros[<span class="type">Double</span>](n), <span class="number">0.0</span>, <span class="number">0</span>L))(</span><br><span class="line">      seqOp = (c, v) =&amp;gt; {</span><br><span class="line">	<span class="comment">// c: (grad, loss, count), v: (label, features)</span></span><br><span class="line">	<span class="keyword">val</span> l = gradient.compute(v._2, v._1, bcWeights.value, <span class="type">Vectors</span>.fromBreeze(c._1))</span><br><span class="line">	(c._1, c._2 + l, c._3 + <span class="number">1</span>)</span><br><span class="line">      },</span><br><span class="line">      combOp = (c1, c2) =&amp;gt; {</span><br><span class="line">	<span class="comment">// c: (grad, loss, count)</span></span><br><span class="line">	(c1._1 += c2._1, c1._2 + c2._2, c1._3 + c2._3)</span><br><span class="line">      })</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (miniBatchSize &amp;gt; <span class="number">0</span>) {</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * lossSum is computed using the weights from the previous iteration</span><br><span class="line">     * and regVal is the regularization value computed in the previous iteration as well.</span><br><span class="line">     */</span></span><br><span class="line">    stochasticLossHistory.append(lossSum / miniBatchSize + regVal)</span><br><span class="line">    <span class="keyword">val</span> update = updater.compute(</span><br><span class="line">      weights, <span class="type">Vectors</span>.fromBreeze(gradientSum / miniBatchSize.toDouble),</span><br><span class="line">      stepSize, i, regParam)</span><br><span class="line">    weights = update._1</span><br><span class="line">    regVal = update._2</span><br><span class="line"></span><br><span class="line">    previousWeights = currentWeights</span><br><span class="line">    currentWeights = <span class="type">Some</span>(weights)</span><br><span class="line">    <span class="keyword">if</span> (previousWeights != <span class="type">None</span> &amp;amp;&amp;amp; currentWeights != <span class="type">None</span>) {</span><br><span class="line">      converged = isConverged(previousWeights.get,</span><br><span class="line">	currentWeights.get, convergenceTol)</span><br><span class="line">    }</span><br><span class="line">  } <span class="keyword">else</span> {</span><br><span class="line">    logWarning(s<span class="string">&quot;Iteration ($i/$numIterations). The size of sampled batch is zero&quot;</span>)</span><br><span class="line">  }</span><br><span class="line">  i += <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> (!converged &amp;&amp; i &lt;= numIterations) {</span><br><span class="line">  <span class="keyword">val</span> bcWeights = data.context.broadcast(weights)</span><br><span class="line">  <span class="comment">// Sample a subset (fraction miniBatchFraction) of the total data</span></span><br><span class="line">  <span class="comment">// compute and sum up the subgradients on this subset (this is one map-reduce)</span></span><br><span class="line">  <span class="keyword">val</span> (gradientSum, lossSum, miniBatchSize) = data.sample(<span class="literal">false</span>, miniBatchFraction, <span class="number">42</span> + i)</span><br><span class="line">    .treeAggregate((<span class="type">BDV</span>.zeros[<span class="type">Double</span>](n), <span class="number">0.0</span>, <span class="number">0</span>L))(</span><br><span class="line">      seqOp = (c, v) =&gt; {</span><br><span class="line">	<span class="comment">// c: (grad, loss, count), v: (label, features)</span></span><br><span class="line">	<span class="keyword">val</span> l = gradient.compute(v._2, v._1, bcWeights.value, <span class="type">Vectors</span>.fromBreeze(c._1))</span><br><span class="line">	(c._1, c._2 + l, c._3 + <span class="number">1</span>)</span><br><span class="line">      },</span><br><span class="line">      combOp = (c1, c2) =&gt; {</span><br><span class="line">	<span class="comment">// c: (grad, loss, count)</span></span><br><span class="line">	(c1._1 += c2._1, c1._2 + c2._2, c1._3 + c2._3)</span><br><span class="line">      })</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (miniBatchSize &gt; <span class="number">0</span>) {</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * lossSum is computed using the weights from the previous iteration</span><br><span class="line">     * and regVal is the regularization value computed in the previous iteration as well.</span><br><span class="line">     */</span></span><br><span class="line">    stochasticLossHistory.append(lossSum / miniBatchSize + regVal)</span><br><span class="line">    <span class="keyword">val</span> update = updater.compute(</span><br><span class="line">      weights, <span class="type">Vectors</span>.fromBreeze(gradientSum / miniBatchSize.toDouble),</span><br><span class="line">      stepSize, i, regParam)</span><br><span class="line">    weights = update._1</span><br><span class="line">    regVal = update._2</span><br><span class="line"></span><br><span class="line">    previousWeights = currentWeights</span><br><span class="line">    currentWeights = <span class="type">Some</span>(weights)</span><br><span class="line">    <span class="keyword">if</span> (previousWeights != <span class="type">None</span> &amp;&amp; currentWeights != <span class="type">None</span>) {</span><br><span class="line">      converged = isConverged(previousWeights.get,</span><br><span class="line">	currentWeights.get, convergenceTol)</span><br><span class="line">    }</span><br><span class="line">  } <span class="keyword">else</span> {</span><br><span class="line">    logWarning(s<span class="string">&quot;Iteration ($i/$numIterations). The size of sampled batch is zero&quot;</span>)</span><br><span class="line">  }</span><br><span class="line">  i += <span class="number">1</span></span><br></pre></td></tr></table></figure>
 </div>
 </div>
 </div>
@@ -432,14 +432,14 @@ SGD &#x662F;&#x4E00;&#x4E2A;&#x6C42;&#x6700;&#x4F18;&#x5316;&#x7684;&#x7B97;&#x6
 </p>
 
 <div id="2d-linear" class="figure">
-<p><img src="/teaching_ml/2016/08/30/svm/2d_linear.png" alt="2d_linear.png">
+<p><img src="/2016/08/30/svm/2d_linear.png" alt="2d_linear.png">
 </p>
 <p><span class="figure-number">Figure 3:</span> 2D linear</p>
 </div>
 
 
 <div id="3d-linear" class="figure">
-<p><img src="/teaching_ml/2016/08/30/svm/3d_linear.png" alt="3d_linear.png">
+<p><img src="/2016/08/30/svm/3d_linear.png" alt="3d_linear.png">
 </p>
 <p><span class="figure-number">Figure 4:</span> 3D linear</p>
 </div>
@@ -455,14 +455,14 @@ SGD &#x662F;&#x4E00;&#x4E2A;&#x6C42;&#x6700;&#x4F18;&#x5316;&#x7684;&#x7B97;&#x6
 
 
 <div id="convergence1" class="figure">
-<p><img src="/teaching_ml/2016/08/30/svm/step1.png" alt="step1.png">
+<p><img src="/2016/08/30/svm/step1.png" alt="step1.png">
 </p>
 <p><span class="figure-number">Figure 5:</span> before aligning Y axis</p>
 </div>
 
 
 <div id="convergence2" class="figure">
-<p><img src="/teaching_ml/2016/08/30/svm/step2.png" alt="step2.png">
+<p><img src="/2016/08/30/svm/step2.png" alt="step2.png">
 </p>
 <p><span class="figure-number">Figure 6:</span> after aligning Y axis</p>
 </div>
@@ -485,7 +485,7 @@ SGD &#x662F;&#x4E00;&#x4E2A;&#x6C42;&#x6700;&#x4F18;&#x5316;&#x7684;&#x7B97;&#x6
 </div>
 </div>
 
-Last Updated 2017-08-09 &#x4E09; 16:31.<br>Render by <a href="https://github.com/CodeFalling/hexo-renderer-org" target="_blank" rel="external">hexo-renderer-org</a> with <a href="http://www.gnu.org/software/emacs/" target="_blank" rel="external">Emacs</a> 24.5.1 (<a href="http://orgmode.org" target="_blank" rel="external">Org</a> mode 8.2.10)
+Last Updated 2017-08-23 &#x4E09; 14:02.<br>Render by <a href="https://github.com/CodeFalling/hexo-renderer-org" target="_blank" rel="external">hexo-renderer-org</a> with <a href="http://www.gnu.org/software/emacs/" target="_blank" rel="external">Emacs</a> 24.5.1 (<a href="http://orgmode.org" target="_blank" rel="external">Org</a> mode 8.2.10)
 
   </section>
 
