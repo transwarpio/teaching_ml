@@ -50,7 +50,7 @@ f(w) = \frac{\lambda}{2}\|w\|^2 + \frac{1}{m}\sum_{(x_i, y_i) \in S}\ell(w; (x_i
 所以，迭代 /t/ 时的梯度为：
 
 \[
-\nabla_t = \lambda w_t - \frac{1}{m}\sum_{(x_i, y_i) \in S}\mathbbm{1}[y_i \langle w, x_i \rangle < 1]y_i x_i
+\nabla_t = \lambda w_t - \frac{1}{m}\sum_{(x_i, y_i) \in S}\mathbb{1}[y_i \langle w, x_i \rangle < 1]y_i x_i
 \]
 
 于是，我们可以更新  \( w \), 其中 \( \eta_t \) 是下降速度
